@@ -1,9 +1,9 @@
-speakeasyVersion: 1.574.1
+speakeasyVersion: 1.575.0
 sources:
     Cribl Cloud Management API:
         sourceNamespace: cribl-cloud-management-api
-        sourceRevisionDigest: sha256:e873fae2f39e372dc818ce0399a05e0d09d0981d992fa074c5c79d5388b5a716
-        sourceBlobDigest: sha256:18c1f7d56bd1c39b6e2189633792f792baa9eaf47d7238b10160cb64bf123cb7
+        sourceRevisionDigest: sha256:668b5eaaf353ba246ba9f70aefff9b6a76ec81b869b87c5cb6a94ac81b97bc57
+        sourceBlobDigest: sha256:7fb1f3d728617a02f2932d57815317f561f7843dc5bc948b59b9d26b612c649b
         tags:
             - latest
             - 0.0.1
@@ -11,10 +11,10 @@ targets:
     cribl-mgmt-plane:
         source: Cribl Cloud Management API
         sourceNamespace: cribl-cloud-management-api
-        sourceRevisionDigest: sha256:e873fae2f39e372dc818ce0399a05e0d09d0981d992fa074c5c79d5388b5a716
-        sourceBlobDigest: sha256:18c1f7d56bd1c39b6e2189633792f792baa9eaf47d7238b10160cb64bf123cb7
+        sourceRevisionDigest: sha256:668b5eaaf353ba246ba9f70aefff9b6a76ec81b869b87c5cb6a94ac81b97bc57
+        sourceBlobDigest: sha256:7fb1f3d728617a02f2932d57815317f561f7843dc5bc948b59b9d26b612c649b
         codeSamplesNamespace: cribl-cloud-management-api-go-code-samples
-        codeSamplesRevisionDigest: sha256:f63f0e00450d679182106831ef2e657e22d111c449ed3f62e86ac72eae92bbd5
+        codeSamplesRevisionDigest: sha256:fdda458e1e9870edda69d46571c8d705cd84e11f67dd96810a84fefaec9c82be
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: 1.574.1
@@ -35,3 +35,5 @@ workflow:
                 labelOverride:
                     fixedValue: Go (SDK)
                 blocking: false
+            testing:
+                enabled: true
