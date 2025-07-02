@@ -17,3 +17,5 @@ targets:
             labelOverride:
                 fixedValue: Go (SDK)
             blocking: false
+        testing:
+            enabled: true

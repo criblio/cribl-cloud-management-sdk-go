@@ -3,10 +3,10 @@ id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
   docChecksum: 5931799d36141c722b6ae4e871d2fcbc
   docVersion: 0.0.1
-  speakeasyVersion: 1.574.1
+  speakeasyVersion: 1.575.0
   generationVersion: 2.647.2
   releaseVersion: 0.0.1
-  configChecksum: 266ca697f868f5ea680c03e70ff8f9f1
+  configChecksum: 75d08a4fcc9e12440f062641aa5bcbca
 features:
   go:
     additionalDependencies: 0.1.0
@@ -23,6 +23,7 @@ features:
     responseFormat: 0.1.2
     retries: 2.83.3
     sdkHooks: 0.2.0
+    tests: 0.16.0
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -55,6 +56,8 @@ generatedFiles:
   - models/apierrors/apierror.go
   - models/operations/options.go
   - retry/config.go
+  - tests/criblmgmtplane_test.go
+  - tests/files.go
   - tests/mockserver/.gitignore
   - tests/mockserver/Dockerfile
   - tests/mockserver/Makefile
@@ -69,6 +72,7 @@ generatedFiles:
   - tests/mockserver/internal/handler/doc.go
   - tests/mockserver/internal/handler/generated_handler.go
   - tests/mockserver/internal/handler/generated_handlers.go
+  - tests/mockserver/internal/handler/pathgetstatus.go
   - tests/mockserver/internal/handler/values/files.go
   - tests/mockserver/internal/logging/doc.go
   - tests/mockserver/internal/logging/formats.go
@@ -100,6 +104,7 @@ generatedFiles:
   - tests/mockserver/internal/server/templates/log/style.css.tmpl
   - tests/mockserver/internal/tracking/requesttracker.go
   - tests/mockserver/main.go
+  - tests/testclient.go
   - types/bigint.go
   - types/date.go
   - types/datetime.go
@@ -108,3 +113,5 @@ generatedFiles:
 examples:
   dummyServiceStatus: {}
 examplesVersion: 1.0.2
+generatedTests:
+  dummyServiceStatus: "2025-07-02T19:27:27+02:00"
