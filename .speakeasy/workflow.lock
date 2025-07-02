@@ -1,0 +1,37 @@
+speakeasyVersion: 1.574.1
+sources:
+    Cribl Cloud Management API:
+        sourceNamespace: cribl-cloud-management-api
+        sourceRevisionDigest: sha256:ce0d4cbd86b993193b92f5c575c0b7883131d6e03432bd16a6c1f281abde0185
+        sourceBlobDigest: sha256:18c1f7d56bd1c39b6e2189633792f792baa9eaf47d7238b10160cb64bf123cb7
+        tags:
+            - latest
+            - 0.0.1
+targets:
+    cribl-mgmt-plane:
+        source: Cribl Cloud Management API
+        sourceNamespace: cribl-cloud-management-api
+        sourceRevisionDigest: sha256:ce0d4cbd86b993193b92f5c575c0b7883131d6e03432bd16a6c1f281abde0185
+        sourceBlobDigest: sha256:18c1f7d56bd1c39b6e2189633792f792baa9eaf47d7238b10160cb64bf123cb7
+        codeSamplesNamespace: cribl-cloud-management-api-go-code-samples
+        codeSamplesRevisionDigest: sha256:518c2cd06e8b2e139b3220e8597df6fab378ebba04c30e028d0a4020bd55314a
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Cribl Cloud Management API:
+            inputs:
+                - location: ./openapi.yml
+            output: .speakeasy/out.openapi.yaml
+            registry:
+                location: registry.speakeasyapi.dev/cribl/cribl/cribl-cloud-management-api
+    targets:
+        cribl-mgmt-plane:
+            target: go
+            source: Cribl Cloud Management API
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/cribl/cribl/cribl-cloud-management-api-go-code-samples
+                labelOverride:
+                    fixedValue: Go (SDK)
+                blocking: false
