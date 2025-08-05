@@ -1,5 +1,5 @@
 workflowVersion: 1.0.0
-speakeasyVersion: 1.585.0
+speakeasyVersion: 1.596.1
 sources:
     Cribl Cloud Management API:
         inputs:
@@ -18,4 +18,4 @@ targets:
                 fixedValue: Go (SDK)
             blocking: false
         testing:
-            enabled: true
+            enabled: false

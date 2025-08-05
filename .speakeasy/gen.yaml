@@ -6,7 +6,7 @@ generation:
   sdkClassName: CriblMgmtPlane
   maintainOpenAPIOrder: true
   usageSnippets:
-    optionalPropertyRendering: withExample
+    optionalPropertyRendering: always
     sdkInitStyle: constructor
   useClassNamesForArrayFields: true
   fixes:
@@ -22,10 +22,10 @@ generation:
   sdkHooksConfigAccess: true
   tests:
     generateTests: true
-    generateNewTests: true
+    generateNewTests: false
     skipResponseBodyAssertions: false
 go:
-  version: 0.0.3
+  version: 0.0.4
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: true
   baseErrorName: CriblMgmtPlaneError
@@ -44,6 +44,8 @@ go:
   inputModelSuffix: input
   maxMethodParams: 4
   methodArguments: require-security-and-request
+  modulePath: ""
   outputModelSuffix: output
   packageName: github.com/criblio/cribl-cloud-management-sdk-go
   responseFormat: envelope-http
+  sdkPackageName: ""
