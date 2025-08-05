@@ -2,7 +2,7 @@
 
 package criblcloudmanagementsdkgo
 
-// Generated from OpenAPI doc version 0.0.1 and generator version 2.660.0
+// Generated from OpenAPI doc version 0.0.1 and generator version 2.672.0
 
 import (
 	"context"
@@ -95,9 +95,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided serverURL and options
 func New(serverURL string, opts ...SDKOption) *CriblMgmtPlane {
 	sdk := &CriblMgmtPlane{
-		SDKVersion: "0.0.3",
+		SDKVersion: "0.0.4",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent: "speakeasy-sdk/go 0.0.3 2.660.0 0.0.1 github.com/criblio/cribl-cloud-management-sdk-go",
+			UserAgent: "speakeasy-sdk/go 0.0.4 2.672.0 0.0.1 github.com/criblio/cribl-cloud-management-sdk-go",
 		},
 		hooks: hooks.New(),
 	}

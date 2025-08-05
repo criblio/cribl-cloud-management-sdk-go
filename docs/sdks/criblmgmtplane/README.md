@@ -14,6 +14,7 @@ Service status
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="dummyServiceStatus" method="get" path="/status" -->
 ```go
 package main
 

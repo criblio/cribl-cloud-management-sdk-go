@@ -3,14 +3,14 @@ id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
   docChecksum: 1f2337c40f02b577023b35ead2f3017e
   docVersion: 0.0.1
-  speakeasyVersion: 1.585.0
-  generationVersion: 2.660.0
-  releaseVersion: 0.0.3
-  configChecksum: 5c043280f3980759389cd06a8f3ef10c
+  speakeasyVersion: 1.596.1
+  generationVersion: 2.672.0
+  releaseVersion: 0.0.4
+  configChecksum: bfb9935885c9392cf1c177568ff0bd47
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.8.1
+    core: 3.9.3
     defaultEnabledRetries: 0.2.0
     devContainers: 2.90.0
     envVarSecurityUsage: 0.3.2
@@ -19,11 +19,9 @@ features:
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.3
     intellisenseMarkdownSupport: 0.1.0
-    mockServer: 0.1.1
     responseFormat: 0.1.2
-    retries: 2.83.3
+    retries: 2.84.0
     sdkHooks: 0.2.0
-    tests: 0.16.1
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -56,55 +54,6 @@ generatedFiles:
   - models/apierrors/apierror.go
   - models/operations/options.go
   - retry/config.go
-  - tests/criblmgmtplane_test.go
-  - tests/files.go
-  - tests/mockserver/.gitignore
-  - tests/mockserver/Dockerfile
-  - tests/mockserver/Makefile
-  - tests/mockserver/README.md
-  - tests/mockserver/go.mod
-  - tests/mockserver/go.sum
-  - tests/mockserver/internal/handler/assert/contenttype.go
-  - tests/mockserver/internal/handler/assert/header.go
-  - tests/mockserver/internal/handler/assert/parameter.go
-  - tests/mockserver/internal/handler/assert/pointer.go
-  - tests/mockserver/internal/handler/assert/security.go
-  - tests/mockserver/internal/handler/doc.go
-  - tests/mockserver/internal/handler/generated_handler.go
-  - tests/mockserver/internal/handler/generated_handlers.go
-  - tests/mockserver/internal/handler/pathgetstatus.go
-  - tests/mockserver/internal/handler/values/files.go
-  - tests/mockserver/internal/logging/doc.go
-  - tests/mockserver/internal/logging/formats.go
-  - tests/mockserver/internal/logging/http_file.go
-  - tests/mockserver/internal/logging/http_logger.go
-  - tests/mockserver/internal/logging/levels.go
-  - tests/mockserver/internal/logging/logger.go
-  - tests/mockserver/internal/logging/oas_operation.go
-  - tests/mockserver/internal/logging/oas_operation_call.go
-  - tests/mockserver/internal/sdk/models/components/httpmetadata.go
-  - tests/mockserver/internal/sdk/models/components/security.go
-  - tests/mockserver/internal/sdk/models/operations/dummyservicestatus.go
-  - tests/mockserver/internal/sdk/types/bigint.go
-  - tests/mockserver/internal/sdk/types/date.go
-  - tests/mockserver/internal/sdk/types/datetime.go
-  - tests/mockserver/internal/sdk/types/decimal.go
-  - tests/mockserver/internal/sdk/types/jsonl/jsonl.go
-  - tests/mockserver/internal/sdk/types/pointers.go
-  - tests/mockserver/internal/sdk/utils/json.go
-  - tests/mockserver/internal/sdk/utils/reflect.go
-  - tests/mockserver/internal/sdk/utils/sort.go
-  - tests/mockserver/internal/server/doc.go
-  - tests/mockserver/internal/server/generated_handlers.go
-  - tests/mockserver/internal/server/internal_handlers.go
-  - tests/mockserver/internal/server/server.go
-  - tests/mockserver/internal/server/server_option.go
-  - tests/mockserver/internal/server/templates/log/index.html.tmpl
-  - tests/mockserver/internal/server/templates/log/operation.html.tmpl
-  - tests/mockserver/internal/server/templates/log/style.css.tmpl
-  - tests/mockserver/internal/tracking/requesttracker.go
-  - tests/mockserver/main.go
-  - tests/testclient.go
   - types/bigint.go
   - types/date.go
   - types/datetime.go

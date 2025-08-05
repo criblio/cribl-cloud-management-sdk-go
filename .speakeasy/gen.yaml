@@ -21,11 +21,11 @@ generation:
     oAuth2PasswordEnabled: true
   sdkHooksConfigAccess: true
   tests:
-    generateTests: false
+    generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 go:
-  version: 0.0.3
+  version: 0.0.4
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: true
   baseErrorName: CriblMgmtPlaneError
@@ -44,6 +44,8 @@ go:
   inputModelSuffix: input
   maxMethodParams: 4
   methodArguments: require-security-and-request
+  modulePath: ""
   outputModelSuffix: output
   packageName: github.com/criblio/cribl-cloud-management-sdk-go
   responseFormat: envelope-http
+  sdkPackageName: ""
