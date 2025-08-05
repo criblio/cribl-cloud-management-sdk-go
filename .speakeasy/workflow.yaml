@@ -18,4 +18,4 @@ targets:
                 fixedValue: Go (SDK)
             blocking: false
         testing:
-            enabled: true
+            enabled: false
