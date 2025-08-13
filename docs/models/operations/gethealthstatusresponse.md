@@ -1,4 +1,4 @@
-# DummyServiceStatusResponse
+# GetHealthStatusResponse
 
 
 ## Fields
