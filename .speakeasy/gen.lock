@@ -1,12 +1,14 @@
 lockVersion: 2.0.0
 id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
-  docChecksum: 1f2337c40f02b577023b35ead2f3017e
-  docVersion: 0.0.1
+  docChecksum: 092d25eefe129dbe6756c4ac03fe85d8
+  docVersion: "1.0"
   speakeasyVersion: 1.596.1
   generationVersion: 2.672.0
-  releaseVersion: 0.0.4
-  configChecksum: bfb9935885c9392cf1c177568ff0bd47
+  releaseVersion: 0.0.5
+  configChecksum: f943315bbcd9c3e5f4e335e9cbecac92
+  repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
+  installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 features:
   go:
     additionalDependencies: 0.1.0
@@ -14,11 +16,14 @@ features:
     defaultEnabledRetries: 0.2.0
     devContainers: 2.90.0
     envVarSecurityUsage: 0.3.2
+    flattening: 2.81.1
     globalSecurity: 2.82.11
     globalSecurityCallbacks: 0.1.0
-    globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.3
     intellisenseMarkdownSupport: 0.1.0
+    methodSecurity: 2.82.3
+    oauth2ClientCredentials: 0.4.0
+    openEnums: 0.1.0
     responseFormat: 0.1.2
     retries: 2.84.0
     sdkHooks: 0.2.0
@@ -28,23 +33,62 @@ generatedFiles:
   - .devcontainer/setup.sh
   - .gitattributes
   - /models/components/httpmetadata.go
+  - /models/components/schemeoauth2.go
   - /models/components/security.go
-  - /models/operations/dummyservicestatus.go
+  - /models/components/workspacecreaterequestdto.go
+  - /models/components/workspacepatchrequestdto.go
+  - /models/components/workspaceschema.go
+  - /models/components/workspaceslistresponsedto.go
+  - /models/operations/gethealthstatus.go
+  - /models/operations/v1workspacescreateworkspace.go
+  - /models/operations/v1workspacesdeleteworkspace.go
+  - /models/operations/v1workspacesgetworkspace.go
+  - /models/operations/v1workspaceslistworkspaces.go
+  - /models/operations/v1workspacesupdateworkspace.go
   - USAGE.md
   - criblmgmtplane.go
   - docs/models/components/httpmetadata.md
+  - docs/models/components/schemeoauth2.md
   - docs/models/components/security.md
-  - docs/models/operations/dummyservicestatusresponse.md
+  - docs/models/components/state.md
+  - docs/models/components/workspacecreaterequestdto.md
+  - docs/models/components/workspacecreaterequestdtoregion.md
+  - docs/models/components/workspacepatchrequestdto.md
+  - docs/models/components/workspaceschema.md
+  - docs/models/components/workspaceschemaregion.md
+  - docs/models/components/workspaceslistresponsedto.md
+  - docs/models/operations/gethealthstatusresponse.md
   - docs/models/operations/option.md
+  - docs/models/operations/v1workspacescreateworkspacerequest.md
+  - docs/models/operations/v1workspacescreateworkspaceresponse.md
+  - docs/models/operations/v1workspacescreateworkspacesecurity.md
+  - docs/models/operations/v1workspacesdeleteworkspacerequest.md
+  - docs/models/operations/v1workspacesdeleteworkspaceresponse.md
+  - docs/models/operations/v1workspacesdeleteworkspacesecurity.md
+  - docs/models/operations/v1workspacesgetworkspacerequest.md
+  - docs/models/operations/v1workspacesgetworkspaceresponse.md
+  - docs/models/operations/v1workspacesgetworkspacesecurity.md
+  - docs/models/operations/v1workspaceslistworkspacesrequest.md
+  - docs/models/operations/v1workspaceslistworkspacesresponse.md
+  - docs/models/operations/v1workspaceslistworkspacessecurity.md
+  - docs/models/operations/v1workspacesupdateworkspacerequest.md
+  - docs/models/operations/v1workspacesupdateworkspaceresponse.md
+  - docs/models/operations/v1workspacesupdateworkspacesecurity.md
   - docs/sdks/criblmgmtplane/README.md
+  - docs/sdks/health/README.md
+  - docs/sdks/workspaces/README.md
   - go.mod
+  - health.go
   - internal/config/sdkconfiguration.go
+  - internal/hooks/clientcredentials.go
   - internal/hooks/hooks.go
   - internal/utils/contenttype.go
   - internal/utils/env.go
   - internal/utils/form.go
   - internal/utils/headers.go
   - internal/utils/json.go
+  - internal/utils/oauth2_credentials.go
+  - internal/utils/oauth2_sessions.go
   - internal/utils/pathparams.go
   - internal/utils/queryparams.go
   - internal/utils/requestbody.go
@@ -59,8 +103,54 @@ generatedFiles:
   - types/datetime.go
   - types/decimal.go
   - types/pointers.go
+  - workspaces.go
 examples:
   dummyServiceStatus: {}
+  getHealthStatus: {}
+  v1.workspaces.createWorkspace:
+    speakeasy-default-v1-workspaces-create-workspace:
+      parameters:
+        path:
+          organizationId: "<id>"
+      requestBody:
+        application/json: {"workspaceId": "main", "region": "us-west-2", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+      responses:
+        "201":
+          application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Workspace-Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+  v1.workspaces.listWorkspaces:
+    speakeasy-default-v1-workspaces-list-workspaces:
+      parameters:
+        path:
+          organizationId: "<id>"
+      responses:
+        "200":
+          application/json: {"items": [{"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Workspace-Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}], "count": 5}
+  v1.workspaces.updateWorkspace:
+    speakeasy-default-v1-workspaces-update-workspace:
+      parameters:
+        path:
+          organizationId: "<id>"
+          workspaceId: "<id>"
+      requestBody:
+        application/json: {"alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+      responses:
+        "200":
+          application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Workspace-Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+  v1.workspaces.deleteWorkspace:
+    speakeasy-default-v1-workspaces-delete-workspace:
+      parameters:
+        path:
+          organizationId: "<id>"
+          workspaceId: "<id>"
+  v1.workspaces.getWorkspace:
+    speakeasy-default-v1-workspaces-get-workspace:
+      parameters:
+        path:
+          organizationId: "<id>"
+          workspaceId: "<id>"
+      responses:
+        "200":
+          application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Workspace-Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:27:27+02:00"
