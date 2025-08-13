@@ -56,7 +56,7 @@ func main() {
 		}),
 	)
 
-	res, err := s.Health.GetHealthStatus(ctx)
+	res, err := s.Health.Get(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -104,7 +104,7 @@ func main() {
 		}),
 	)
 
-	res, err := s.Health.GetHealthStatus(ctx)
+	res, err := s.Health.Get(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -134,7 +134,7 @@ func main() {
 
 	s := criblcloudmanagementsdkgo.New()
 
-	res, err := s.Workspaces.V1WorkspacesCreateWorkspace(ctx, operations.V1WorkspacesCreateWorkspaceSecurity{}, "<id>", components.WorkspaceCreateRequestDTO{
+	res, err := s.Workspaces.Create(ctx, operations.V1WorkspacesCreateWorkspaceSecurity{}, "<id>", components.WorkspaceCreateRequestDTO{
 		WorkspaceID: "main",
 		Region:      components.WorkspaceCreateRequestDTORegionUsWest2,
 		Alias:       criblcloudmanagementsdkgo.String("Production Environment"),
@@ -164,15 +164,15 @@ func main() {
 
 ### [Health](docs/sdks/health/README.md)
 
-* [GetHealthStatus](docs/sdks/health/README.md#gethealthstatus) - Get the health status of the application
+* [Get](docs/sdks/health/README.md#get) - Get the health status of the application
 
 ### [Workspaces](docs/sdks/workspaces/README.md)
 
-* [V1WorkspacesCreateWorkspace](docs/sdks/workspaces/README.md#v1workspacescreateworkspace) - Create a new workspace
-* [V1WorkspacesListWorkspaces](docs/sdks/workspaces/README.md#v1workspaceslistworkspaces) - List all workspaces for an organization
-* [V1WorkspacesUpdateWorkspace](docs/sdks/workspaces/README.md#v1workspacesupdateworkspace) - Update an existing workspace
-* [V1WorkspacesDeleteWorkspace](docs/sdks/workspaces/README.md#v1workspacesdeleteworkspace) - Delete a workspace
-* [V1WorkspacesGetWorkspace](docs/sdks/workspaces/README.md#v1workspacesgetworkspace) - Get a specific workspace by ID
+* [Create](docs/sdks/workspaces/README.md#create) - Create a new workspace
+* [List](docs/sdks/workspaces/README.md#list) - List all workspaces for an organization
+* [Update](docs/sdks/workspaces/README.md#update) - Update an existing workspace
+* [Delete](docs/sdks/workspaces/README.md#delete) - Delete a workspace
+* [Get](docs/sdks/workspaces/README.md#get) - Get a specific workspace by ID
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -207,7 +207,7 @@ func main() {
 		}),
 	)
 
-	res, err := s.Health.GetHealthStatus(ctx, operations.WithRetries(
+	res, err := s.Health.Get(ctx, operations.WithRetries(
 		retry.Config{
 			Strategy: "backoff",
 			Backoff: &retry.BackoffStrategy{
@@ -263,7 +263,7 @@ func main() {
 		}),
 	)
 
-	res, err := s.Health.GetHealthStatus(ctx)
+	res, err := s.Health.Get(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -282,7 +282,7 @@ Handling errors in this SDK should largely match your expectations. All operatio
 
 By Default, an API error will return `apierrors.APIError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
 
-For example, the `GetHealthStatus` function may return the following errors:
+For example, the `Get` function may return the following errors:
 
 | Error Type         | Status Code | Content Type |
 | ------------------ | ----------- | ------------ |
@@ -314,7 +314,7 @@ func main() {
 		}),
 	)
 
-	res, err := s.Health.GetHealthStatus(ctx)
+	res, err := s.Health.Get(ctx)
 	if err != nil {
 
 		var e *apierrors.APIError
@@ -357,7 +357,7 @@ func main() {
 		}),
 	)
 
-	res, err := s.Health.GetHealthStatus(ctx)
+	res, err := s.Health.Get(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
