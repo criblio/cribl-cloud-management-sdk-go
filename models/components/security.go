@@ -2,13 +2,52 @@
 
 package components
 
+import (
+	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
+)
+
 type Security struct {
-	BearerAuth *string `security:"scheme,type=http,subtype=bearer,name=Authorization,env=criblmgmtplane_bearer_auth"`
+	ClientID     *string `security:"scheme,type=oauth2,subtype=client_credentials,name=clientID,env=criblmgmtplane_client_id"`
+	ClientSecret *string `security:"scheme,type=oauth2,subtype=client_credentials,name=clientSecret,env=criblmgmtplane_client_secret"`
+	TokenURL     *string `default:"https://login.cribl.cloud/oauth2/token"`
+	Audience     *string `security:"scheme,type=oauth2,subtype=client_credentials,name=audience,env=criblmgmtplane_audience"`
 }
 
-func (o *Security) GetBearerAuth() *string {
+func (s Security) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *Security) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *Security) GetClientID() *string {
 	if o == nil {
 		return nil
 	}
-	return o.BearerAuth
+	return o.ClientID
+}
+
+func (o *Security) GetClientSecret() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ClientSecret
+}
+
+func (o *Security) GetTokenURL() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TokenURL
+}
+
+func (o *Security) GetAudience() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Audience
 }

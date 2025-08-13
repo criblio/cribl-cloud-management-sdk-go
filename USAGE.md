@@ -5,6 +5,7 @@ package main
 import (
 	"context"
 	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
+	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
 	"log"
 	"os"
 )
@@ -13,11 +14,14 @@ func main() {
 	ctx := context.Background()
 
 	s := criblcloudmanagementsdkgo.New(
-		"https://api.example.com",
-		criblcloudmanagementsdkgo.WithSecurity(os.Getenv("CRIBLMGMTPLANE_BEARER_AUTH")),
+		criblcloudmanagementsdkgo.WithSecurity(components.Security{
+			ClientID:     criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_ID")),
+			ClientSecret: criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET")),
+			Audience:     criblcloudmanagementsdkgo.String("https://publicapi.cribl.cloud"),
+		}),
 	)
 
-	res, err := s.DummyServiceStatus(ctx)
+	res, err := s.Health.GetHealthStatus(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}

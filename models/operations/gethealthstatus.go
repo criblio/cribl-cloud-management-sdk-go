@@ -6,11 +6,11 @@ import (
 	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
 )
 
-type DummyServiceStatusResponse struct {
+type GetHealthStatusResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *DummyServiceStatusResponse) GetHTTPMeta() components.HTTPMetadata {
+func (o *GetHealthStatusResponse) GetHTTPMeta() components.HTTPMetadata {
 	if o == nil {
 		return components.HTTPMetadata{}
 	}

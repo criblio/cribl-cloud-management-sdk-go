@@ -1,0 +1,10 @@
+# V1WorkspacesUpdateWorkspaceRequest
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `OrganizationID`                                                                           | *string*                                                                                   | :heavy_check_mark:                                                                         | Organization identifier                                                                    |
+| `WorkspaceID`                                                                              | *string*                                                                                   | :heavy_check_mark:                                                                         | Workspace identifier                                                                       |
+| `WorkspacePatchRequestDTO`                                                                 | [components.WorkspacePatchRequestDTO](../../models/components/workspacepatchrequestdto.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |
