@@ -30,8 +30,8 @@ func newWorkspaces(rootSDK *CriblMgmtPlane, sdkConfig config.SDKConfiguration, h
 	}
 }
 
-// V1WorkspacesCreateWorkspace - Create a new workspace
-func (s *Workspaces) V1WorkspacesCreateWorkspace(ctx context.Context, security operations.V1WorkspacesCreateWorkspaceSecurity, organizationID string, workspaceCreateRequestDTO components.WorkspaceCreateRequestDTO, opts ...operations.Option) (*operations.V1WorkspacesCreateWorkspaceResponse, error) {
+// Create a new workspace
+func (s *Workspaces) Create(ctx context.Context, security operations.V1WorkspacesCreateWorkspaceSecurity, organizationID string, workspaceCreateRequestDTO components.WorkspaceCreateRequestDTO, opts ...operations.Option) (*operations.V1WorkspacesCreateWorkspaceResponse, error) {
 	request := operations.V1WorkspacesCreateWorkspaceRequest{
 		OrganizationID:            organizationID,
 		WorkspaceCreateRequestDTO: workspaceCreateRequestDTO,
@@ -257,8 +257,8 @@ func (s *Workspaces) V1WorkspacesCreateWorkspace(ctx context.Context, security o
 
 }
 
-// V1WorkspacesListWorkspaces - List all workspaces for an organization
-func (s *Workspaces) V1WorkspacesListWorkspaces(ctx context.Context, security operations.V1WorkspacesListWorkspacesSecurity, organizationID string, opts ...operations.Option) (*operations.V1WorkspacesListWorkspacesResponse, error) {
+// List all workspaces for an organization
+func (s *Workspaces) List(ctx context.Context, security operations.V1WorkspacesListWorkspacesSecurity, organizationID string, opts ...operations.Option) (*operations.V1WorkspacesListWorkspacesResponse, error) {
 	request := operations.V1WorkspacesListWorkspacesRequest{
 		OrganizationID: organizationID,
 	}
@@ -476,8 +476,8 @@ func (s *Workspaces) V1WorkspacesListWorkspaces(ctx context.Context, security op
 
 }
 
-// V1WorkspacesUpdateWorkspace - Update an existing workspace
-func (s *Workspaces) V1WorkspacesUpdateWorkspace(ctx context.Context, security operations.V1WorkspacesUpdateWorkspaceSecurity, organizationID string, workspaceID string, workspacePatchRequestDTO components.WorkspacePatchRequestDTO, opts ...operations.Option) (*operations.V1WorkspacesUpdateWorkspaceResponse, error) {
+// Update an existing workspace
+func (s *Workspaces) Update(ctx context.Context, security operations.V1WorkspacesUpdateWorkspaceSecurity, organizationID string, workspaceID string, workspacePatchRequestDTO components.WorkspacePatchRequestDTO, opts ...operations.Option) (*operations.V1WorkspacesUpdateWorkspaceResponse, error) {
 	request := operations.V1WorkspacesUpdateWorkspaceRequest{
 		OrganizationID:           organizationID,
 		WorkspaceID:              workspaceID,
@@ -704,8 +704,8 @@ func (s *Workspaces) V1WorkspacesUpdateWorkspace(ctx context.Context, security o
 
 }
 
-// V1WorkspacesDeleteWorkspace - Delete a workspace
-func (s *Workspaces) V1WorkspacesDeleteWorkspace(ctx context.Context, security operations.V1WorkspacesDeleteWorkspaceSecurity, organizationID string, workspaceID string, opts ...operations.Option) (*operations.V1WorkspacesDeleteWorkspaceResponse, error) {
+// Delete a workspace
+func (s *Workspaces) Delete(ctx context.Context, security operations.V1WorkspacesDeleteWorkspaceSecurity, organizationID string, workspaceID string, opts ...operations.Option) (*operations.V1WorkspacesDeleteWorkspaceResponse, error) {
 	request := operations.V1WorkspacesDeleteWorkspaceRequest{
 		OrganizationID: organizationID,
 		WorkspaceID:    workspaceID,
@@ -904,8 +904,8 @@ func (s *Workspaces) V1WorkspacesDeleteWorkspace(ctx context.Context, security o
 
 }
 
-// V1WorkspacesGetWorkspace - Get a specific workspace by ID
-func (s *Workspaces) V1WorkspacesGetWorkspace(ctx context.Context, security operations.V1WorkspacesGetWorkspaceSecurity, organizationID string, workspaceID string, opts ...operations.Option) (*operations.V1WorkspacesGetWorkspaceResponse, error) {
+// Get a specific workspace by ID
+func (s *Workspaces) Get(ctx context.Context, security operations.V1WorkspacesGetWorkspaceSecurity, organizationID string, workspaceID string, opts ...operations.Option) (*operations.V1WorkspacesGetWorkspaceResponse, error) {
 	request := operations.V1WorkspacesGetWorkspaceRequest{
 		OrganizationID: organizationID,
 		WorkspaceID:    workspaceID,

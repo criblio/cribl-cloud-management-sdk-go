@@ -198,16 +198,16 @@ func (c *clientCredentialsHook) getCredentials(ctx HookContext, source func(ctx 
 	}
 
 	switch ctx.OperationID {
-	case "v1.workspaces.createWorkspace":
-		return c.getCredentialsV1WorkspacesCreateWorkspace(sec)
-	case "v1.workspaces.listWorkspaces":
-		return c.getCredentialsV1WorkspacesListWorkspaces(sec)
-	case "v1.workspaces.updateWorkspace":
-		return c.getCredentialsV1WorkspacesUpdateWorkspace(sec)
-	case "v1.workspaces.deleteWorkspace":
-		return c.getCredentialsV1WorkspacesDeleteWorkspace(sec)
-	case "v1.workspaces.getWorkspace":
-		return c.getCredentialsV1WorkspacesGetWorkspace(sec)
+	case "create":
+		return c.getCredentialsCreate(sec)
+	case "list":
+		return c.getCredentialsList(sec)
+	case "update":
+		return c.getCredentialsUpdate(sec)
+	case "delete":
+		return c.getCredentialsDelete(sec)
+	case "get":
+		return c.getCredentialsGet(sec)
 	default:
 		return c.getCredentialsGlobal(sec)
 	}
@@ -268,7 +268,7 @@ func (c *clientCredentialsHook) getCredentialsGlobal(sec any) (*credentials, err
 	}, nil
 }
 
-func (c *clientCredentialsHook) getCredentialsV1WorkspacesCreateWorkspace(sec any) (*credentials, error) {
+func (c *clientCredentialsHook) getCredentialsCreate(sec any) (*credentials, error) {
 	security, ok := sec.(operations.V1WorkspacesCreateWorkspaceSecurity)
 
 	if !ok {
@@ -323,7 +323,7 @@ func (c *clientCredentialsHook) getCredentialsV1WorkspacesCreateWorkspace(sec an
 	}, nil
 }
 
-func (c *clientCredentialsHook) getCredentialsV1WorkspacesListWorkspaces(sec any) (*credentials, error) {
+func (c *clientCredentialsHook) getCredentialsList(sec any) (*credentials, error) {
 	security, ok := sec.(operations.V1WorkspacesListWorkspacesSecurity)
 
 	if !ok {
@@ -378,7 +378,7 @@ func (c *clientCredentialsHook) getCredentialsV1WorkspacesListWorkspaces(sec any
 	}, nil
 }
 
-func (c *clientCredentialsHook) getCredentialsV1WorkspacesUpdateWorkspace(sec any) (*credentials, error) {
+func (c *clientCredentialsHook) getCredentialsUpdate(sec any) (*credentials, error) {
 	security, ok := sec.(operations.V1WorkspacesUpdateWorkspaceSecurity)
 
 	if !ok {
@@ -433,7 +433,7 @@ func (c *clientCredentialsHook) getCredentialsV1WorkspacesUpdateWorkspace(sec an
 	}, nil
 }
 
-func (c *clientCredentialsHook) getCredentialsV1WorkspacesDeleteWorkspace(sec any) (*credentials, error) {
+func (c *clientCredentialsHook) getCredentialsDelete(sec any) (*credentials, error) {
 	security, ok := sec.(operations.V1WorkspacesDeleteWorkspaceSecurity)
 
 	if !ok {
@@ -488,7 +488,7 @@ func (c *clientCredentialsHook) getCredentialsV1WorkspacesDeleteWorkspace(sec an
 	}, nil
 }
 
-func (c *clientCredentialsHook) getCredentialsV1WorkspacesGetWorkspace(sec any) (*credentials, error) {
+func (c *clientCredentialsHook) getCredentialsGet(sec any) (*credentials, error) {
 	security, ok := sec.(operations.V1WorkspacesGetWorkspaceSecurity)
 
 	if !ok {
