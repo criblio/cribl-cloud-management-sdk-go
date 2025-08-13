@@ -21,7 +21,7 @@ func main() {
 		}),
 	)
 
-	res, err := s.Health.GetHealthStatus(ctx)
+	res, err := s.Health.Get(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}

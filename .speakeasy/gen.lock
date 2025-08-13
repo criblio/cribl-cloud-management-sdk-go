@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
-  docChecksum: 092d25eefe129dbe6756c4ac03fe85d8
+  docChecksum: 37fc7e3a855098153f60e35f034d4f01
   docVersion: "1.0"
-  speakeasyVersion: 1.596.1
-  generationVersion: 2.672.0
-  releaseVersion: 0.0.5
-  configChecksum: f943315bbcd9c3e5f4e335e9cbecac92
+  speakeasyVersion: 1.603.1
+  generationVersion: 2.681.1
+  releaseVersion: 0.0.6
+  configChecksum: a5587b7a0eb77d2da0dcba5be55cbb97
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 features:
@@ -20,12 +20,14 @@ features:
     globalSecurity: 2.82.11
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.3
+    groups: 2.81.2
     intellisenseMarkdownSupport: 0.1.0
     methodSecurity: 2.82.3
+    nameOverrides: 2.81.2
     oauth2ClientCredentials: 0.4.0
     openEnums: 0.1.0
     responseFormat: 0.1.2
-    retries: 2.84.0
+    retries: 2.84.2
     sdkHooks: 0.2.0
 generatedFiles:
   - .devcontainer/README.md

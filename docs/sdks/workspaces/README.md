@@ -5,13 +5,13 @@
 
 ### Available Operations
 
-* [V1WorkspacesCreateWorkspace](#v1workspacescreateworkspace) - Create a new workspace
-* [V1WorkspacesListWorkspaces](#v1workspaceslistworkspaces) - List all workspaces for an organization
-* [V1WorkspacesUpdateWorkspace](#v1workspacesupdateworkspace) - Update an existing workspace
-* [V1WorkspacesDeleteWorkspace](#v1workspacesdeleteworkspace) - Delete a workspace
-* [V1WorkspacesGetWorkspace](#v1workspacesgetworkspace) - Get a specific workspace by ID
+* [Create](#create) - Create a new workspace
+* [List](#list) - List all workspaces for an organization
+* [Update](#update) - Update an existing workspace
+* [Delete](#delete) - Delete a workspace
+* [Get](#get) - Get a specific workspace by ID
 
-## V1WorkspacesCreateWorkspace
+## Create
 
 Create a new workspace
 
@@ -35,7 +35,7 @@ func main() {
 
     s := criblcloudmanagementsdkgo.New()
 
-    res, err := s.Workspaces.V1WorkspacesCreateWorkspace(ctx, operations.V1WorkspacesCreateWorkspaceSecurity{
+    res, err := s.Workspaces.Create(ctx, operations.V1WorkspacesCreateWorkspaceSecurity{
         Oauth2: &components.SchemeOauth2{
             ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
             ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
@@ -81,7 +81,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## V1WorkspacesListWorkspaces
+## List
 
 List all workspaces for an organization
 
@@ -105,7 +105,7 @@ func main() {
 
     s := criblcloudmanagementsdkgo.New()
 
-    res, err := s.Workspaces.V1WorkspacesListWorkspaces(ctx, operations.V1WorkspacesListWorkspacesSecurity{
+    res, err := s.Workspaces.List(ctx, operations.V1WorkspacesListWorkspacesSecurity{
         Oauth2: &components.SchemeOauth2{
             ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
             ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
@@ -141,7 +141,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## V1WorkspacesUpdateWorkspace
+## Update
 
 Update an existing workspace
 
@@ -165,7 +165,7 @@ func main() {
 
     s := criblcloudmanagementsdkgo.New()
 
-    res, err := s.Workspaces.V1WorkspacesUpdateWorkspace(ctx, operations.V1WorkspacesUpdateWorkspaceSecurity{
+    res, err := s.Workspaces.Update(ctx, operations.V1WorkspacesUpdateWorkspaceSecurity{
         Oauth2: &components.SchemeOauth2{
             ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
             ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
@@ -210,7 +210,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## V1WorkspacesDeleteWorkspace
+## Delete
 
 Delete a workspace
 
@@ -234,7 +234,7 @@ func main() {
 
     s := criblcloudmanagementsdkgo.New()
 
-    res, err := s.Workspaces.V1WorkspacesDeleteWorkspace(ctx, operations.V1WorkspacesDeleteWorkspaceSecurity{
+    res, err := s.Workspaces.Delete(ctx, operations.V1WorkspacesDeleteWorkspaceSecurity{
         Oauth2: &components.SchemeOauth2{
             ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
             ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
@@ -271,7 +271,7 @@ func main() {
 | ------------------ | ------------------ | ------------------ |
 | apierrors.APIError | 4XX, 5XX           | \*/\*              |
 
-## V1WorkspacesGetWorkspace
+## Get
 
 Get a specific workspace by ID
 
@@ -295,7 +295,7 @@ func main() {
 
     s := criblcloudmanagementsdkgo.New()
 
-    res, err := s.Workspaces.V1WorkspacesGetWorkspace(ctx, operations.V1WorkspacesGetWorkspaceSecurity{
+    res, err := s.Workspaces.Get(ctx, operations.V1WorkspacesGetWorkspaceSecurity{
         Oauth2: &components.SchemeOauth2{
             ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
             ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),

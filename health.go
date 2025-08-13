@@ -30,8 +30,8 @@ func newHealth(rootSDK *CriblMgmtPlane, sdkConfig config.SDKConfiguration, hooks
 	}
 }
 
-// GetHealthStatus - Get the health status of the application
-func (s *Health) GetHealthStatus(ctx context.Context, opts ...operations.Option) (*operations.GetHealthStatusResponse, error) {
+// Get the health status of the application
+func (s *Health) Get(ctx context.Context, opts ...operations.Option) (*operations.GetHealthStatusResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,

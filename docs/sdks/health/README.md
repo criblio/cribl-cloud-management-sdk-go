@@ -5,9 +5,9 @@
 
 ### Available Operations
 
-* [GetHealthStatus](#gethealthstatus) - Get the health status of the application
+* [Get](#get) - Get the health status of the application
 
-## GetHealthStatus
+## Get
 
 Get the health status of the application
 
@@ -36,7 +36,7 @@ func main() {
         }),
     )
 
-    res, err := s.Health.GetHealthStatus(ctx)
+    res, err := s.Health.Get(ctx)
     if err != nil {
         log.Fatal(err)
     }
