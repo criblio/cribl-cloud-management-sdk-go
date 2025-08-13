@@ -2,7 +2,7 @@
 <!-- Start Summary [summary] -->
 ## Summary
 
-Cribl Cloud Management API: Lorem Ipsum
+Cribl.Cloud Public API: Serves as a public API for the Cribl.Cloud platform and powers the Speakeasy SDK
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -15,6 +15,7 @@ Cribl Cloud Management API: Lorem Ipsum
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
   * [Custom HTTP Client](#custom-http-client)
 
 <!-- End Table of Contents [toc] -->
@@ -39,6 +40,7 @@ package main
 import (
 	"context"
 	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
+	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
 	"log"
 	"os"
 )
@@ -47,11 +49,14 @@ func main() {
 	ctx := context.Background()
 
 	s := criblcloudmanagementsdkgo.New(
-		"https://api.example.com",
-		criblcloudmanagementsdkgo.WithSecurity(os.Getenv("CRIBLMGMTPLANE_BEARER_AUTH")),
+		criblcloudmanagementsdkgo.WithSecurity(components.Security{
+			ClientID:     criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_ID")),
+			ClientSecret: criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET")),
+			Audience:     criblcloudmanagementsdkgo.String("https://publicapi.cribl.cloud"),
+		}),
 	)
 
-	res, err := s.DummyServiceStatus(ctx)
+	res, err := s.Health.GetHealthStatus(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -68,19 +73,22 @@ func main() {
 
 ### Per-Client Security Schemes
 
-This SDK supports the following security scheme globally:
+This SDK supports the following security schemes globally:
 
-| Name         | Type | Scheme      | Environment Variable         |
-| ------------ | ---- | ----------- | ---------------------------- |
-| `BearerAuth` | http | HTTP Bearer | `CRIBLMGMTPLANE_BEARER_AUTH` |
+| Name           | Type   | Scheme       | Environment Variable           |
+| -------------- | ------ | ------------ | ------------------------------ |
+| `ClientID`     | oauth2 | OAuth2 token | `CRIBLMGMTPLANE_CLIENT_ID`     |
+| `ClientSecret` | oauth2 | OAuth2 token | `CRIBLMGMTPLANE_CLIENT_SECRET` |
+| `Audience`     | oauth2 | OAuth2 token | `CRIBLMGMTPLANE_AUDIENCE`      |
 
-You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
+You can set the security parameters through the `WithSecurity` option when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```go
 package main
 
 import (
 	"context"
 	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
+	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
 	"log"
 	"os"
 )
@@ -89,15 +97,57 @@ func main() {
 	ctx := context.Background()
 
 	s := criblcloudmanagementsdkgo.New(
-		"https://api.example.com",
-		criblcloudmanagementsdkgo.WithSecurity(os.Getenv("CRIBLMGMTPLANE_BEARER_AUTH")),
+		criblcloudmanagementsdkgo.WithSecurity(components.Security{
+			ClientID:     criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_ID")),
+			ClientSecret: criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET")),
+			Audience:     criblcloudmanagementsdkgo.String("https://publicapi.cribl.cloud"),
+		}),
 	)
 
-	res, err := s.DummyServiceStatus(ctx)
+	res, err := s.Health.GetHealthStatus(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
 	if res != nil {
+		// handle response
+	}
+}
+
+```
+
+### Per-Operation Security Schemes
+
+Some operations in this SDK require the security scheme to be specified at the request level. For example:
+```go
+package main
+
+import (
+	"context"
+	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
+	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
+	"github.com/criblio/cribl-cloud-management-sdk-go/models/operations"
+	"log"
+)
+
+func main() {
+	ctx := context.Background()
+
+	s := criblcloudmanagementsdkgo.New()
+
+	res, err := s.Workspaces.V1WorkspacesCreateWorkspace(ctx, operations.V1WorkspacesCreateWorkspaceSecurity{}, "<id>", components.WorkspaceCreateRequestDTO{
+		WorkspaceID: "main",
+		Region:      components.WorkspaceCreateRequestDTORegionUsWest2,
+		Alias:       criblcloudmanagementsdkgo.String("Production Environment"),
+		Description: criblcloudmanagementsdkgo.String("Main production workspace for customer data processing"),
+		Tags: []string{
+			"production",
+			"customer-data",
+		},
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	if res.WorkspaceSchema != nil {
 		// handle response
 	}
 }
@@ -111,9 +161,18 @@ func main() {
 <details open>
 <summary>Available methods</summary>
 
-### [CriblMgmtPlane SDK](docs/sdks/criblmgmtplane/README.md)
 
-* [DummyServiceStatus](docs/sdks/criblmgmtplane/README.md#dummyservicestatus) - Service status
+### [Health](docs/sdks/health/README.md)
+
+* [GetHealthStatus](docs/sdks/health/README.md#gethealthstatus) - Get the health status of the application
+
+### [Workspaces](docs/sdks/workspaces/README.md)
+
+* [V1WorkspacesCreateWorkspace](docs/sdks/workspaces/README.md#v1workspacescreateworkspace) - Create a new workspace
+* [V1WorkspacesListWorkspaces](docs/sdks/workspaces/README.md#v1workspaceslistworkspaces) - List all workspaces for an organization
+* [V1WorkspacesUpdateWorkspace](docs/sdks/workspaces/README.md#v1workspacesupdateworkspace) - Update an existing workspace
+* [V1WorkspacesDeleteWorkspace](docs/sdks/workspaces/README.md#v1workspacesdeleteworkspace) - Delete a workspace
+* [V1WorkspacesGetWorkspace](docs/sdks/workspaces/README.md#v1workspacesgetworkspace) - Get a specific workspace by ID
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -130,6 +189,7 @@ package main
 import (
 	"context"
 	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
+	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
 	"github.com/criblio/cribl-cloud-management-sdk-go/retry"
 	"log"
 	"models/operations"
@@ -140,11 +200,14 @@ func main() {
 	ctx := context.Background()
 
 	s := criblcloudmanagementsdkgo.New(
-		"https://api.example.com",
-		criblcloudmanagementsdkgo.WithSecurity(os.Getenv("CRIBLMGMTPLANE_BEARER_AUTH")),
+		criblcloudmanagementsdkgo.WithSecurity(components.Security{
+			ClientID:     criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_ID")),
+			ClientSecret: criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET")),
+			Audience:     criblcloudmanagementsdkgo.String("https://publicapi.cribl.cloud"),
+		}),
 	)
 
-	res, err := s.DummyServiceStatus(ctx, operations.WithRetries(
+	res, err := s.Health.GetHealthStatus(ctx, operations.WithRetries(
 		retry.Config{
 			Strategy: "backoff",
 			Backoff: &retry.BackoffStrategy{
@@ -172,6 +235,7 @@ package main
 import (
 	"context"
 	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
+	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
 	"github.com/criblio/cribl-cloud-management-sdk-go/retry"
 	"log"
 	"os"
@@ -181,7 +245,6 @@ func main() {
 	ctx := context.Background()
 
 	s := criblcloudmanagementsdkgo.New(
-		"https://api.example.com",
 		criblcloudmanagementsdkgo.WithRetryConfig(
 			retry.Config{
 				Strategy: "backoff",
@@ -193,10 +256,14 @@ func main() {
 				},
 				RetryConnectionErrors: false,
 			}),
-		criblcloudmanagementsdkgo.WithSecurity(os.Getenv("CRIBLMGMTPLANE_BEARER_AUTH")),
+		criblcloudmanagementsdkgo.WithSecurity(components.Security{
+			ClientID:     criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_ID")),
+			ClientSecret: criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET")),
+			Audience:     criblcloudmanagementsdkgo.String("https://publicapi.cribl.cloud"),
+		}),
 	)
 
-	res, err := s.DummyServiceStatus(ctx)
+	res, err := s.Health.GetHealthStatus(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -215,7 +282,7 @@ Handling errors in this SDK should largely match your expectations. All operatio
 
 By Default, an API error will return `apierrors.APIError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
 
-For example, the `DummyServiceStatus` function may return the following errors:
+For example, the `GetHealthStatus` function may return the following errors:
 
 | Error Type         | Status Code | Content Type |
 | ------------------ | ----------- | ------------ |
@@ -231,6 +298,7 @@ import (
 	"errors"
 	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
 	"github.com/criblio/cribl-cloud-management-sdk-go/models/apierrors"
+	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
 	"log"
 	"os"
 )
@@ -239,11 +307,14 @@ func main() {
 	ctx := context.Background()
 
 	s := criblcloudmanagementsdkgo.New(
-		"https://api.example.com",
-		criblcloudmanagementsdkgo.WithSecurity(os.Getenv("CRIBLMGMTPLANE_BEARER_AUTH")),
+		criblcloudmanagementsdkgo.WithSecurity(components.Security{
+			ClientID:     criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_ID")),
+			ClientSecret: criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET")),
+			Audience:     criblcloudmanagementsdkgo.String("https://publicapi.cribl.cloud"),
+		}),
 	)
 
-	res, err := s.DummyServiceStatus(ctx)
+	res, err := s.Health.GetHealthStatus(ctx)
 	if err != nil {
 
 		var e *apierrors.APIError
@@ -256,6 +327,47 @@ func main() {
 
 ```
 <!-- End Error Handling [errors] -->
+
+<!-- Start Server Selection [server] -->
+## Server Selection
+
+### Override Server URL Per-Client
+
+The default server can be overridden globally using the `WithServerURL(serverURL string)` option when initializing the SDK client instance. For example:
+```go
+package main
+
+import (
+	"context"
+	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
+	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
+	"log"
+	"os"
+)
+
+func main() {
+	ctx := context.Background()
+
+	s := criblcloudmanagementsdkgo.New(
+		criblcloudmanagementsdkgo.WithServerURL("https://publicapi.cribl.cloud"),
+		criblcloudmanagementsdkgo.WithSecurity(components.Security{
+			ClientID:     criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_ID")),
+			ClientSecret: criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET")),
+			Audience:     criblcloudmanagementsdkgo.String("https://publicapi.cribl.cloud"),
+		}),
+	)
+
+	res, err := s.Health.GetHealthStatus(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+	if res != nil {
+		// handle response
+	}
+}
+
+```
+<!-- End Server Selection [server] -->
 
 <!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
