@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
-  docChecksum: 37fc7e3a855098153f60e35f034d4f01
+  docChecksum: ed3a691b3bbb76c9367641dc92a71ced
   docVersion: "1.0"
-  speakeasyVersion: 1.603.1
-  generationVersion: 2.681.1
-  releaseVersion: 0.0.6
-  configChecksum: a5587b7a0eb77d2da0dcba5be55cbb97
+  speakeasyVersion: 1.596.1
+  generationVersion: 2.672.0
+  releaseVersion: 0.0.7
+  configChecksum: 7b8b47a30170092b9989d24f94ece9f9
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 features:
@@ -22,12 +22,11 @@ features:
     globalServerURLs: 2.82.3
     groups: 2.81.2
     intellisenseMarkdownSupport: 0.1.0
-    methodSecurity: 2.82.3
     nameOverrides: 2.81.2
     oauth2ClientCredentials: 0.4.0
     openEnums: 0.1.0
     responseFormat: 0.1.2
-    retries: 2.84.2
+    retries: 2.84.0
     sdkHooks: 0.2.0
 generatedFiles:
   - .devcontainer/README.md
@@ -35,7 +34,7 @@ generatedFiles:
   - .devcontainer/setup.sh
   - .gitattributes
   - /models/components/httpmetadata.go
-  - /models/components/schemeoauth2.go
+  - /models/components/schemeclientoauth.go
   - /models/components/security.go
   - /models/components/workspacecreaterequestdto.go
   - /models/components/workspacepatchrequestdto.go
@@ -50,7 +49,7 @@ generatedFiles:
   - USAGE.md
   - criblmgmtplane.go
   - docs/models/components/httpmetadata.md
-  - docs/models/components/schemeoauth2.md
+  - docs/models/components/schemeclientoauth.md
   - docs/models/components/security.md
   - docs/models/components/state.md
   - docs/models/components/workspacecreaterequestdto.md
@@ -63,19 +62,14 @@ generatedFiles:
   - docs/models/operations/option.md
   - docs/models/operations/v1workspacescreateworkspacerequest.md
   - docs/models/operations/v1workspacescreateworkspaceresponse.md
-  - docs/models/operations/v1workspacescreateworkspacesecurity.md
   - docs/models/operations/v1workspacesdeleteworkspacerequest.md
   - docs/models/operations/v1workspacesdeleteworkspaceresponse.md
-  - docs/models/operations/v1workspacesdeleteworkspacesecurity.md
   - docs/models/operations/v1workspacesgetworkspacerequest.md
   - docs/models/operations/v1workspacesgetworkspaceresponse.md
-  - docs/models/operations/v1workspacesgetworkspacesecurity.md
   - docs/models/operations/v1workspaceslistworkspacesrequest.md
   - docs/models/operations/v1workspaceslistworkspacesresponse.md
-  - docs/models/operations/v1workspaceslistworkspacessecurity.md
   - docs/models/operations/v1workspacesupdateworkspacerequest.md
   - docs/models/operations/v1workspacesupdateworkspaceresponse.md
-  - docs/models/operations/v1workspacesupdateworkspacesecurity.md
   - docs/sdks/criblmgmtplane/README.md
   - docs/sdks/health/README.md
   - docs/sdks/workspaces/README.md

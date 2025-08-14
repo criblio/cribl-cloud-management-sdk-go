@@ -6,25 +6,6 @@ import (
 	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
 )
 
-type V1WorkspacesListWorkspacesSecurity struct {
-	Oauth2 *components.SchemeOauth2 `security:"scheme,type=oauth2,subtype=client_credentials"`
-	Bearer *string                  `security:"scheme,type=http,subtype=bearer,name=Authorization,env=criblmgmtplane_bearer"`
-}
-
-func (o *V1WorkspacesListWorkspacesSecurity) GetOauth2() *components.SchemeOauth2 {
-	if o == nil {
-		return nil
-	}
-	return o.Oauth2
-}
-
-func (o *V1WorkspacesListWorkspacesSecurity) GetBearer() *string {
-	if o == nil {
-		return nil
-	}
-	return o.Bearer
-}
-
 type V1WorkspacesListWorkspacesRequest struct {
 	// Organization identifier
 	OrganizationID string `pathParam:"style=simple,explode=false,name=organizationId"`

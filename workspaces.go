@@ -31,7 +31,7 @@ func newWorkspaces(rootSDK *CriblMgmtPlane, sdkConfig config.SDKConfiguration, h
 }
 
 // Create a new workspace
-func (s *Workspaces) Create(ctx context.Context, security operations.V1WorkspacesCreateWorkspaceSecurity, organizationID string, workspaceCreateRequestDTO components.WorkspaceCreateRequestDTO, opts ...operations.Option) (*operations.V1WorkspacesCreateWorkspaceResponse, error) {
+func (s *Workspaces) Create(ctx context.Context, organizationID string, workspaceCreateRequestDTO components.WorkspaceCreateRequestDTO, opts ...operations.Option) (*operations.V1WorkspacesCreateWorkspaceResponse, error) {
 	request := operations.V1WorkspacesCreateWorkspaceRequest{
 		OrganizationID:            organizationID,
 		WorkspaceCreateRequestDTO: workspaceCreateRequestDTO,
@@ -67,7 +67,7 @@ func (s *Workspaces) Create(ctx context.Context, security operations.V1Workspace
 		Context:          ctx,
 		OperationID:      "v1.workspaces.createWorkspace",
 		OAuth2Scopes:     []string{},
-		SecuritySource:   utils.AsSecuritySource(security),
+		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "WorkspaceCreateRequestDTO", "json", `request:"mediaType=application/json"`)
 	if err != nil {
@@ -95,7 +95,7 @@ func (s *Workspaces) Create(ctx context.Context, security operations.V1Workspace
 		req.Header.Set("Content-Type", reqContentType)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, utils.AsSecuritySource(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -258,7 +258,7 @@ func (s *Workspaces) Create(ctx context.Context, security operations.V1Workspace
 }
 
 // List all workspaces for an organization
-func (s *Workspaces) List(ctx context.Context, security operations.V1WorkspacesListWorkspacesSecurity, organizationID string, opts ...operations.Option) (*operations.V1WorkspacesListWorkspacesResponse, error) {
+func (s *Workspaces) List(ctx context.Context, organizationID string, opts ...operations.Option) (*operations.V1WorkspacesListWorkspacesResponse, error) {
 	request := operations.V1WorkspacesListWorkspacesRequest{
 		OrganizationID: organizationID,
 	}
@@ -293,7 +293,7 @@ func (s *Workspaces) List(ctx context.Context, security operations.V1WorkspacesL
 		Context:          ctx,
 		OperationID:      "v1.workspaces.listWorkspaces",
 		OAuth2Scopes:     []string{},
-		SecuritySource:   utils.AsSecuritySource(security),
+		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -314,7 +314,7 @@ func (s *Workspaces) List(ctx context.Context, security operations.V1WorkspacesL
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	if err := utils.PopulateSecurity(ctx, req, utils.AsSecuritySource(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -477,7 +477,7 @@ func (s *Workspaces) List(ctx context.Context, security operations.V1WorkspacesL
 }
 
 // Update an existing workspace
-func (s *Workspaces) Update(ctx context.Context, security operations.V1WorkspacesUpdateWorkspaceSecurity, organizationID string, workspaceID string, workspacePatchRequestDTO components.WorkspacePatchRequestDTO, opts ...operations.Option) (*operations.V1WorkspacesUpdateWorkspaceResponse, error) {
+func (s *Workspaces) Update(ctx context.Context, organizationID string, workspaceID string, workspacePatchRequestDTO components.WorkspacePatchRequestDTO, opts ...operations.Option) (*operations.V1WorkspacesUpdateWorkspaceResponse, error) {
 	request := operations.V1WorkspacesUpdateWorkspaceRequest{
 		OrganizationID:           organizationID,
 		WorkspaceID:              workspaceID,
@@ -514,7 +514,7 @@ func (s *Workspaces) Update(ctx context.Context, security operations.V1Workspace
 		Context:          ctx,
 		OperationID:      "v1.workspaces.updateWorkspace",
 		OAuth2Scopes:     []string{},
-		SecuritySource:   utils.AsSecuritySource(security),
+		SecuritySource:   s.sdkConfiguration.Security,
 	}
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, false, false, "WorkspacePatchRequestDTO", "json", `request:"mediaType=application/json"`)
 	if err != nil {
@@ -542,7 +542,7 @@ func (s *Workspaces) Update(ctx context.Context, security operations.V1Workspace
 		req.Header.Set("Content-Type", reqContentType)
 	}
 
-	if err := utils.PopulateSecurity(ctx, req, utils.AsSecuritySource(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -705,7 +705,7 @@ func (s *Workspaces) Update(ctx context.Context, security operations.V1Workspace
 }
 
 // Delete a workspace
-func (s *Workspaces) Delete(ctx context.Context, security operations.V1WorkspacesDeleteWorkspaceSecurity, organizationID string, workspaceID string, opts ...operations.Option) (*operations.V1WorkspacesDeleteWorkspaceResponse, error) {
+func (s *Workspaces) Delete(ctx context.Context, organizationID string, workspaceID string, opts ...operations.Option) (*operations.V1WorkspacesDeleteWorkspaceResponse, error) {
 	request := operations.V1WorkspacesDeleteWorkspaceRequest{
 		OrganizationID: organizationID,
 		WorkspaceID:    workspaceID,
@@ -741,7 +741,7 @@ func (s *Workspaces) Delete(ctx context.Context, security operations.V1Workspace
 		Context:          ctx,
 		OperationID:      "v1.workspaces.deleteWorkspace",
 		OAuth2Scopes:     []string{},
-		SecuritySource:   utils.AsSecuritySource(security),
+		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -762,7 +762,7 @@ func (s *Workspaces) Delete(ctx context.Context, security operations.V1Workspace
 	req.Header.Set("Accept", "*/*")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	if err := utils.PopulateSecurity(ctx, req, utils.AsSecuritySource(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
@@ -905,7 +905,7 @@ func (s *Workspaces) Delete(ctx context.Context, security operations.V1Workspace
 }
 
 // Get a specific workspace by ID
-func (s *Workspaces) Get(ctx context.Context, security operations.V1WorkspacesGetWorkspaceSecurity, organizationID string, workspaceID string, opts ...operations.Option) (*operations.V1WorkspacesGetWorkspaceResponse, error) {
+func (s *Workspaces) Get(ctx context.Context, organizationID string, workspaceID string, opts ...operations.Option) (*operations.V1WorkspacesGetWorkspaceResponse, error) {
 	request := operations.V1WorkspacesGetWorkspaceRequest{
 		OrganizationID: organizationID,
 		WorkspaceID:    workspaceID,
@@ -941,7 +941,7 @@ func (s *Workspaces) Get(ctx context.Context, security operations.V1WorkspacesGe
 		Context:          ctx,
 		OperationID:      "v1.workspaces.getWorkspace",
 		OAuth2Scopes:     []string{},
-		SecuritySource:   utils.AsSecuritySource(security),
+		SecuritySource:   s.sdkConfiguration.Security,
 	}
 
 	timeout := o.Timeout
@@ -962,7 +962,7 @@ func (s *Workspaces) Get(ctx context.Context, security operations.V1WorkspacesGe
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	if err := utils.PopulateSecurity(ctx, req, utils.AsSecuritySource(security)); err != nil {
+	if err := utils.PopulateSecurity(ctx, req, s.sdkConfiguration.Security); err != nil {
 		return nil, err
 	}
 
