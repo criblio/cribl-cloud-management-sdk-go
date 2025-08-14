@@ -50,9 +50,12 @@ func main() {
 
 	s := criblcloudmanagementsdkgo.New(
 		criblcloudmanagementsdkgo.WithSecurity(components.Security{
-			ClientID:     criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_ID")),
-			ClientSecret: criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET")),
-			Audience:     criblcloudmanagementsdkgo.String("https://publicapi.cribl.cloud"),
+			ClientOauth: &components.SchemeClientOauth{
+				ClientID:     os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
+				ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
+				TokenURL:     os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
+				Audience:     "https://publicapi.cribl.cloud",
+			},
 		}),
 	)
 
@@ -75,11 +78,10 @@ func main() {
 
 This SDK supports the following security schemes globally:
 
-| Name           | Type   | Scheme       | Environment Variable           |
-| -------------- | ------ | ------------ | ------------------------------ |
-| `ClientID`     | oauth2 | OAuth2 token | `CRIBLMGMTPLANE_CLIENT_ID`     |
-| `ClientSecret` | oauth2 | OAuth2 token | `CRIBLMGMTPLANE_CLIENT_SECRET` |
-| `Audience`     | oauth2 | OAuth2 token | `CRIBLMGMTPLANE_AUDIENCE`      |
+| Name          | Type   | Scheme       | Environment Variable          |
+| ------------- | ------ | ------------ | ----------------------------- |
+| `ClientOauth` | oauth2 | OAuth2 token | `CRIBLMGMTPLANE_CLIENT_OAUTH` |
+| `BearerAuth`  | http   | HTTP Bearer  | `CRIBLMGMTPLANE_BEARER_AUTH`  |
 
 You can set the security parameters through the `WithSecurity` option when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```go
@@ -98,9 +100,12 @@ func main() {
 
 	s := criblcloudmanagementsdkgo.New(
 		criblcloudmanagementsdkgo.WithSecurity(components.Security{
-			ClientID:     criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_ID")),
-			ClientSecret: criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET")),
-			Audience:     criblcloudmanagementsdkgo.String("https://publicapi.cribl.cloud"),
+			ClientOauth: &components.SchemeClientOauth{
+				ClientID:     os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
+				ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
+				TokenURL:     os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
+				Audience:     "https://publicapi.cribl.cloud",
+			},
 		}),
 	)
 
@@ -109,45 +114,6 @@ func main() {
 		log.Fatal(err)
 	}
 	if res != nil {
-		// handle response
-	}
-}
-
-```
-
-### Per-Operation Security Schemes
-
-Some operations in this SDK require the security scheme to be specified at the request level. For example:
-```go
-package main
-
-import (
-	"context"
-	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/operations"
-	"log"
-)
-
-func main() {
-	ctx := context.Background()
-
-	s := criblcloudmanagementsdkgo.New()
-
-	res, err := s.Workspaces.Create(ctx, operations.V1WorkspacesCreateWorkspaceSecurity{}, "<id>", components.WorkspaceCreateRequestDTO{
-		WorkspaceID: "main",
-		Region:      components.WorkspaceCreateRequestDTORegionUsWest2,
-		Alias:       criblcloudmanagementsdkgo.String("Production Environment"),
-		Description: criblcloudmanagementsdkgo.String("Main production workspace for customer data processing"),
-		Tags: []string{
-			"production",
-			"customer-data",
-		},
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
-	if res.WorkspaceSchema != nil {
 		// handle response
 	}
 }
@@ -201,9 +167,12 @@ func main() {
 
 	s := criblcloudmanagementsdkgo.New(
 		criblcloudmanagementsdkgo.WithSecurity(components.Security{
-			ClientID:     criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_ID")),
-			ClientSecret: criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET")),
-			Audience:     criblcloudmanagementsdkgo.String("https://publicapi.cribl.cloud"),
+			ClientOauth: &components.SchemeClientOauth{
+				ClientID:     os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
+				ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
+				TokenURL:     os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
+				Audience:     "https://publicapi.cribl.cloud",
+			},
 		}),
 	)
 
@@ -257,9 +226,12 @@ func main() {
 				RetryConnectionErrors: false,
 			}),
 		criblcloudmanagementsdkgo.WithSecurity(components.Security{
-			ClientID:     criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_ID")),
-			ClientSecret: criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET")),
-			Audience:     criblcloudmanagementsdkgo.String("https://publicapi.cribl.cloud"),
+			ClientOauth: &components.SchemeClientOauth{
+				ClientID:     os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
+				ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
+				TokenURL:     os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
+				Audience:     "https://publicapi.cribl.cloud",
+			},
 		}),
 	)
 
@@ -308,9 +280,12 @@ func main() {
 
 	s := criblcloudmanagementsdkgo.New(
 		criblcloudmanagementsdkgo.WithSecurity(components.Security{
-			ClientID:     criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_ID")),
-			ClientSecret: criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET")),
-			Audience:     criblcloudmanagementsdkgo.String("https://publicapi.cribl.cloud"),
+			ClientOauth: &components.SchemeClientOauth{
+				ClientID:     os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
+				ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
+				TokenURL:     os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
+				Audience:     "https://publicapi.cribl.cloud",
+			},
 		}),
 	)
 
@@ -351,9 +326,12 @@ func main() {
 	s := criblcloudmanagementsdkgo.New(
 		criblcloudmanagementsdkgo.WithServerURL("https://publicapi.cribl.cloud"),
 		criblcloudmanagementsdkgo.WithSecurity(components.Security{
-			ClientID:     criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_ID")),
-			ClientSecret: criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET")),
-			Audience:     criblcloudmanagementsdkgo.String("https://publicapi.cribl.cloud"),
+			ClientOauth: &components.SchemeClientOauth{
+				ClientID:     os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
+				ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
+				TokenURL:     os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
+				Audience:     "https://publicapi.cribl.cloud",
+			},
 		}),
 	)
 
