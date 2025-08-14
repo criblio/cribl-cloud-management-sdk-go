@@ -11,7 +11,6 @@ import (
 	"fmt"
 	"github.com/criblio/cribl-cloud-management-sdk-go/internal/config"
 	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/operations"
 	"golang.org/x/sync/singleflight"
 	"io"
 	"net/http"
@@ -197,20 +196,7 @@ func (c *clientCredentialsHook) getCredentials(ctx HookContext, source func(ctx 
 		return nil, err
 	}
 
-	switch ctx.OperationID {
-	case "create":
-		return c.getCredentialsCreate(sec)
-	case "list":
-		return c.getCredentialsList(sec)
-	case "update":
-		return c.getCredentialsUpdate(sec)
-	case "delete":
-		return c.getCredentialsDelete(sec)
-	case "get":
-		return c.getCredentialsGet(sec)
-	default:
-		return c.getCredentialsGlobal(sec)
-	}
+	return c.getCredentialsGlobal(sec)
 }
 
 func (c *clientCredentialsHook) getCredentialsGlobal(sec any) (*credentials, error) {
@@ -220,25 +206,25 @@ func (c *clientCredentialsHook) getCredentialsGlobal(sec any) (*credentials, err
 		return nil, fmt.Errorf("unexpected security type: %T", sec)
 	}
 
-	if security.ClientID == nil || security.ClientSecret == nil {
+	if security.ClientOauth == nil {
 		return nil, nil
 	}
-	secType := reflect.TypeOf(security)
+	secType := reflect.TypeOf(security.ClientOauth)
 	if secType.Kind() == reflect.Ptr {
 		secType = secType.Elem()
 	}
-	secValue := reflect.ValueOf(security)
+	secValue := reflect.ValueOf(security.ClientOauth)
 	if secValue.Kind() == reflect.Ptr {
 		secValue = secValue.Elem()
 	}
-	if security.TokenURL == nil {
+	if security.ClientOauth.TokenURL == "" {
 
 		tokenURLField, ok := secType.FieldByName("TokenURL")
 		if !ok {
 			return nil, fmt.Errorf("TokenURL is required for security type %s", secType.Name())
 		}
 		tokenURLDefault := tokenURLField.Tag.Get("default")
-		security.TokenURL = &tokenURLDefault
+		security.ClientOauth.TokenURL = tokenURLDefault
 	}
 
 	additionalProperties := make(map[string]string)
@@ -261,284 +247,9 @@ func (c *clientCredentialsHook) getCredentialsGlobal(sec any) (*credentials, err
 	}
 
 	return &credentials{
-		ClientID:             *security.ClientID,
-		ClientSecret:         *security.ClientSecret,
-		TokenURL:             *security.TokenURL,
-		AdditionalProperties: additionalProperties,
-	}, nil
-}
-
-func (c *clientCredentialsHook) getCredentialsCreate(sec any) (*credentials, error) {
-	security, ok := sec.(operations.V1WorkspacesCreateWorkspaceSecurity)
-
-	if !ok {
-		return nil, fmt.Errorf("unexpected security type: %T", sec)
-	}
-
-	if security.Oauth2 == nil {
-		return nil, nil
-	}
-	secType := reflect.TypeOf(security.Oauth2)
-	if secType.Kind() == reflect.Ptr {
-		secType = secType.Elem()
-	}
-	secValue := reflect.ValueOf(security.Oauth2)
-	if secValue.Kind() == reflect.Ptr {
-		secValue = secValue.Elem()
-	}
-	if security.Oauth2.TokenURL == "" {
-
-		tokenURLField, ok := secType.FieldByName("TokenURL")
-		if !ok {
-			return nil, fmt.Errorf("TokenURL is required for security type %s", secType.Name())
-		}
-		tokenURLDefault := tokenURLField.Tag.Get("default")
-		security.Oauth2.TokenURL = tokenURLDefault
-	}
-
-	additionalProperties := make(map[string]string)
-	for i := 0; i < secType.NumField(); i++ {
-		field := secType.Field(i)
-		if field.Name != "TokenURL" && field.Name != "ClientID" && field.Name != "ClientSecret" {
-			// Get the field value using reflection
-			fieldValue := secValue.Field(i)
-			if fieldValue.IsValid() {
-				tag := field.Tag.Get("security")
-				parts := strings.Split(tag, ",")
-				for _, part := range parts {
-					if strings.HasPrefix(part, "name=") {
-						additionalProperties[strings.TrimPrefix(part, "name=")] = fieldValue.String()
-						break
-					}
-				}
-			}
-		}
-	}
-
-	return &credentials{
-		ClientID:             security.Oauth2.ClientID,
-		ClientSecret:         security.Oauth2.ClientSecret,
-		TokenURL:             security.Oauth2.TokenURL,
-		AdditionalProperties: additionalProperties,
-	}, nil
-}
-
-func (c *clientCredentialsHook) getCredentialsList(sec any) (*credentials, error) {
-	security, ok := sec.(operations.V1WorkspacesListWorkspacesSecurity)
-
-	if !ok {
-		return nil, fmt.Errorf("unexpected security type: %T", sec)
-	}
-
-	if security.Oauth2 == nil {
-		return nil, nil
-	}
-	secType := reflect.TypeOf(security.Oauth2)
-	if secType.Kind() == reflect.Ptr {
-		secType = secType.Elem()
-	}
-	secValue := reflect.ValueOf(security.Oauth2)
-	if secValue.Kind() == reflect.Ptr {
-		secValue = secValue.Elem()
-	}
-	if security.Oauth2.TokenURL == "" {
-
-		tokenURLField, ok := secType.FieldByName("TokenURL")
-		if !ok {
-			return nil, fmt.Errorf("TokenURL is required for security type %s", secType.Name())
-		}
-		tokenURLDefault := tokenURLField.Tag.Get("default")
-		security.Oauth2.TokenURL = tokenURLDefault
-	}
-
-	additionalProperties := make(map[string]string)
-	for i := 0; i < secType.NumField(); i++ {
-		field := secType.Field(i)
-		if field.Name != "TokenURL" && field.Name != "ClientID" && field.Name != "ClientSecret" {
-			// Get the field value using reflection
-			fieldValue := secValue.Field(i)
-			if fieldValue.IsValid() {
-				tag := field.Tag.Get("security")
-				parts := strings.Split(tag, ",")
-				for _, part := range parts {
-					if strings.HasPrefix(part, "name=") {
-						additionalProperties[strings.TrimPrefix(part, "name=")] = fieldValue.String()
-						break
-					}
-				}
-			}
-		}
-	}
-
-	return &credentials{
-		ClientID:             security.Oauth2.ClientID,
-		ClientSecret:         security.Oauth2.ClientSecret,
-		TokenURL:             security.Oauth2.TokenURL,
-		AdditionalProperties: additionalProperties,
-	}, nil
-}
-
-func (c *clientCredentialsHook) getCredentialsUpdate(sec any) (*credentials, error) {
-	security, ok := sec.(operations.V1WorkspacesUpdateWorkspaceSecurity)
-
-	if !ok {
-		return nil, fmt.Errorf("unexpected security type: %T", sec)
-	}
-
-	if security.Oauth2 == nil {
-		return nil, nil
-	}
-	secType := reflect.TypeOf(security.Oauth2)
-	if secType.Kind() == reflect.Ptr {
-		secType = secType.Elem()
-	}
-	secValue := reflect.ValueOf(security.Oauth2)
-	if secValue.Kind() == reflect.Ptr {
-		secValue = secValue.Elem()
-	}
-	if security.Oauth2.TokenURL == "" {
-
-		tokenURLField, ok := secType.FieldByName("TokenURL")
-		if !ok {
-			return nil, fmt.Errorf("TokenURL is required for security type %s", secType.Name())
-		}
-		tokenURLDefault := tokenURLField.Tag.Get("default")
-		security.Oauth2.TokenURL = tokenURLDefault
-	}
-
-	additionalProperties := make(map[string]string)
-	for i := 0; i < secType.NumField(); i++ {
-		field := secType.Field(i)
-		if field.Name != "TokenURL" && field.Name != "ClientID" && field.Name != "ClientSecret" {
-			// Get the field value using reflection
-			fieldValue := secValue.Field(i)
-			if fieldValue.IsValid() {
-				tag := field.Tag.Get("security")
-				parts := strings.Split(tag, ",")
-				for _, part := range parts {
-					if strings.HasPrefix(part, "name=") {
-						additionalProperties[strings.TrimPrefix(part, "name=")] = fieldValue.String()
-						break
-					}
-				}
-			}
-		}
-	}
-
-	return &credentials{
-		ClientID:             security.Oauth2.ClientID,
-		ClientSecret:         security.Oauth2.ClientSecret,
-		TokenURL:             security.Oauth2.TokenURL,
-		AdditionalProperties: additionalProperties,
-	}, nil
-}
-
-func (c *clientCredentialsHook) getCredentialsDelete(sec any) (*credentials, error) {
-	security, ok := sec.(operations.V1WorkspacesDeleteWorkspaceSecurity)
-
-	if !ok {
-		return nil, fmt.Errorf("unexpected security type: %T", sec)
-	}
-
-	if security.Oauth2 == nil {
-		return nil, nil
-	}
-	secType := reflect.TypeOf(security.Oauth2)
-	if secType.Kind() == reflect.Ptr {
-		secType = secType.Elem()
-	}
-	secValue := reflect.ValueOf(security.Oauth2)
-	if secValue.Kind() == reflect.Ptr {
-		secValue = secValue.Elem()
-	}
-	if security.Oauth2.TokenURL == "" {
-
-		tokenURLField, ok := secType.FieldByName("TokenURL")
-		if !ok {
-			return nil, fmt.Errorf("TokenURL is required for security type %s", secType.Name())
-		}
-		tokenURLDefault := tokenURLField.Tag.Get("default")
-		security.Oauth2.TokenURL = tokenURLDefault
-	}
-
-	additionalProperties := make(map[string]string)
-	for i := 0; i < secType.NumField(); i++ {
-		field := secType.Field(i)
-		if field.Name != "TokenURL" && field.Name != "ClientID" && field.Name != "ClientSecret" {
-			// Get the field value using reflection
-			fieldValue := secValue.Field(i)
-			if fieldValue.IsValid() {
-				tag := field.Tag.Get("security")
-				parts := strings.Split(tag, ",")
-				for _, part := range parts {
-					if strings.HasPrefix(part, "name=") {
-						additionalProperties[strings.TrimPrefix(part, "name=")] = fieldValue.String()
-						break
-					}
-				}
-			}
-		}
-	}
-
-	return &credentials{
-		ClientID:             security.Oauth2.ClientID,
-		ClientSecret:         security.Oauth2.ClientSecret,
-		TokenURL:             security.Oauth2.TokenURL,
-		AdditionalProperties: additionalProperties,
-	}, nil
-}
-
-func (c *clientCredentialsHook) getCredentialsGet(sec any) (*credentials, error) {
-	security, ok := sec.(operations.V1WorkspacesGetWorkspaceSecurity)
-
-	if !ok {
-		return nil, fmt.Errorf("unexpected security type: %T", sec)
-	}
-
-	if security.Oauth2 == nil {
-		return nil, nil
-	}
-	secType := reflect.TypeOf(security.Oauth2)
-	if secType.Kind() == reflect.Ptr {
-		secType = secType.Elem()
-	}
-	secValue := reflect.ValueOf(security.Oauth2)
-	if secValue.Kind() == reflect.Ptr {
-		secValue = secValue.Elem()
-	}
-	if security.Oauth2.TokenURL == "" {
-
-		tokenURLField, ok := secType.FieldByName("TokenURL")
-		if !ok {
-			return nil, fmt.Errorf("TokenURL is required for security type %s", secType.Name())
-		}
-		tokenURLDefault := tokenURLField.Tag.Get("default")
-		security.Oauth2.TokenURL = tokenURLDefault
-	}
-
-	additionalProperties := make(map[string]string)
-	for i := 0; i < secType.NumField(); i++ {
-		field := secType.Field(i)
-		if field.Name != "TokenURL" && field.Name != "ClientID" && field.Name != "ClientSecret" {
-			// Get the field value using reflection
-			fieldValue := secValue.Field(i)
-			if fieldValue.IsValid() {
-				tag := field.Tag.Get("security")
-				parts := strings.Split(tag, ",")
-				for _, part := range parts {
-					if strings.HasPrefix(part, "name=") {
-						additionalProperties[strings.TrimPrefix(part, "name=")] = fieldValue.String()
-						break
-					}
-				}
-			}
-		}
-	}
-
-	return &credentials{
-		ClientID:             security.Oauth2.ClientID,
-		ClientSecret:         security.Oauth2.ClientSecret,
-		TokenURL:             security.Oauth2.TokenURL,
+		ClientID:             security.ClientOauth.ClientID,
+		ClientSecret:         security.ClientOauth.ClientSecret,
+		TokenURL:             security.ClientOauth.TokenURL,
 		AdditionalProperties: additionalProperties,
 	}, nil
 }
