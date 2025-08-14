@@ -23,26 +23,27 @@ package main
 
 import(
 	"context"
-	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
 	"os"
+	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
 	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/operations"
 	"log"
 )
 
 func main() {
     ctx := context.Background()
 
-    s := criblcloudmanagementsdkgo.New()
+    s := criblcloudmanagementsdkgo.New(
+        criblcloudmanagementsdkgo.WithSecurity(components.Security{
+            ClientOauth: &components.SchemeClientOauth{
+                ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
+                ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
+                TokenURL: os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
+                Audience: "https://publicapi.cribl.cloud",
+            },
+        }),
+    )
 
-    res, err := s.Workspaces.Create(ctx, operations.V1WorkspacesCreateWorkspaceSecurity{
-        Oauth2: &components.SchemeOauth2{
-            ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
-            ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
-            TokenURL: os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
-            Audience: "https://publicapi.cribl.cloud",
-        },
-    }, "<id>", components.WorkspaceCreateRequestDTO{
+    res, err := s.Workspaces.Create(ctx, "<id>", components.WorkspaceCreateRequestDTO{
         WorkspaceID: "main",
         Region: components.WorkspaceCreateRequestDTORegionUsWest2,
         Alias: criblcloudmanagementsdkgo.String("Production Environment"),
@@ -63,13 +64,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                                            | :heavy_check_mark:                                                                                               | The context to use for the request.                                                                              |
-| `security`                                                                                                       | [operations.V1WorkspacesCreateWorkspaceSecurity](../../models/operations/v1workspacescreateworkspacesecurity.md) | :heavy_check_mark:                                                                                               | The security requirements to use for the request.                                                                |
-| `organizationID`                                                                                                 | *string*                                                                                                         | :heavy_check_mark:                                                                                               | Organization identifier                                                                                          |
-| `workspaceCreateRequestDTO`                                                                                      | [components.WorkspaceCreateRequestDTO](../../models/components/workspacecreaterequestdto.md)                     | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `opts`                                                                                                           | [][operations.Option](../../models/operations/option.md)                                                         | :heavy_minus_sign:                                                                                               | The options for this request.                                                                                    |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `organizationID`                                                                             | *string*                                                                                     | :heavy_check_mark:                                                                           | Organization identifier                                                                      |
+| `workspaceCreateRequestDTO`                                                                  | [components.WorkspaceCreateRequestDTO](../../models/components/workspacecreaterequestdto.md) | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `opts`                                                                                       | [][operations.Option](../../models/operations/option.md)                                     | :heavy_minus_sign:                                                                           | The options for this request.                                                                |
 
 ### Response
 
@@ -93,26 +93,27 @@ package main
 
 import(
 	"context"
-	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
 	"os"
+	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
 	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/operations"
 	"log"
 )
 
 func main() {
     ctx := context.Background()
 
-    s := criblcloudmanagementsdkgo.New()
+    s := criblcloudmanagementsdkgo.New(
+        criblcloudmanagementsdkgo.WithSecurity(components.Security{
+            ClientOauth: &components.SchemeClientOauth{
+                ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
+                ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
+                TokenURL: os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
+                Audience: "https://publicapi.cribl.cloud",
+            },
+        }),
+    )
 
-    res, err := s.Workspaces.List(ctx, operations.V1WorkspacesListWorkspacesSecurity{
-        Oauth2: &components.SchemeOauth2{
-            ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
-            ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
-            TokenURL: os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
-            Audience: "https://publicapi.cribl.cloud",
-        },
-    }, "<id>")
+    res, err := s.Workspaces.List(ctx, "<id>")
     if err != nil {
         log.Fatal(err)
     }
@@ -124,12 +125,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                          | :heavy_check_mark:                                                                                             | The context to use for the request.                                                                            |
-| `security`                                                                                                     | [operations.V1WorkspacesListWorkspacesSecurity](../../models/operations/v1workspaceslistworkspacessecurity.md) | :heavy_check_mark:                                                                                             | The security requirements to use for the request.                                                              |
-| `organizationID`                                                                                               | *string*                                                                                                       | :heavy_check_mark:                                                                                             | Organization identifier                                                                                        |
-| `opts`                                                                                                         | [][operations.Option](../../models/operations/option.md)                                                       | :heavy_minus_sign:                                                                                             | The options for this request.                                                                                  |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `organizationID`                                         | *string*                                                 | :heavy_check_mark:                                       | Organization identifier                                  |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
 
@@ -153,26 +153,27 @@ package main
 
 import(
 	"context"
-	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
 	"os"
+	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
 	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/operations"
 	"log"
 )
 
 func main() {
     ctx := context.Background()
 
-    s := criblcloudmanagementsdkgo.New()
+    s := criblcloudmanagementsdkgo.New(
+        criblcloudmanagementsdkgo.WithSecurity(components.Security{
+            ClientOauth: &components.SchemeClientOauth{
+                ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
+                ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
+                TokenURL: os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
+                Audience: "https://publicapi.cribl.cloud",
+            },
+        }),
+    )
 
-    res, err := s.Workspaces.Update(ctx, operations.V1WorkspacesUpdateWorkspaceSecurity{
-        Oauth2: &components.SchemeOauth2{
-            ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
-            ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
-            TokenURL: os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
-            Audience: "https://publicapi.cribl.cloud",
-        },
-    }, "<id>", "<id>", components.WorkspacePatchRequestDTO{
+    res, err := s.Workspaces.Update(ctx, "<id>", "<id>", components.WorkspacePatchRequestDTO{
         Alias: criblcloudmanagementsdkgo.String("Production Environment"),
         Description: criblcloudmanagementsdkgo.String("Main production workspace for customer data processing"),
         Tags: []string{
@@ -191,14 +192,13 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                                            | :heavy_check_mark:                                                                                               | The context to use for the request.                                                                              |
-| `security`                                                                                                       | [operations.V1WorkspacesUpdateWorkspaceSecurity](../../models/operations/v1workspacesupdateworkspacesecurity.md) | :heavy_check_mark:                                                                                               | The security requirements to use for the request.                                                                |
-| `organizationID`                                                                                                 | *string*                                                                                                         | :heavy_check_mark:                                                                                               | Organization identifier                                                                                          |
-| `workspaceID`                                                                                                    | *string*                                                                                                         | :heavy_check_mark:                                                                                               | Workspace identifier                                                                                             |
-| `workspacePatchRequestDTO`                                                                                       | [components.WorkspacePatchRequestDTO](../../models/components/workspacepatchrequestdto.md)                       | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `opts`                                                                                                           | [][operations.Option](../../models/operations/option.md)                                                         | :heavy_minus_sign:                                                                                               | The options for this request.                                                                                    |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `organizationID`                                                                           | *string*                                                                                   | :heavy_check_mark:                                                                         | Organization identifier                                                                    |
+| `workspaceID`                                                                              | *string*                                                                                   | :heavy_check_mark:                                                                         | Workspace identifier                                                                       |
+| `workspacePatchRequestDTO`                                                                 | [components.WorkspacePatchRequestDTO](../../models/components/workspacepatchrequestdto.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `opts`                                                                                     | [][operations.Option](../../models/operations/option.md)                                   | :heavy_minus_sign:                                                                         | The options for this request.                                                              |
 
 ### Response
 
@@ -222,26 +222,27 @@ package main
 
 import(
 	"context"
-	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
 	"os"
+	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
 	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/operations"
 	"log"
 )
 
 func main() {
     ctx := context.Background()
 
-    s := criblcloudmanagementsdkgo.New()
+    s := criblcloudmanagementsdkgo.New(
+        criblcloudmanagementsdkgo.WithSecurity(components.Security{
+            ClientOauth: &components.SchemeClientOauth{
+                ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
+                ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
+                TokenURL: os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
+                Audience: "https://publicapi.cribl.cloud",
+            },
+        }),
+    )
 
-    res, err := s.Workspaces.Delete(ctx, operations.V1WorkspacesDeleteWorkspaceSecurity{
-        Oauth2: &components.SchemeOauth2{
-            ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
-            ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
-            TokenURL: os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
-            Audience: "https://publicapi.cribl.cloud",
-        },
-    }, "<id>", "<id>")
+    res, err := s.Workspaces.Delete(ctx, "<id>", "<id>")
     if err != nil {
         log.Fatal(err)
     }
@@ -253,13 +254,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                                            | :heavy_check_mark:                                                                                               | The context to use for the request.                                                                              |
-| `security`                                                                                                       | [operations.V1WorkspacesDeleteWorkspaceSecurity](../../models/operations/v1workspacesdeleteworkspacesecurity.md) | :heavy_check_mark:                                                                                               | The security requirements to use for the request.                                                                |
-| `organizationID`                                                                                                 | *string*                                                                                                         | :heavy_check_mark:                                                                                               | Organization identifier                                                                                          |
-| `workspaceID`                                                                                                    | *string*                                                                                                         | :heavy_check_mark:                                                                                               | Workspace identifier                                                                                             |
-| `opts`                                                                                                           | [][operations.Option](../../models/operations/option.md)                                                         | :heavy_minus_sign:                                                                                               | The options for this request.                                                                                    |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `organizationID`                                         | *string*                                                 | :heavy_check_mark:                                       | Organization identifier                                  |
+| `workspaceID`                                            | *string*                                                 | :heavy_check_mark:                                       | Workspace identifier                                     |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
 
@@ -283,26 +283,27 @@ package main
 
 import(
 	"context"
-	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
 	"os"
+	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
 	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/operations"
 	"log"
 )
 
 func main() {
     ctx := context.Background()
 
-    s := criblcloudmanagementsdkgo.New()
+    s := criblcloudmanagementsdkgo.New(
+        criblcloudmanagementsdkgo.WithSecurity(components.Security{
+            ClientOauth: &components.SchemeClientOauth{
+                ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
+                ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
+                TokenURL: os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
+                Audience: "https://publicapi.cribl.cloud",
+            },
+        }),
+    )
 
-    res, err := s.Workspaces.Get(ctx, operations.V1WorkspacesGetWorkspaceSecurity{
-        Oauth2: &components.SchemeOauth2{
-            ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
-            ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
-            TokenURL: os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
-            Audience: "https://publicapi.cribl.cloud",
-        },
-    }, "<id>", "<id>")
+    res, err := s.Workspaces.Get(ctx, "<id>", "<id>")
     if err != nil {
         log.Fatal(err)
     }
@@ -314,13 +315,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
-| `security`                                                                                                 | [operations.V1WorkspacesGetWorkspaceSecurity](../../models/operations/v1workspacesgetworkspacesecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
-| `organizationID`                                                                                           | *string*                                                                                                   | :heavy_check_mark:                                                                                         | Organization identifier                                                                                    |
-| `workspaceID`                                                                                              | *string*                                                                                                   | :heavy_check_mark:                                                                                         | Workspace identifier                                                                                       |
-| `opts`                                                                                                     | [][operations.Option](../../models/operations/option.md)                                                   | :heavy_minus_sign:                                                                                         | The options for this request.                                                                              |
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `organizationID`                                         | *string*                                                 | :heavy_check_mark:                                       | Organization identifier                                  |
+| `workspaceID`                                            | *string*                                                 | :heavy_check_mark:                                       | Workspace identifier                                     |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
 
 ### Response
 

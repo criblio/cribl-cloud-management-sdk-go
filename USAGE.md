@@ -15,9 +15,12 @@ func main() {
 
 	s := criblcloudmanagementsdkgo.New(
 		criblcloudmanagementsdkgo.WithSecurity(components.Security{
-			ClientID:     criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_ID")),
-			ClientSecret: criblcloudmanagementsdkgo.String(os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET")),
-			Audience:     criblcloudmanagementsdkgo.String("https://publicapi.cribl.cloud"),
+			ClientOauth: &components.SchemeClientOauth{
+				ClientID:     os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
+				ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
+				TokenURL:     os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
+				Audience:     "https://publicapi.cribl.cloud",
+			},
 		}),
 	)
 
