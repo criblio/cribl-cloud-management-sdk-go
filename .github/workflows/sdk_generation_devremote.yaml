@@ -43,33 +43,47 @@ jobs:
         run: |
           set -euo pipefail
 
-          BASE=$(yq -r '.go.version' .speakeasy/gen.yaml)
-          BASE="${BASE%%-*}"   # strip existing prerelease (anything after first '-')
+          BASE_GEN=$(yq -r '.go.version' .speakeasy/gen.yaml)
+          BASE_STRIPPED="${BASE_GEN%%-*}"   # e.g. 1.2.3 from 1.2.3-alpha.5
 
-          IFS='.' read -r major minor patch <<< "$BASE"
-          patch=$((patch + 1))
-          BASE="${major}.${minor}.${patch}"
+          echo "Version from gen.yaml: ${BASE_GEN}"
+          echo "Stripped base:         ${BASE_STRIPPED}"
 
-          PREFIX="${BASE}-alpha."    # append '-alpha.'
+          # Fetch tags (add --refs to avoid peeled ^{} entries)
+          git fetch --tags --quiet || true
 
-          echo "Base version: ${BASE}"
-          echo "Prefix: ${PREFIX}"
+          # DEBUG: show last tags
+          echo "Last tags on origin:"
+          git ls-remote --tags --refs origin | awk '{print $2}' | sed 's|refs/tags/||' | tail -n 50 || true
 
-          echo "Fetching remote tags..."
-          git fetch --tags --quiet
+          # If there are alphas for BASE_STRIPPED (with or without leading 'v'), keep that base; otherwise bump patch
+          if git ls-remote --tags --refs origin | awk '{print $2}' | sed 's|refs/tags/||' \
+              | grep -qE "^(v)?${BASE_STRIPPED}-alpha\.[0-9]+$"; then
+            BASE="${BASE_STRIPPED}"
+            echo "Found existing alpha tags for ${BASE}. Will increment alpha."
+          else
+            IFS='.' read -r major minor patch <<< "${BASE_STRIPPED}"
+            patch=$((patch + 1))
+            BASE="${major}.${minor}.${patch}"
+            echo "No alphas for ${BASE_STRIPPED}. Bumping patch to ${BASE} and starting alpha.1."
+          fi
 
-          echo "Last few remote tags:"
-          git ls-remote --tags origin | tail -n 20 || true
+          PREFIX="${BASE}-alpha."
 
+          # Helper to check tag existence with/without 'v' (use --refs; no sed with \^\{\})
+          tag_exists() {
+            git ls-remote --tags --refs origin | awk '{print $2}' | sed 's|refs/tags/||' \
+              | grep -qx -e "${1}" -e "v${1}"
+          }
+
+          # Find next available alpha number (with logging)
           n=1
-          while true; do
-            echo "Checking if tag exists: ${PREFIX}${n}"
-            if [[ -z "$(git ls-remote --tags origin "${PREFIX}${n}" || true)" ]]; then
-              break
-            fi
+          while tag_exists "${PREFIX}${n}"; do
+            echo "Tag already exists: ${PREFIX}${n} (or v${PREFIX}${n}), trying next..."
             n=$((n+1))
           done
 
+          echo "First free alpha tag: ${PREFIX}${n}"
           FINAL="${PREFIX}${n}"
           echo "Computed prerelease: ${FINAL}"
           echo "version=${FINAL}" >> "$GITHUB_OUTPUT"
