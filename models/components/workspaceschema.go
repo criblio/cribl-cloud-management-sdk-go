@@ -71,7 +71,7 @@ func (w WorkspaceSchema) MarshalJSON() ([]byte, error) {
 }
 
 func (w *WorkspaceSchema) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+	if err := utils.UnmarshalJSON(data, &w, "", false, []string{"workspaceId", "region", "lastUpdated", "leaderFQDN", "state"}); err != nil {
 		return err
 	}
 	return nil
