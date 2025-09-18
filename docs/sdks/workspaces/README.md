@@ -38,7 +38,7 @@ func main() {
                 ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
                 ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
                 TokenURL: os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
-                Audience: "https://publicapi.cribl.cloud",
+                Audience: "https://api.cribl.cloud",
             },
         }),
     )
@@ -108,7 +108,7 @@ func main() {
                 ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
                 ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
                 TokenURL: os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
-                Audience: "https://publicapi.cribl.cloud",
+                Audience: "https://api.cribl.cloud",
             },
         }),
     )
@@ -168,7 +168,7 @@ func main() {
                 ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
                 ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
                 TokenURL: os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
-                Audience: "https://publicapi.cribl.cloud",
+                Audience: "https://api.cribl.cloud",
             },
         }),
     )
@@ -237,7 +237,7 @@ func main() {
                 ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
                 ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
                 TokenURL: os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
-                Audience: "https://publicapi.cribl.cloud",
+                Audience: "https://api.cribl.cloud",
             },
         }),
     )
@@ -298,7 +298,7 @@ func main() {
                 ClientID: os.Getenv("CRIBLMGMTPLANE_CLIENT_ID"),
                 ClientSecret: os.Getenv("CRIBLMGMTPLANE_CLIENT_SECRET"),
                 TokenURL: os.Getenv("CRIBLMGMTPLANE_TOKEN_URL"),
-                Audience: "https://publicapi.cribl.cloud",
+                Audience: "https://api.cribl.cloud",
             },
         }),
     )
