@@ -14,25 +14,25 @@ type V1WorkspacesUpdateWorkspaceRequest struct {
 	WorkspacePatchRequestDTO components.WorkspacePatchRequestDTO `request:"mediaType=application/json"`
 }
 
-func (o *V1WorkspacesUpdateWorkspaceRequest) GetOrganizationID() string {
-	if o == nil {
+func (v *V1WorkspacesUpdateWorkspaceRequest) GetOrganizationID() string {
+	if v == nil {
 		return ""
 	}
-	return o.OrganizationID
+	return v.OrganizationID
 }
 
-func (o *V1WorkspacesUpdateWorkspaceRequest) GetWorkspaceID() string {
-	if o == nil {
+func (v *V1WorkspacesUpdateWorkspaceRequest) GetWorkspaceID() string {
+	if v == nil {
 		return ""
 	}
-	return o.WorkspaceID
+	return v.WorkspaceID
 }
 
-func (o *V1WorkspacesUpdateWorkspaceRequest) GetWorkspacePatchRequestDTO() components.WorkspacePatchRequestDTO {
-	if o == nil {
+func (v *V1WorkspacesUpdateWorkspaceRequest) GetWorkspacePatchRequestDTO() components.WorkspacePatchRequestDTO {
+	if v == nil {
 		return components.WorkspacePatchRequestDTO{}
 	}
-	return o.WorkspacePatchRequestDTO
+	return v.WorkspacePatchRequestDTO
 }
 
 type V1WorkspacesUpdateWorkspaceResponse struct {
@@ -41,16 +41,16 @@ type V1WorkspacesUpdateWorkspaceResponse struct {
 	WorkspaceSchema *components.WorkspaceSchema
 }
 
-func (o *V1WorkspacesUpdateWorkspaceResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V1WorkspacesUpdateWorkspaceResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V1WorkspacesUpdateWorkspaceResponse) GetWorkspaceSchema() *components.WorkspaceSchema {
-	if o == nil {
+func (v *V1WorkspacesUpdateWorkspaceResponse) GetWorkspaceSchema() *components.WorkspaceSchema {
+	if v == nil {
 		return nil
 	}
-	return o.WorkspaceSchema
+	return v.WorkspaceSchema
 }

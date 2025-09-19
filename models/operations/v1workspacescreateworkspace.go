@@ -12,18 +12,18 @@ type V1WorkspacesCreateWorkspaceRequest struct {
 	WorkspaceCreateRequestDTO components.WorkspaceCreateRequestDTO `request:"mediaType=application/json"`
 }
 
-func (o *V1WorkspacesCreateWorkspaceRequest) GetOrganizationID() string {
-	if o == nil {
+func (v *V1WorkspacesCreateWorkspaceRequest) GetOrganizationID() string {
+	if v == nil {
 		return ""
 	}
-	return o.OrganizationID
+	return v.OrganizationID
 }
 
-func (o *V1WorkspacesCreateWorkspaceRequest) GetWorkspaceCreateRequestDTO() components.WorkspaceCreateRequestDTO {
-	if o == nil {
+func (v *V1WorkspacesCreateWorkspaceRequest) GetWorkspaceCreateRequestDTO() components.WorkspaceCreateRequestDTO {
+	if v == nil {
 		return components.WorkspaceCreateRequestDTO{}
 	}
-	return o.WorkspaceCreateRequestDTO
+	return v.WorkspaceCreateRequestDTO
 }
 
 type V1WorkspacesCreateWorkspaceResponse struct {
@@ -32,16 +32,16 @@ type V1WorkspacesCreateWorkspaceResponse struct {
 	WorkspaceSchema *components.WorkspaceSchema
 }
 
-func (o *V1WorkspacesCreateWorkspaceResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V1WorkspacesCreateWorkspaceResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V1WorkspacesCreateWorkspaceResponse) GetWorkspaceSchema() *components.WorkspaceSchema {
-	if o == nil {
+func (v *V1WorkspacesCreateWorkspaceResponse) GetWorkspaceSchema() *components.WorkspaceSchema {
+	if v == nil {
 		return nil
 	}
-	return o.WorkspaceSchema
+	return v.WorkspaceSchema
 }

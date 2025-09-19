@@ -13,27 +13,27 @@ type V1WorkspacesDeleteWorkspaceRequest struct {
 	WorkspaceID string `pathParam:"style=simple,explode=false,name=workspaceId"`
 }
 
-func (o *V1WorkspacesDeleteWorkspaceRequest) GetOrganizationID() string {
-	if o == nil {
+func (v *V1WorkspacesDeleteWorkspaceRequest) GetOrganizationID() string {
+	if v == nil {
 		return ""
 	}
-	return o.OrganizationID
+	return v.OrganizationID
 }
 
-func (o *V1WorkspacesDeleteWorkspaceRequest) GetWorkspaceID() string {
-	if o == nil {
+func (v *V1WorkspacesDeleteWorkspaceRequest) GetWorkspaceID() string {
+	if v == nil {
 		return ""
 	}
-	return o.WorkspaceID
+	return v.WorkspaceID
 }
 
 type V1WorkspacesDeleteWorkspaceResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 }
 
-func (o *V1WorkspacesDeleteWorkspaceResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V1WorkspacesDeleteWorkspaceResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
