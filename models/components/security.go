@@ -7,16 +7,16 @@ type Security struct {
 	BearerAuth  *string            `security:"scheme,type=http,subtype=bearer,name=Authorization,env=criblmgmtplane_bearer_auth"`
 }
 
-func (o *Security) GetClientOauth() *SchemeClientOauth {
-	if o == nil {
+func (s *Security) GetClientOauth() *SchemeClientOauth {
+	if s == nil {
 		return nil
 	}
-	return o.ClientOauth
+	return s.ClientOauth
 }
 
-func (o *Security) GetBearerAuth() *string {
-	if o == nil {
+func (s *Security) GetBearerAuth() *string {
+	if s == nil {
 		return nil
 	}
-	return o.BearerAuth
+	return s.BearerAuth
 }

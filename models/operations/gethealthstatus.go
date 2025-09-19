@@ -8,11 +8,20 @@ import (
 
 type GetHealthStatusResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
+	// Health status
+	String *string
 }
 
-func (o *GetHealthStatusResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (g *GetHealthStatusResponse) GetHTTPMeta() components.HTTPMetadata {
+	if g == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return g.HTTPMeta
+}
+
+func (g *GetHealthStatusResponse) GetString() *string {
+	if g == nil {
+		return nil
+	}
+	return g.String
 }
