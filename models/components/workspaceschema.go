@@ -77,58 +77,58 @@ func (w *WorkspaceSchema) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *WorkspaceSchema) GetWorkspaceID() string {
-	if o == nil {
+func (w *WorkspaceSchema) GetWorkspaceID() string {
+	if w == nil {
 		return ""
 	}
-	return o.WorkspaceID
+	return w.WorkspaceID
 }
 
-func (o *WorkspaceSchema) GetRegion() WorkspaceSchemaRegion {
-	if o == nil {
+func (w *WorkspaceSchema) GetRegion() WorkspaceSchemaRegion {
+	if w == nil {
 		return WorkspaceSchemaRegion("")
 	}
-	return o.Region
+	return w.Region
 }
 
-func (o *WorkspaceSchema) GetLastUpdated() time.Time {
-	if o == nil {
+func (w *WorkspaceSchema) GetLastUpdated() time.Time {
+	if w == nil {
 		return time.Time{}
 	}
-	return o.LastUpdated
+	return w.LastUpdated
 }
 
-func (o *WorkspaceSchema) GetLeaderFQDN() string {
-	if o == nil {
+func (w *WorkspaceSchema) GetLeaderFQDN() string {
+	if w == nil {
 		return ""
 	}
-	return o.LeaderFQDN
+	return w.LeaderFQDN
 }
 
-func (o *WorkspaceSchema) GetState() State {
-	if o == nil {
+func (w *WorkspaceSchema) GetState() State {
+	if w == nil {
 		return State("")
 	}
-	return o.State
+	return w.State
 }
 
-func (o *WorkspaceSchema) GetAlias() *string {
-	if o == nil {
+func (w *WorkspaceSchema) GetAlias() *string {
+	if w == nil {
 		return nil
 	}
-	return o.Alias
+	return w.Alias
 }
 
-func (o *WorkspaceSchema) GetDescription() *string {
-	if o == nil {
+func (w *WorkspaceSchema) GetDescription() *string {
+	if w == nil {
 		return nil
 	}
-	return o.Description
+	return w.Description
 }
 
-func (o *WorkspaceSchema) GetTags() []string {
-	if o == nil {
+func (w *WorkspaceSchema) GetTags() []string {
+	if w == nil {
 		return nil
 	}
-	return o.Tags
+	return w.Tags
 }

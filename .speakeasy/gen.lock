@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
-  docChecksum: 7404c277a0729540f2d95a7398460668
+  docChecksum: d3d33dc8a115e8df70f0526bdacbfb60
   docVersion: "1.0"
-  speakeasyVersion: 1.613.0
-  generationVersion: 2.696.0
-  releaseVersion: 0.0.11
-  configChecksum: 78db41934b2c5900d80b91721d57fa62
+  speakeasyVersion: 1.621.0
+  generationVersion: 2.707.0
+  releaseVersion: 0.1.0
+  configChecksum: 061a7b2932d74c1ae34db9e1b4e053b3
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.9.6
+    core: 3.11.0
     defaultEnabledRetries: 0.2.0
     devContainers: 2.90.0
     envVarSecurityUsage: 0.3.2
     flattening: 2.81.1
-    globalSecurity: 2.82.11
+    globalSecurity: 2.82.12
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.3
     groups: 2.81.2
@@ -93,6 +93,8 @@ generatedFiles:
   - internal/utils/utils.go
   - models/apierrors/apierror.go
   - models/operations/options.go
+  - optionalnullable/optionalnullable.go
+  - optionalnullable/optionalnullable_test.go
   - retry/config.go
   - types/bigint.go
   - types/date.go
@@ -102,7 +104,11 @@ generatedFiles:
   - workspaces.go
 examples:
   dummyServiceStatus: {}
-  getHealthStatus: {}
+  getHealthStatus:
+    speakeasy-default-get-health-status:
+      responses:
+        "200":
+          application/json: "OK"
   v1.workspaces.createWorkspace:
     speakeasy-default-v1-workspaces-create-workspace:
       parameters:
@@ -150,3 +156,6 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:27:27+02:00"
+releaseNotes: |
+  ## Go SDK Changes Detected:
+  * `CriblMgmtPlane.Health.Get()`:  `response` **Changed** **Breaking** :warning:

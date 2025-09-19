@@ -32,37 +32,37 @@ type WorkspaceCreateRequestDTO struct {
 	Tags []string `json:"tags,omitempty"`
 }
 
-func (o *WorkspaceCreateRequestDTO) GetWorkspaceID() string {
-	if o == nil {
+func (w *WorkspaceCreateRequestDTO) GetWorkspaceID() string {
+	if w == nil {
 		return ""
 	}
-	return o.WorkspaceID
+	return w.WorkspaceID
 }
 
-func (o *WorkspaceCreateRequestDTO) GetRegion() WorkspaceCreateRequestDTORegion {
-	if o == nil {
+func (w *WorkspaceCreateRequestDTO) GetRegion() WorkspaceCreateRequestDTORegion {
+	if w == nil {
 		return WorkspaceCreateRequestDTORegion("")
 	}
-	return o.Region
+	return w.Region
 }
 
-func (o *WorkspaceCreateRequestDTO) GetAlias() *string {
-	if o == nil {
+func (w *WorkspaceCreateRequestDTO) GetAlias() *string {
+	if w == nil {
 		return nil
 	}
-	return o.Alias
+	return w.Alias
 }
 
-func (o *WorkspaceCreateRequestDTO) GetDescription() *string {
-	if o == nil {
+func (w *WorkspaceCreateRequestDTO) GetDescription() *string {
+	if w == nil {
 		return nil
 	}
-	return o.Description
+	return w.Description
 }
 
-func (o *WorkspaceCreateRequestDTO) GetTags() []string {
-	if o == nil {
+func (w *WorkspaceCreateRequestDTO) GetTags() []string {
+	if w == nil {
 		return nil
 	}
-	return o.Tags
+	return w.Tags
 }
