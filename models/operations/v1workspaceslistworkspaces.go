@@ -11,11 +11,11 @@ type V1WorkspacesListWorkspacesRequest struct {
 	OrganizationID string `pathParam:"style=simple,explode=false,name=organizationId"`
 }
 
-func (o *V1WorkspacesListWorkspacesRequest) GetOrganizationID() string {
-	if o == nil {
+func (v *V1WorkspacesListWorkspacesRequest) GetOrganizationID() string {
+	if v == nil {
 		return ""
 	}
-	return o.OrganizationID
+	return v.OrganizationID
 }
 
 type V1WorkspacesListWorkspacesResponse struct {
@@ -24,16 +24,16 @@ type V1WorkspacesListWorkspacesResponse struct {
 	WorkspacesListResponseDTO *components.WorkspacesListResponseDTO
 }
 
-func (o *V1WorkspacesListWorkspacesResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V1WorkspacesListWorkspacesResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V1WorkspacesListWorkspacesResponse) GetWorkspacesListResponseDTO() *components.WorkspacesListResponseDTO {
-	if o == nil {
+func (v *V1WorkspacesListWorkspacesResponse) GetWorkspacesListResponseDTO() *components.WorkspacesListResponseDTO {
+	if v == nil {
 		return nil
 	}
-	return o.WorkspacesListResponseDTO
+	return v.WorkspacesListResponseDTO
 }

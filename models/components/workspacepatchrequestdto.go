@@ -11,23 +11,23 @@ type WorkspacePatchRequestDTO struct {
 	Tags []string `json:"tags,omitempty"`
 }
 
-func (o *WorkspacePatchRequestDTO) GetAlias() *string {
-	if o == nil {
+func (w *WorkspacePatchRequestDTO) GetAlias() *string {
+	if w == nil {
 		return nil
 	}
-	return o.Alias
+	return w.Alias
 }
 
-func (o *WorkspacePatchRequestDTO) GetDescription() *string {
-	if o == nil {
+func (w *WorkspacePatchRequestDTO) GetDescription() *string {
+	if w == nil {
 		return nil
 	}
-	return o.Description
+	return w.Description
 }
 
-func (o *WorkspacePatchRequestDTO) GetTags() []string {
-	if o == nil {
+func (w *WorkspacePatchRequestDTO) GetTags() []string {
+	if w == nil {
 		return nil
 	}
-	return o.Tags
+	return w.Tags
 }

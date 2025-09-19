@@ -13,18 +13,18 @@ type V1WorkspacesGetWorkspaceRequest struct {
 	WorkspaceID string `pathParam:"style=simple,explode=false,name=workspaceId"`
 }
 
-func (o *V1WorkspacesGetWorkspaceRequest) GetOrganizationID() string {
-	if o == nil {
+func (v *V1WorkspacesGetWorkspaceRequest) GetOrganizationID() string {
+	if v == nil {
 		return ""
 	}
-	return o.OrganizationID
+	return v.OrganizationID
 }
 
-func (o *V1WorkspacesGetWorkspaceRequest) GetWorkspaceID() string {
-	if o == nil {
+func (v *V1WorkspacesGetWorkspaceRequest) GetWorkspaceID() string {
+	if v == nil {
 		return ""
 	}
-	return o.WorkspaceID
+	return v.WorkspaceID
 }
 
 type V1WorkspacesGetWorkspaceResponse struct {
@@ -33,16 +33,16 @@ type V1WorkspacesGetWorkspaceResponse struct {
 	WorkspaceSchema *components.WorkspaceSchema
 }
 
-func (o *V1WorkspacesGetWorkspaceResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V1WorkspacesGetWorkspaceResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V1WorkspacesGetWorkspaceResponse) GetWorkspaceSchema() *components.WorkspaceSchema {
-	if o == nil {
+func (v *V1WorkspacesGetWorkspaceResponse) GetWorkspaceSchema() *components.WorkspaceSchema {
+	if v == nil {
 		return nil
 	}
-	return o.WorkspaceSchema
+	return v.WorkspaceSchema
 }
