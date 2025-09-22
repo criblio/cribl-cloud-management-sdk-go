@@ -9,7 +9,7 @@ import (
 type SchemeClientOauth struct {
 	ClientID     string `security:"name=clientID,env=criblmgmtplane_client_id"`
 	ClientSecret string `security:"name=clientSecret,env=criblmgmtplane_client_secret"`
-	TokenURL     string `default:"https://login.cribl.cloud/oauth2/token"`
+	TokenURL     string `default:"https://login.cribl.cloud/oauth/token"`
 	Audience     string `security:"name=audience,env=criblmgmtplane_audience"`
 }
 
