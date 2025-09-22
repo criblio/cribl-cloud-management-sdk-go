@@ -6,10 +6,22 @@ import (
 	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
 )
 
+// GetHealthStatusResponseBody - Health status
+type GetHealthStatusResponseBody struct {
+	Status *string `json:"status,omitempty"`
+}
+
+func (g *GetHealthStatusResponseBody) GetStatus() *string {
+	if g == nil {
+		return nil
+	}
+	return g.Status
+}
+
 type GetHealthStatusResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Health status
-	String *string
+	Object *GetHealthStatusResponseBody
 }
 
 func (g *GetHealthStatusResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -19,9 +31,9 @@ func (g *GetHealthStatusResponse) GetHTTPMeta() components.HTTPMetadata {
 	return g.HTTPMeta
 }
 
-func (g *GetHealthStatusResponse) GetString() *string {
+func (g *GetHealthStatusResponse) GetObject() *GetHealthStatusResponseBody {
 	if g == nil {
 		return nil
 	}
-	return g.String
+	return g.Object
 }
