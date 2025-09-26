@@ -3,16 +3,16 @@ id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
   docChecksum: 0d92af91f65020024afcb5ddf963eea6
   docVersion: "1.0"
-  speakeasyVersion: 1.621.0
-  generationVersion: 2.707.0
-  releaseVersion: 0.0.13
-  configChecksum: 19472129bf1b982177d3779022e8ee2a
+  speakeasyVersion: 1.630.0
+  generationVersion: 2.716.10
+  releaseVersion: 0.0.14
+  configChecksum: aa24172407ee822ebfbdaa6c0d5a52f1
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.11.0
+    core: 3.11.1
     defaultEnabledRetries: 0.2.0
     devContainers: 2.90.0
     envVarSecurityUsage: 0.3.2
@@ -100,7 +100,6 @@ generatedFiles:
   - types/bigint.go
   - types/date.go
   - types/datetime.go
-  - types/decimal.go
   - types/pointers.go
   - workspaces.go
 examples:
@@ -157,6 +156,3 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:27:27+02:00"
-releaseNotes: |
-  ## Go SDK Changes Detected:
-  * `CriblMgmtPlane.Health.Get()`:  `response` **Changed** **Breaking** :warning:
