@@ -1,4 +1,4 @@
-name: Generate alpha SDK from dev-remote
+name: Generate RC SDK from dev-remote
 permissions:
   checks: write
   contents: write
@@ -38,13 +38,13 @@ jobs:
           sudo curl -L https://github.com/mikefarah/yq/releases/download/v4.44.3/yq_linux_amd64 -o /usr/local/bin/yq
           sudo chmod +x /usr/local/bin/yq
 
-      - name: Compute prerelease version (X.Y.Z-alpha.<n>)
+      - name: Compute prerelease version (X.Y.Z-rc.<n>)
         id: ver
         run: |
           set -euo pipefail
 
           BASE_GEN=$(yq -r '.go.version' .speakeasy/gen.yaml)
-          BASE_STRIPPED="${BASE_GEN%%-*}"   # e.g. 1.2.3 from 1.2.3-alpha.5
+          BASE_STRIPPED="${BASE_GEN%%-*}"   # e.g. 1.2.3 from 1.2.3-rc.5
 
           echo "Version from gen.yaml: ${BASE_GEN}"
           echo "Stripped base:         ${BASE_STRIPPED}"
@@ -56,19 +56,19 @@ jobs:
           echo "Last tags on origin:"
           git ls-remote --tags --refs origin | awk '{print $2}' | sed 's|refs/tags/||' | tail -n 50 || true
 
-          # If there are alphas for BASE_STRIPPED (with or without leading 'v'), keep that base; otherwise bump patch
+          # If there are rc tags for BASE_STRIPPED (with or without leading 'v'), keep that base; otherwise bump patch
           if git ls-remote --tags --refs origin | awk '{print $2}' | sed 's|refs/tags/||' \
-              | grep -qE "^(v)?${BASE_STRIPPED}-alpha\.[0-9]+$"; then
+              | grep -qE "^(v)?${BASE_STRIPPED}-rc\.[0-9]+$"; then
             BASE="${BASE_STRIPPED}"
-            echo "Found existing alpha tags for ${BASE}. Will increment alpha."
+            echo "Found existing rc tags for ${BASE}. Will increment rc."
           else
             IFS='.' read -r major minor patch <<< "${BASE_STRIPPED}"
             patch=$((patch + 1))
             BASE="${major}.${minor}.${patch}"
-            echo "No alphas for ${BASE_STRIPPED}. Bumping patch to ${BASE} and starting alpha.1."
+            echo "No rc tags for ${BASE_STRIPPED}. Bumping patch to ${BASE} and starting rc.1."
           fi
 
-          PREFIX="${BASE}-alpha."
+          PREFIX="${BASE}-rc."
 
           # Helper to check tag existence with/without 'v' (use --refs; no sed with \^\{\})
           tag_exists() {
@@ -76,21 +76,21 @@ jobs:
               | grep -qx -e "${1}" -e "v${1}"
           }
 
-          # Find next available alpha number (with logging)
+          # Find next available rc number (with logging)
           n=1
           while tag_exists "${PREFIX}${n}"; do
             echo "Tag already exists: ${PREFIX}${n} (or v${PREFIX}${n}), trying next..."
             n=$((n+1))
           done
 
-          echo "First free alpha tag: ${PREFIX}${n}"
+          echo "First free rc tag: ${PREFIX}${n}"
           FINAL="${PREFIX}${n}"
           echo "Computed prerelease: ${FINAL}"
           echo "version=${FINAL}" >> "$GITHUB_OUTPUT"
 
   generate:
     needs: [check-branch, compute-version]
-    uses: speakeasy-api/sdk-generation-action/.github/workflows/workflow-executor.yaml@57452fc95969792de6734a91400a24aeb409964c
+    uses: speakeasy-api/sdk-generation-action/.github/workflows/workflow-executor.yaml@4e332794f1c7418be3303074451e6694c1e62d50
     with:
       force: true
       mode: pr
