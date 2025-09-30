@@ -1,4 +1,4 @@
-name: Generate RC SDK from openapi-prerelease
+name: Generate RC SDK (Prerelease)
 permissions:
   checks: write
   contents: write
