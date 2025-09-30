@@ -7,20 +7,22 @@ import (
 	"time"
 )
 
-// WorkspaceSchemaRegion - AWS region where the workspace is deployed
-type WorkspaceSchemaRegion string
+// Region - AWS region where the workspace is deployed
+type Region string
 
 const (
-	WorkspaceSchemaRegionUsWest2      WorkspaceSchemaRegion = "us-west-2"
-	WorkspaceSchemaRegionUsEast1      WorkspaceSchemaRegion = "us-east-1"
-	WorkspaceSchemaRegionEuCentral1   WorkspaceSchemaRegion = "eu-central-1"
-	WorkspaceSchemaRegionEuWest2      WorkspaceSchemaRegion = "eu-west-2"
-	WorkspaceSchemaRegionApSoutheast2 WorkspaceSchemaRegion = "ap-southeast-2"
-	WorkspaceSchemaRegionCaCentral1   WorkspaceSchemaRegion = "ca-central-1"
-	WorkspaceSchemaRegionUsEast2      WorkspaceSchemaRegion = "us-east-2"
+	RegionUsWest2      Region = "us-west-2"
+	RegionUsEast1      Region = "us-east-1"
+	RegionUsEast2      Region = "us-east-2"
+	RegionEuCentral1   Region = "eu-central-1"
+	RegionEuCentral2   Region = "eu-central-2"
+	RegionEuWest2      Region = "eu-west-2"
+	RegionApSoutheast1 Region = "ap-southeast-1"
+	RegionApSoutheast2 Region = "ap-southeast-2"
+	RegionCaCentral1   Region = "ca-central-1"
 )
 
-func (e WorkspaceSchemaRegion) ToPointer() *WorkspaceSchemaRegion {
+func (e Region) ToPointer() *Region {
 	return &e
 }
 
@@ -51,7 +53,7 @@ type WorkspaceSchema struct {
 	// Unique identifier for the workspace
 	WorkspaceID string `json:"workspaceId"`
 	// AWS region where the workspace is deployed
-	Region WorkspaceSchemaRegion `json:"region"`
+	Region Region `json:"region"`
 	// Timestamp when the workspace was last updated
 	LastUpdated time.Time `json:"lastUpdated"`
 	// Fully Qualified Domain Name of the workspace leader
@@ -84,9 +86,9 @@ func (w *WorkspaceSchema) GetWorkspaceID() string {
 	return w.WorkspaceID
 }
 
-func (w *WorkspaceSchema) GetRegion() WorkspaceSchemaRegion {
+func (w *WorkspaceSchema) GetRegion() Region {
 	if w == nil {
-		return WorkspaceSchemaRegion("")
+		return Region("")
 	}
 	return w.Region
 }

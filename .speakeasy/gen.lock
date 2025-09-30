@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
-  docChecksum: 633acd97d990f091600e865bf339b0e0
+  docChecksum: ca76ceb1cc9305417f0c6ee9d56037f9
   docVersion: "1.0"
   speakeasyVersion: 1.631.5
   generationVersion: 2.716.16
-  releaseVersion: 0.0.15
-  configChecksum: e306a5c6ce26d6fef979701cb4a0b6f7
+  releaseVersion: 0.0.16
+  configChecksum: c9f62447590487a808ff0ef783da7b72
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 features:
@@ -49,14 +49,13 @@ generatedFiles:
   - USAGE.md
   - criblmgmtplane.go
   - docs/models/components/httpmetadata.md
+  - docs/models/components/region.md
   - docs/models/components/schemeclientoauth.md
   - docs/models/components/security.md
   - docs/models/components/state.md
   - docs/models/components/workspacecreaterequestdto.md
-  - docs/models/components/workspacecreaterequestdtoregion.md
   - docs/models/components/workspacepatchrequestdto.md
   - docs/models/components/workspaceschema.md
-  - docs/models/components/workspaceschemaregion.md
   - docs/models/components/workspaceslistresponsedto.md
   - docs/models/operations/gethealthstatusresponse.md
   - docs/models/operations/gethealthstatusresponsebody.md
@@ -115,7 +114,7 @@ examples:
         path:
           organizationId: "<id>"
       requestBody:
-        application/json: {"workspaceId": "main", "region": "us-west-2", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+        application/json: {"workspaceId": "main", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
       responses:
         "201":
           application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Workspace-Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
@@ -156,3 +155,4 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:27:27+02:00"
+releaseNotes: "## Go SDK Changes Detected:\n* `CriblMgmtPlane.Workspaces.Create()`: \n  *  `request.WorkspaceCreateRequestDto.Region` **Removed** **Breaking** :warning:\n"

@@ -47,7 +47,6 @@ func main() {
 
     res, err := s.Workspaces.Create(ctx, "<id>", components.WorkspaceCreateRequestDTO{
         WorkspaceID: "main",
-        Region: components.WorkspaceCreateRequestDTORegionUsWest2,
         Alias: criblcloudmanagementsdkgo.Pointer("Production Environment"),
         Description: criblcloudmanagementsdkgo.Pointer("Main production workspace for customer data processing"),
         Tags: []string{
