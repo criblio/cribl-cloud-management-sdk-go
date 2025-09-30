@@ -3,6 +3,8 @@
 
 ## Overview
 
+Operations related to workspaces
+
 ### Available Operations
 
 * [Create](#create) - Create a new workspace

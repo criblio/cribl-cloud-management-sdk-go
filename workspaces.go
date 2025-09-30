@@ -16,6 +16,7 @@ import (
 	"net/http"
 )
 
+// Workspaces - Operations related to workspaces
 type Workspaces struct {
 	rootSDK          *CriblMgmtPlane
 	sdkConfiguration config.SDKConfiguration
