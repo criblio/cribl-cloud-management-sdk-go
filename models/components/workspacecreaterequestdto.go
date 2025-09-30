@@ -2,28 +2,9 @@
 
 package components
 
-// WorkspaceCreateRequestDTORegion - AWS region where the workspace is deployed
-type WorkspaceCreateRequestDTORegion string
-
-const (
-	WorkspaceCreateRequestDTORegionUsWest2      WorkspaceCreateRequestDTORegion = "us-west-2"
-	WorkspaceCreateRequestDTORegionUsEast1      WorkspaceCreateRequestDTORegion = "us-east-1"
-	WorkspaceCreateRequestDTORegionEuCentral1   WorkspaceCreateRequestDTORegion = "eu-central-1"
-	WorkspaceCreateRequestDTORegionEuWest2      WorkspaceCreateRequestDTORegion = "eu-west-2"
-	WorkspaceCreateRequestDTORegionApSoutheast2 WorkspaceCreateRequestDTORegion = "ap-southeast-2"
-	WorkspaceCreateRequestDTORegionCaCentral1   WorkspaceCreateRequestDTORegion = "ca-central-1"
-	WorkspaceCreateRequestDTORegionUsEast2      WorkspaceCreateRequestDTORegion = "us-east-2"
-)
-
-func (e WorkspaceCreateRequestDTORegion) ToPointer() *WorkspaceCreateRequestDTORegion {
-	return &e
-}
-
 type WorkspaceCreateRequestDTO struct {
 	// Unique identifier for the workspace
 	WorkspaceID string `json:"workspaceId"`
-	// AWS region where the workspace is deployed
-	Region WorkspaceCreateRequestDTORegion `json:"region"`
 	// User-friendly alias for the workspace
 	Alias *string `json:"alias,omitempty"`
 	// Detailed description of the workspace
@@ -37,13 +18,6 @@ func (w *WorkspaceCreateRequestDTO) GetWorkspaceID() string {
 		return ""
 	}
 	return w.WorkspaceID
-}
-
-func (w *WorkspaceCreateRequestDTO) GetRegion() WorkspaceCreateRequestDTORegion {
-	if w == nil {
-		return WorkspaceCreateRequestDTORegion("")
-	}
-	return w.Region
 }
 
 func (w *WorkspaceCreateRequestDTO) GetAlias() *string {
