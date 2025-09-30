@@ -99,3 +99,13 @@ Based on:
 - [go v0.0.14] .
 ### Releases
 - [Go v0.0.14] https://github.com/criblio/cribl-cloud-management-sdk-go/releases/tag/v0.0.14 - .
+
+## 2025-09-30 08:53:27
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.631.5 (2.716.16) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [go v0.0.15] .
+### Releases
+- [Go v0.0.15] https://github.com/criblio/cribl-cloud-management-sdk-go/releases/tag/v0.0.15 - .

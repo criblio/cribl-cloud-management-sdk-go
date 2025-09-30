@@ -17,6 +17,7 @@ import (
 	"net/url"
 )
 
+// Health - Operations related to health
 type Health struct {
 	rootSDK          *CriblMgmtPlane
 	sdkConfiguration config.SDKConfiguration
