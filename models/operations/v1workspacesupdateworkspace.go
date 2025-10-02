@@ -7,9 +7,9 @@ import (
 )
 
 type V1WorkspacesUpdateWorkspaceRequest struct {
-	// Organization identifier
+	// The <code>id</code> of the Organization that contains the Workspace.
 	OrganizationID string `pathParam:"style=simple,explode=false,name=organizationId"`
-	// Workspace identifier
+	// The <code>id</code> of the Workspace to update.
 	WorkspaceID              string                              `pathParam:"style=simple,explode=false,name=workspaceId"`
 	WorkspacePatchRequestDTO components.WorkspacePatchRequestDTO `request:"mediaType=application/json"`
 }
@@ -37,7 +37,7 @@ func (v *V1WorkspacesUpdateWorkspaceRequest) GetWorkspacePatchRequestDTO() compo
 
 type V1WorkspacesUpdateWorkspaceResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// The workspace has been successfully updated
+	// The Workspace has been successfully updated
 	WorkspaceSchema *components.WorkspaceSchema
 }
 

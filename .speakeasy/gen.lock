@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
-  docChecksum: ca76ceb1cc9305417f0c6ee9d56037f9
+  docChecksum: ebd81f0fb2def17a26c531456e8fd0ea
   docVersion: "1.0"
   speakeasyVersion: 1.631.5
   generationVersion: 2.716.16
-  releaseVersion: 0.0.16
-  configChecksum: c9f62447590487a808ff0ef783da7b72
+  releaseVersion: 0.0.17
+  configChecksum: 24ebf919395133f1b05ea9ae45343b10
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 features:
@@ -155,4 +155,3 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:27:27+02:00"
-releaseNotes: "## Go SDK Changes Detected:\n* `CriblMgmtPlane.Workspaces.Create()`: \n  *  `request.WorkspaceCreateRequestDto.Region` **Removed** **Breaking** :warning:\n"
