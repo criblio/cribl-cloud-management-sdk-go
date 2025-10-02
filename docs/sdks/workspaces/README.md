@@ -3,19 +3,19 @@
 
 ## Overview
 
-Operations related to workspaces
+Operations related to Workspaces
 
 ### Available Operations
 
-* [Create](#create) - Create a new workspace
-* [List](#list) - List all workspaces for an organization
-* [Update](#update) - Update an existing workspace
-* [Delete](#delete) - Delete a workspace
-* [Get](#get) - Get a specific workspace by ID
+* [Create](#create) - Create a Workspace in the specified Organization
+* [List](#list) - List all Workspaces for the specified Organization
+* [Update](#update) - Update a Workspace
+* [Delete](#delete) - Delete a Workspace
+* [Get](#get) - Get a Workspace
 
 ## Create
 
-Create a new workspace
+Create a new Workspace in the specified Organization.
 
 ### Example Usage
 
@@ -68,7 +68,7 @@ func main() {
 | Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `organizationID`                                                                             | *string*                                                                                     | :heavy_check_mark:                                                                           | Organization identifier                                                                      |
+| `organizationID`                                                                             | *string*                                                                                     | :heavy_check_mark:                                                                           | The <code>id</code> of the Organization where you want to create the Workspace.              |
 | `workspaceCreateRequestDTO`                                                                  | [components.WorkspaceCreateRequestDTO](../../models/components/workspacecreaterequestdto.md) | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `opts`                                                                                       | [][operations.Option](../../models/operations/option.md)                                     | :heavy_minus_sign:                                                                           | The options for this request.                                                                |
 
@@ -84,7 +84,7 @@ func main() {
 
 ## List
 
-List all workspaces for an organization
+Get a list of all Workspaces for the specified Organization.
 
 ### Example Usage
 
@@ -126,11 +126,11 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `organizationID`                                         | *string*                                                 | :heavy_check_mark:                                       | Organization identifier                                  |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `ctx`                                                                 | [context.Context](https://pkg.go.dev/context#Context)                 | :heavy_check_mark:                                                    | The context to use for the request.                                   |
+| `organizationID`                                                      | *string*                                                              | :heavy_check_mark:                                                    | The <code>id</code> of the Organization that contains the Workspaces. |
+| `opts`                                                                | [][operations.Option](../../models/operations/option.md)              | :heavy_minus_sign:                                                    | The options for this request.                                         |
 
 ### Response
 
@@ -144,7 +144,7 @@ func main() {
 
 ## Update
 
-Update an existing workspace
+Update the specified Workspace.
 
 ### Example Usage
 
@@ -196,8 +196,8 @@ func main() {
 | Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
 | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
 | `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `organizationID`                                                                           | *string*                                                                                   | :heavy_check_mark:                                                                         | Organization identifier                                                                    |
-| `workspaceID`                                                                              | *string*                                                                                   | :heavy_check_mark:                                                                         | Workspace identifier                                                                       |
+| `organizationID`                                                                           | *string*                                                                                   | :heavy_check_mark:                                                                         | The <code>id</code> of the Organization that contains the Workspace.                       |
+| `workspaceID`                                                                              | *string*                                                                                   | :heavy_check_mark:                                                                         | The <code>id</code> of the Workspace to update.                                            |
 | `workspacePatchRequestDTO`                                                                 | [components.WorkspacePatchRequestDTO](../../models/components/workspacepatchrequestdto.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |
 | `opts`                                                                                     | [][operations.Option](../../models/operations/option.md)                                   | :heavy_minus_sign:                                                                         | The options for this request.                                                              |
 
@@ -213,7 +213,7 @@ func main() {
 
 ## Delete
 
-Delete a workspace
+Delete the specified Workspace in the specified Organization.
 
 ### Example Usage
 
@@ -255,12 +255,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `organizationID`                                         | *string*                                                 | :heavy_check_mark:                                       | Organization identifier                                  |
-| `workspaceID`                                            | *string*                                                 | :heavy_check_mark:                                       | Workspace identifier                                     |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `ctx`                                                                | [context.Context](https://pkg.go.dev/context#Context)                | :heavy_check_mark:                                                   | The context to use for the request.                                  |
+| `organizationID`                                                     | *string*                                                             | :heavy_check_mark:                                                   | The <code>id</code> of the Organization that contains the Workspace. |
+| `workspaceID`                                                        | *string*                                                             | :heavy_check_mark:                                                   | The <code>id</code> of the Workspace to delete.                      |
+| `opts`                                                               | [][operations.Option](../../models/operations/option.md)             | :heavy_minus_sign:                                                   | The options for this request.                                        |
 
 ### Response
 
@@ -274,7 +274,7 @@ func main() {
 
 ## Get
 
-Get a specific workspace by ID
+Get the specified Workspace.
 
 ### Example Usage
 
@@ -316,12 +316,12 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `organizationID`                                         | *string*                                                 | :heavy_check_mark:                                       | Organization identifier                                  |
-| `workspaceID`                                            | *string*                                                 | :heavy_check_mark:                                       | Workspace identifier                                     |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `ctx`                                                                | [context.Context](https://pkg.go.dev/context#Context)                | :heavy_check_mark:                                                   | The context to use for the request.                                  |
+| `organizationID`                                                     | *string*                                                             | :heavy_check_mark:                                                   | The <code>id</code> of the Organization that contains the Workspace. |
+| `workspaceID`                                                        | *string*                                                             | :heavy_check_mark:                                                   | The <code>id</code> of the Workspace to get.                         |
+| `opts`                                                               | [][operations.Option](../../models/operations/option.md)             | :heavy_minus_sign:                                                   | The options for this request.                                        |
 
 ### Response
 

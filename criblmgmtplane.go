@@ -47,12 +47,12 @@ func Float64(f float64) *float64 { return &f }
 // Pointer provides a helper function to return a pointer to a type
 func Pointer[T any](v T) *T { return &v }
 
-// CriblMgmtPlane - Cribl.Cloud Public API: Serves as a public API for the Cribl.Cloud platform and powers the Speakeasy SDK
+// CriblMgmtPlane - Cribl.Cloud Public API: Public API for the Cribl.Cloud platform. Powers the Speakeasy SDK.
 type CriblMgmtPlane struct {
 	SDKVersion string
-	// Operations related to health
+	// Operations related to application health status
 	Health *Health
-	// Operations related to workspaces
+	// Operations related to Workspaces
 	Workspaces *Workspaces
 
 	sdkConfiguration config.SDKConfiguration
@@ -129,9 +129,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *CriblMgmtPlane {
 	sdk := &CriblMgmtPlane{
-		SDKVersion: "0.0.16",
+		SDKVersion: "0.0.17",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.0.16 2.716.16 1.0 github.com/criblio/cribl-cloud-management-sdk-go",
+			UserAgent:  "speakeasy-sdk/go 0.0.17 2.716.16 1.0 github.com/criblio/cribl-cloud-management-sdk-go",
 			ServerList: ServerList,
 		},
 		hooks: hooks.New(),
