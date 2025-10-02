@@ -7,7 +7,7 @@ import (
 )
 
 type V1WorkspacesCreateWorkspaceRequest struct {
-	// Organization identifier
+	// The <code>id</code> of the Organization where you want to create the Workspace.
 	OrganizationID            string                               `pathParam:"style=simple,explode=false,name=organizationId"`
 	WorkspaceCreateRequestDTO components.WorkspaceCreateRequestDTO `request:"mediaType=application/json"`
 }
@@ -28,7 +28,7 @@ func (v *V1WorkspacesCreateWorkspaceRequest) GetWorkspaceCreateRequestDTO() comp
 
 type V1WorkspacesCreateWorkspaceResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// The workspace has been successfully created
+	// The Workspace has been successfully created
 	WorkspaceSchema *components.WorkspaceSchema
 }
 

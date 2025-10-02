@@ -7,9 +7,9 @@ import (
 )
 
 type V1WorkspacesGetWorkspaceRequest struct {
-	// Organization identifier
+	// The <code>id</code> of the Organization that contains the Workspace.
 	OrganizationID string `pathParam:"style=simple,explode=false,name=organizationId"`
-	// Workspace identifier
+	// The <code>id</code> of the Workspace to get.
 	WorkspaceID string `pathParam:"style=simple,explode=false,name=workspaceId"`
 }
 
@@ -29,7 +29,7 @@ func (v *V1WorkspacesGetWorkspaceRequest) GetWorkspaceID() string {
 
 type V1WorkspacesGetWorkspaceResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// The workspace details have been successfully retrieved
+	// The Workspace details have been retrieved
 	WorkspaceSchema *components.WorkspaceSchema
 }
 

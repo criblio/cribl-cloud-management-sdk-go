@@ -7,9 +7,9 @@ import (
 )
 
 type V1WorkspacesDeleteWorkspaceRequest struct {
-	// Organization identifier
+	// The <code>id</code> of the Organization that contains the Workspace.
 	OrganizationID string `pathParam:"style=simple,explode=false,name=organizationId"`
-	// Workspace identifier
+	// The <code>id</code> of the Workspace to delete.
 	WorkspaceID string `pathParam:"style=simple,explode=false,name=workspaceId"`
 }
 

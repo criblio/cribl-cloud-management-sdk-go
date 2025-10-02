@@ -16,7 +16,7 @@ import (
 	"net/http"
 )
 
-// Workspaces - Operations related to workspaces
+// Workspaces - Operations related to Workspaces
 type Workspaces struct {
 	rootSDK          *CriblMgmtPlane
 	sdkConfiguration config.SDKConfiguration
@@ -31,7 +31,8 @@ func newWorkspaces(rootSDK *CriblMgmtPlane, sdkConfig config.SDKConfiguration, h
 	}
 }
 
-// Create a new workspace
+// Create a Workspace in the specified Organization
+// Create a new Workspace in the specified Organization.
 func (s *Workspaces) Create(ctx context.Context, organizationID string, workspaceCreateRequestDTO components.WorkspaceCreateRequestDTO, opts ...operations.Option) (*operations.V1WorkspacesCreateWorkspaceResponse, error) {
 	request := operations.V1WorkspacesCreateWorkspaceRequest{
 		OrganizationID:            organizationID,
@@ -258,7 +259,8 @@ func (s *Workspaces) Create(ctx context.Context, organizationID string, workspac
 
 }
 
-// List all workspaces for an organization
+// List all Workspaces for the specified Organization
+// Get a list of all Workspaces for the specified Organization.
 func (s *Workspaces) List(ctx context.Context, organizationID string, opts ...operations.Option) (*operations.V1WorkspacesListWorkspacesResponse, error) {
 	request := operations.V1WorkspacesListWorkspacesRequest{
 		OrganizationID: organizationID,
@@ -477,7 +479,8 @@ func (s *Workspaces) List(ctx context.Context, organizationID string, opts ...op
 
 }
 
-// Update an existing workspace
+// Update a Workspace
+// Update the specified Workspace.
 func (s *Workspaces) Update(ctx context.Context, organizationID string, workspaceID string, workspacePatchRequestDTO components.WorkspacePatchRequestDTO, opts ...operations.Option) (*operations.V1WorkspacesUpdateWorkspaceResponse, error) {
 	request := operations.V1WorkspacesUpdateWorkspaceRequest{
 		OrganizationID:           organizationID,
@@ -705,7 +708,8 @@ func (s *Workspaces) Update(ctx context.Context, organizationID string, workspac
 
 }
 
-// Delete a workspace
+// Delete a Workspace
+// Delete the specified Workspace in the specified Organization.
 func (s *Workspaces) Delete(ctx context.Context, organizationID string, workspaceID string, opts ...operations.Option) (*operations.V1WorkspacesDeleteWorkspaceResponse, error) {
 	request := operations.V1WorkspacesDeleteWorkspaceRequest{
 		OrganizationID: organizationID,
@@ -905,7 +909,8 @@ func (s *Workspaces) Delete(ctx context.Context, organizationID string, workspac
 
 }
 
-// Get a specific workspace by ID
+// Get a Workspace
+// Get the specified Workspace.
 func (s *Workspaces) Get(ctx context.Context, organizationID string, workspaceID string, opts ...operations.Option) (*operations.V1WorkspacesGetWorkspaceResponse, error) {
 	request := operations.V1WorkspacesGetWorkspaceRequest{
 		OrganizationID: organizationID,
