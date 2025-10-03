@@ -39,6 +39,7 @@ type V1WorkspacesUpdateWorkspaceResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// The Workspace has been successfully updated
 	WorkspaceSchema *components.WorkspaceSchema
+	DefaultErrorDTO *components.DefaultErrorDTO
 }
 
 func (v *V1WorkspacesUpdateWorkspaceResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -53,4 +54,11 @@ func (v *V1WorkspacesUpdateWorkspaceResponse) GetWorkspaceSchema() *components.W
 		return nil
 	}
 	return v.WorkspaceSchema
+}
+
+func (v *V1WorkspacesUpdateWorkspaceResponse) GetDefaultErrorDTO() *components.DefaultErrorDTO {
+	if v == nil {
+		return nil
+	}
+	return v.DefaultErrorDTO
 }
