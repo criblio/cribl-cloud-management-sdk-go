@@ -22,6 +22,7 @@ type V1WorkspacesListWorkspacesResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// List of Workspaces has been successfully retrieved
 	WorkspacesListResponseDTO *components.WorkspacesListResponseDTO
+	DefaultErrorDTO           *components.DefaultErrorDTO
 }
 
 func (v *V1WorkspacesListWorkspacesResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -36,4 +37,11 @@ func (v *V1WorkspacesListWorkspacesResponse) GetWorkspacesListResponseDTO() *com
 		return nil
 	}
 	return v.WorkspacesListResponseDTO
+}
+
+func (v *V1WorkspacesListWorkspacesResponse) GetDefaultErrorDTO() *components.DefaultErrorDTO {
+	if v == nil {
+		return nil
+	}
+	return v.DefaultErrorDTO
 }
