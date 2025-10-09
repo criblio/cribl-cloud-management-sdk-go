@@ -30,19 +30,11 @@ func (e Region) ToPointer() *Region {
 type State string
 
 const (
-	StateWorkspaceRequested                 State = "Workspace-Requested"
-	StateWorkspaceProvisioning              State = "Workspace-Provisioning"
-	StateWorkspaceProvisioningFailed        State = "Workspace-Provisioning-Failed"
-	StateWorkspaceProvisioned               State = "Workspace-Provisioned"
-	StateWorkspaceActive                    State = "Workspace-Active"
-	StateWorkspaceUpdated                   State = "Workspace-Updated"
-	StateWorkspaceFailedUpdate              State = "Workspace-Failed-Update"
-	StateWorkspaceCleanupRequested          State = "Workspace-Cleanup-Requested"
-	StateWorkspaceCleanupStarted            State = "Workspace-Cleanup-Started"
-	StateWorkspaceCleanupTerraformCompleted State = "Workspace-Cleanup-Terraform-Completed"
-	StateWorkspaceCleanupTerraformFailed    State = "Workspace-Cleanup-Terraform-Failed"
-	StateWorkspaceCleanupCompleted          State = "Workspace-Cleanup-Completed"
-	StateWorkspaceCleanupFailed             State = "Workspace-Cleanup-Failed"
+	StateProvisioning   State = "Provisioning"
+	StateActive         State = "Active"
+	StateInactive       State = "Inactive"
+	StateFailed         State = "Failed"
+	StateDeprovisioning State = "Deprovisioning"
 )
 
 func (e State) ToPointer() *State {
