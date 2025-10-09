@@ -36,9 +36,7 @@ func (v *V1WorkspacesUpdateWorkspaceRequest) GetWorkspacePatchRequestDTO() compo
 }
 
 type V1WorkspacesUpdateWorkspaceResponse struct {
-	HTTPMeta components.HTTPMetadata `json:"-"`
-	// The Workspace has been successfully updated
-	WorkspaceSchema *components.WorkspaceSchema
+	HTTPMeta        components.HTTPMetadata `json:"-"`
 	DefaultErrorDTO *components.DefaultErrorDTO
 }
 
@@ -47,13 +45,6 @@ func (v *V1WorkspacesUpdateWorkspaceResponse) GetHTTPMeta() components.HTTPMetad
 		return components.HTTPMetadata{}
 	}
 	return v.HTTPMeta
-}
-
-func (v *V1WorkspacesUpdateWorkspaceResponse) GetWorkspaceSchema() *components.WorkspaceSchema {
-	if v == nil {
-		return nil
-	}
-	return v.WorkspaceSchema
 }
 
 func (v *V1WorkspacesUpdateWorkspaceResponse) GetDefaultErrorDTO() *components.DefaultErrorDTO {
