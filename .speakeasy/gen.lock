@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
-  docChecksum: 7c6f31bbc6cac1d219c098a091740054
+  docChecksum: ff37b4b00bc63ca3571bac4de75352c8
   docVersion: "1.0"
   speakeasyVersion: 1.634.1
   generationVersion: 2.721.0
-  releaseVersion: 0.0.18
-  configChecksum: 2db1a7fa9b5c13f1058160a1f19bb6a7
+  releaseVersion: 0.0.19
+  configChecksum: 0f56965e6e02e45544ddc0e5d0415051
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 features:
@@ -119,7 +119,7 @@ examples:
         application/json: {"workspaceId": "main", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
       responses:
         "201":
-          application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Workspace-Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+          application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
         default:
           application/json: {"statusCode": 2135.91, "message": "<value>"}
   v1.workspaces.listWorkspaces:
@@ -129,7 +129,7 @@ examples:
           organizationId: "<id>"
       responses:
         "200":
-          application/json: {"items": [{"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Workspace-Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}], "count": 5}
+          application/json: {"items": [{"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Inactive", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}], "count": 5}
         default:
           application/json: {"statusCode": 5622.58, "message": "<value>"}
   v1.workspaces.updateWorkspace:
@@ -142,7 +142,7 @@ examples:
         application/json: {"alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
       responses:
         "200":
-          application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Workspace-Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+          application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
         default:
           application/json: {"statusCode": 8141.25, "message": "<value>"}
   v1.workspaces.deleteWorkspace:
@@ -162,16 +162,9 @@ examples:
           workspaceId: "<id>"
       responses:
         "200":
-          application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Workspace-Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+          application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
         default:
           application/json: {"statusCode": 8847.69, "message": "<value>"}
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:27:27+02:00"
-releaseNotes: |
-  ## Go SDK Changes Detected:
-  * `CriblMgmtPlane.Workspaces.Create()`:  `response.status[default]` **Added** **Breaking** :warning:
-  * `CriblMgmtPlane.Workspaces.List()`:  `response.status[default]` **Added** **Breaking** :warning:
-  * `CriblMgmtPlane.Workspaces.Update()`:  `response.status[default]` **Added** **Breaking** :warning:
-  * `CriblMgmtPlane.Workspaces.Delete()`:  `response.status[default]` **Added** **Breaking** :warning:
-  * `CriblMgmtPlane.Workspaces.Get()`:  `response.status[default]` **Added** **Breaking** :warning:
