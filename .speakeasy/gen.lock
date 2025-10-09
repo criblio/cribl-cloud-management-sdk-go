@@ -5,8 +5,8 @@ management:
   docVersion: "1.0"
   speakeasyVersion: 1.634.1
   generationVersion: 2.721.0
-  releaseVersion: 0.0.19
-  configChecksum: 0f56965e6e02e45544ddc0e5d0415051
+  releaseVersion: 0.0.20
+  configChecksum: 1e2b3e4d44713b0cd023a86e2bf7ca9b
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 features:
