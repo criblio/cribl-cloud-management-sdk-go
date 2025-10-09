@@ -185,7 +185,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.WorkspaceSchema != nil {
+    if res.DefaultErrorDTO != nil {
         // handle response
     }
 }
