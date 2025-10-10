@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
-  docChecksum: 078e5c90c41b18dc69a380573ef6a88f
+  docChecksum: efbf5e09333c7adda6b763105736a925
   docVersion: "1.0"
-  speakeasyVersion: 1.634.1
-  generationVersion: 2.721.0
-  releaseVersion: 0.0.21
-  configChecksum: 346c07a757e25ecab8f0322fa1e29824
+  speakeasyVersion: 1.636.3
+  generationVersion: 2.723.11
+  releaseVersion: 0.0.22
+  configChecksum: daf978739e372751cb1a090d03bf5f19
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 features:
@@ -20,10 +20,10 @@ features:
     globalSecurity: 2.82.12
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.3
-    groups: 2.81.2
+    groups: 2.81.3
     intellisenseMarkdownSupport: 0.1.0
     nameOverrides: 2.81.2
-    oauth2ClientCredentials: 0.4.0
+    oauth2ClientCredentials: 1.1.0
     openEnums: 0.1.0
     responseFormat: 0.1.2
     retries: 2.84.2
@@ -72,7 +72,6 @@ generatedFiles:
   - docs/models/operations/v1workspaceslistworkspacesresponse.md
   - docs/models/operations/v1workspacesupdateworkspacerequest.md
   - docs/models/operations/v1workspacesupdateworkspaceresponse.md
-  - docs/sdks/criblmgmtplane/README.md
   - docs/sdks/health/README.md
   - docs/sdks/workspaces/README.md
   - go.mod
@@ -168,6 +167,3 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:27:27+02:00"
-releaseNotes: |
-  ## Go SDK Changes Detected:
-  * `CriblMgmtPlane.Workspaces.Update()`:  `response` **Changed** **Breaking** :warning:

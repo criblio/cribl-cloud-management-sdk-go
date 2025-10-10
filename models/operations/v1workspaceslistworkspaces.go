@@ -22,7 +22,8 @@ type V1WorkspacesListWorkspacesResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// List of Workspaces has been successfully retrieved
 	WorkspacesListResponseDTO *components.WorkspacesListResponseDTO
-	DefaultErrorDTO           *components.DefaultErrorDTO
+	// Default error response
+	DefaultErrorDTO *components.DefaultErrorDTO
 }
 
 func (v *V1WorkspacesListWorkspacesResponse) GetHTTPMeta() components.HTTPMetadata {

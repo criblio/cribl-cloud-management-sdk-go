@@ -36,7 +36,8 @@ func (v *V1WorkspacesUpdateWorkspaceRequest) GetWorkspacePatchRequestDTO() compo
 }
 
 type V1WorkspacesUpdateWorkspaceResponse struct {
-	HTTPMeta        components.HTTPMetadata `json:"-"`
+	HTTPMeta components.HTTPMetadata `json:"-"`
+	// Default error response
 	DefaultErrorDTO *components.DefaultErrorDTO
 }
 
