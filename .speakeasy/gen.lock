@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
-  docChecksum: efbf5e09333c7adda6b763105736a925
+  docChecksum: 00f8800b6f97b6c95d67679254616680
   docVersion: "1.0"
   speakeasyVersion: 1.636.3
   generationVersion: 2.723.11
-  releaseVersion: 0.0.22
-  configChecksum: daf978739e372751cb1a090d03bf5f19
+  releaseVersion: 0.0.23
+  configChecksum: d93c61dc113f981835c808f86f27d6fb
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 features:
@@ -167,3 +167,10 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:27:27+02:00"
+releaseNotes: |
+  ## Go SDK Changes Detected:
+  * `CriblMgmtPlane.Workspaces.Create()`:  `error.status[500]` **Removed** **Breaking** :warning:
+  * `CriblMgmtPlane.Workspaces.List()`:  `error.status[500]` **Removed** **Breaking** :warning:
+  * `CriblMgmtPlane.Workspaces.Update()`:  `error.status[500]` **Removed** **Breaking** :warning:
+  * `CriblMgmtPlane.Workspaces.Delete()`:  `error.status[500]` **Removed** **Breaking** :warning:
+  * `CriblMgmtPlane.Workspaces.Get()`:  `error.status[500]` **Removed** **Breaking** :warning:
