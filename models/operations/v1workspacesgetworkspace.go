@@ -31,6 +31,7 @@ type V1WorkspacesGetWorkspaceResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// The Workspace details have been retrieved
 	WorkspaceSchema *components.WorkspaceSchema
+	// Default error response
 	DefaultErrorDTO *components.DefaultErrorDTO
 }
 

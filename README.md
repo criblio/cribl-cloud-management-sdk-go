@@ -134,7 +134,6 @@ func main() {
 <details open>
 <summary>Available methods</summary>
 
-
 ### [Health](docs/sdks/health/README.md)
 
 * [Get](docs/sdks/health/README.md#get) - Get the health status of the application
