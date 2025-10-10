@@ -30,6 +30,7 @@ type V1WorkspacesCreateWorkspaceResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// The Workspace has been successfully created
 	WorkspaceSchema *components.WorkspaceSchema
+	// Default error response
 	DefaultErrorDTO *components.DefaultErrorDTO
 }
 
