@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
-  docChecksum: 00f8800b6f97b6c95d67679254616680
+  docChecksum: 78122e10b4222a74a9bab96f15f1ada1
   docVersion: "1.0"
   speakeasyVersion: 1.636.3
   generationVersion: 2.723.11
-  releaseVersion: 0.1.0
-  configChecksum: 061a7b2932d74c1ae34db9e1b4e053b3
+  releaseVersion: 0.1.1
+  configChecksum: dafec82bfc10bc66df8d5004a22e29ce
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 features:
@@ -109,6 +109,8 @@ examples:
       responses:
         "200":
           application/json: {"status": "OK"}
+        default:
+          application/json: {"statusCode": 1397.13, "message": "<value>"}
   v1.workspaces.createWorkspace:
     speakeasy-default-v1-workspaces-create-workspace:
       parameters:
@@ -167,3 +169,6 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:27:27+02:00"
+releaseNotes: |
+  ## Go SDK Changes Detected:
+  * `CriblMgmtPlane.Health.Get()`:  `response.status[default]` **Added**
