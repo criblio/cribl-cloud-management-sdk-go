@@ -22,6 +22,8 @@ type GetHealthStatusResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Health status
 	Object *GetHealthStatusResponseBody
+	// Default error response
+	DefaultErrorDTO *components.DefaultErrorDTO
 }
 
 func (g *GetHealthStatusResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -36,4 +38,11 @@ func (g *GetHealthStatusResponse) GetObject() *GetHealthStatusResponseBody {
 		return nil
 	}
 	return g.Object
+}
+
+func (g *GetHealthStatusResponse) GetDefaultErrorDTO() *components.DefaultErrorDTO {
+	if g == nil {
+		return nil
+	}
+	return g.DefaultErrorDTO
 }
