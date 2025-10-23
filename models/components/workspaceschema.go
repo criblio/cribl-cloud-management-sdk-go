@@ -2,11 +2,6 @@
 
 package components
 
-import (
-	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
-	"time"
-)
-
 // Region - AWS region where the workspace is deployed
 type Region string
 
@@ -46,8 +41,6 @@ type WorkspaceSchema struct {
 	WorkspaceID string `json:"workspaceId"`
 	// AWS region where the workspace is deployed
 	Region Region `json:"region"`
-	// Timestamp when the workspace was last updated
-	LastUpdated time.Time `json:"lastUpdated"`
 	// Fully Qualified Domain Name of the workspace leader
 	LeaderFQDN string `json:"leaderFQDN"`
 	// Current state of the workspace
@@ -58,17 +51,6 @@ type WorkspaceSchema struct {
 	Description *string `json:"description,omitempty"`
 	// Tags associated with the workspace
 	Tags []string `json:"tags,omitempty"`
-}
-
-func (w WorkspaceSchema) MarshalJSON() ([]byte, error) {
-	return utils.MarshalJSON(w, "", false)
-}
-
-func (w *WorkspaceSchema) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &w, "", false, []string{"workspaceId", "region", "lastUpdated", "leaderFQDN", "state"}); err != nil {
-		return err
-	}
-	return nil
 }
 
 func (w *WorkspaceSchema) GetWorkspaceID() string {
@@ -83,13 +65,6 @@ func (w *WorkspaceSchema) GetRegion() Region {
 		return Region("")
 	}
 	return w.Region
-}
-
-func (w *WorkspaceSchema) GetLastUpdated() time.Time {
-	if w == nil {
-		return time.Time{}
-	}
-	return w.LastUpdated
 }
 
 func (w *WorkspaceSchema) GetLeaderFQDN() string {
