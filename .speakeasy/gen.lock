@@ -5,8 +5,8 @@ management:
   docVersion: "1.0"
   speakeasyVersion: 1.638.1
   generationVersion: 2.729.2
-  releaseVersion: 0.2.0-rc.1
-  configChecksum: 2b12d1e0b1b2cef8ff2960930071c9b2
+  releaseVersion: 0.2.0
+  configChecksum: 2208f44f085dc6d9e81ab3451d50c4a8
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 features:
@@ -169,8 +169,3 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:27:27+02:00"
-releaseNotes: |
-  ## Go SDK Changes Detected:
-  * `CriblMgmtPlane.Workspaces.Create()`:  `response.LastUpdated` **Removed** **Breaking** :warning:
-  * `CriblMgmtPlane.Workspaces.List()`:  `response.Items.[].LastUpdated` **Removed** **Breaking** :warning:
-  * `CriblMgmtPlane.Workspaces.Get()`:  `response.LastUpdated` **Removed** **Breaking** :warning:
