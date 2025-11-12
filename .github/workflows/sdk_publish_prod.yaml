@@ -34,6 +34,20 @@ jobs:
           else
             echo "is-production=false" >> "$GITHUB_OUTPUT"
             echo "✅ Prerelease from ${GITHUB_REF_NAME} branch"
+            
+            # For non-standard branches, check prerelease version
+            if [[ "${GITHUB_REF_NAME}" != "dev" && "${GITHUB_REF_NAME}" != "stage" ]]; then
+              VERSION=$(yq '.go.version' .speakeasy/gen.yaml)
+              echo "Detected version: $VERSION"
+              
+              if [[ "$VERSION" == *"-alpha."* ]] || [[ "$VERSION" == *"-beta."* ]] || [[ "$VERSION" == *"-rc."* ]]; then
+                echo "✅ Prerelease version detected: $VERSION"
+              else
+                echo "::error::Version is not a valid prerelease (expected format X.Y.Z-{alpha|beta|rc}.<n>)"
+                echo "::error::Detected version: $VERSION"
+                exit 1
+              fi
+            fi
           fi
 
   publish:
