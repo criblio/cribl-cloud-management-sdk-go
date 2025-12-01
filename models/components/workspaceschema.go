@@ -21,6 +21,17 @@ func (e Region) ToPointer() *Region {
 	return &e
 }
 
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *Region) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "us-west-2", "us-east-1", "us-east-2", "eu-central-1", "eu-central-2", "eu-west-2", "ap-southeast-1", "ap-southeast-2", "ca-central-1":
+			return true
+		}
+	}
+	return false
+}
+
 // State - Current state of the workspace
 type State string
 
@@ -34,6 +45,17 @@ const (
 
 func (e State) ToPointer() *State {
 	return &e
+}
+
+// IsExact returns true if the value matches a known enum value, false otherwise.
+func (e *State) IsExact() bool {
+	if e != nil {
+		switch *e {
+		case "Provisioning", "Active", "Inactive", "Failed", "Deprovisioning":
+			return true
+		}
+	}
+	return false
 }
 
 type WorkspaceSchema struct {
