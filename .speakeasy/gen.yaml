@@ -23,12 +23,14 @@ generation:
   sdkHooksConfigAccess: true
   schemas:
     allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  persistentEdits: {}
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 go:
-  version: 0.2.0
+  version: 0.3.0-rc.1
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: true
   baseErrorName: CriblMgmtPlaneError
@@ -36,6 +38,7 @@ go:
   defaultErrorName: APIError
   envVarPrefix: CRIBLMGMTPLANE
   flattenGlobalSecurity: true
+  forwardCompatibleEnumsByDefault: false
   imports:
     option: openapi
     paths:
@@ -44,13 +47,17 @@ go:
       operations: models/operations
       shared: models/components
       webhooks: models/webhooks
+  includeEmptyObjects: false
+  inferUnionDiscriminators: false
   inputModelSuffix: input
   maxMethodParams: 4
   methodArguments: require-security-and-request
   modulePath: ""
+  multipartArrayFormat: legacy
   nullableOptionalWrapper: false
   outputModelSuffix: output
   packageName: github.com/criblio/cribl-cloud-management-sdk-go
   respectRequiredFields: false
   responseFormat: envelope-http
   sdkPackageName: ""
+  unionStrategy: left-to-right
