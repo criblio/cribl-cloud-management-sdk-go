@@ -3,23 +3,27 @@ id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
   docChecksum: 5a299b4b662ba6b29dd1a0d6675a1e51
   docVersion: "1.0"
-  speakeasyVersion: 1.638.1
-  generationVersion: 2.729.2
+  speakeasyVersion: 1.682.0
+  generationVersion: 2.791.1
   releaseVersion: 0.2.0
-  configChecksum: 2208f44f085dc6d9e81ab3451d50c4a8
+  configChecksum: 19a750f7bcc2f1ee0a2fe32121e8c3ea
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
+persistentEdits:
+  generation_id: ff60d63e-cad8-453f-9be7-2ef330ae6ec4
+  pristine_commit_hash: 0c807c376414bed7ef22d0a8962ab6d56db935d4
+  pristine_tree_hash: 0ebde47fc61c80134ba543724903b80a3ff6087c
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.12.0
+    core: 3.13.8
     defaultEnabledRetries: 0.2.0
     devContainers: 2.90.0
     envVarSecurityUsage: 0.3.2
     flattening: 2.81.1
     globalSecurity: 2.82.12
     globalSecurityCallbacks: 0.1.0
-    globalServerURLs: 2.82.3
+    globalServerURLs: 2.83.0
     groups: 2.81.3
     intellisenseMarkdownSupport: 0.1.0
     nameOverrides: 2.81.2
@@ -27,7 +31,375 @@ features:
     openEnums: 0.1.0
     responseFormat: 0.1.2
     retries: 2.84.2
-    sdkHooks: 0.2.0
+    sdkHooks: 0.3.0
+trackedFiles:
+  .devcontainer/README.md:
+    id: b170c0f184ac
+    last_write_checksum: sha1:010275c7aea4d95412994040b137ad5959a25030
+    pristine_git_object: beba4e709b504267af776be3e31550ec71fbce02
+  .devcontainer/devcontainer.json:
+    id: b34062a34eb1
+    last_write_checksum: sha1:a518b2fc2f92e998593a1dcb935db4ca1eb2e2f1
+    pristine_git_object: 92f5ba5b54156225322fb4b09d2acf4abde9abc9
+  .devcontainer/setup.sh:
+    id: 5f1dfbfeb8eb
+    last_write_checksum: sha1:0443cc8beac352499afd25be90adf28d3736dbe0
+    pristine_git_object: 9003242ad92f98da28b1e4dad2129b5b1dabab59
+  .gitattributes:
+    id: 24139dae6567
+    last_write_checksum: sha1:84b0115789fc3ea52e31df701d8a27f76077e29f
+    pristine_git_object: e6a994416d0f527912d2d272e2583458f4fc9bcb
+  USAGE.md:
+    id: 3aed33ce6e6f
+    last_write_checksum: sha1:bd3a202736e7f37b2e25138b1d1946716cf15675
+    pristine_git_object: c61009cb52f7119125706cbcb136d9f52f0cdfd7
+  criblmgmtplane.go:
+    id: b735732f3993
+    last_write_checksum: sha1:dcfeb8efe3daabcc3021e7c10c8917e00a0bf617
+    pristine_git_object: ae85033f48a39998c6d7efd1bf9468f58f3be7f2
+  docs/models/components/defaulterrordto.md:
+    id: 418643eab6ea
+    last_write_checksum: sha1:9691a81a5b35fc3b25363450c19812b6ea4d215c
+    pristine_git_object: b77aadd0d80400f5cece2a74d0003623715b86f1
+  docs/models/components/httpmetadata.md:
+    id: 728948c70168
+    last_write_checksum: sha1:7c40945dac218ce5e5e11e7c907d27a3ea14c417
+    pristine_git_object: df1fdd59f3c85e4ba70573ff7954b12ac1d33d08
+  docs/models/components/region.md:
+    id: 4290b6a3b093
+    last_write_checksum: sha1:f5f84e796f2505c79915134b6cf951db5164f853
+    pristine_git_object: f7b09f302c3ec78f0bb2d8dbc44440ab475f9a61
+  docs/models/components/schemeclientoauth.md:
+    id: 1c9a23cb59f0
+    last_write_checksum: sha1:6adfe603e70ac34ca0a5a427135e654906d8c5ad
+    pristine_git_object: 12b9f9fd901d4c4c665886e926f9ec2a746c607b
+  docs/models/components/security.md:
+    id: 54906b49ea28
+    last_write_checksum: sha1:3f82d386d455551817ddb5c132f48e6dd85c875f
+    pristine_git_object: dcf5a63b435018d527c8cc15aa586c5bd73b3bbe
+  docs/models/components/state.md:
+    id: 441de3ea6229
+    last_write_checksum: sha1:20f16a9f7eb0b701de31230ef5b0408f0ec88a8b
+    pristine_git_object: 4fe97e0c961bc5b35b27819f368275aac1b26859
+  docs/models/components/workspacecreaterequestdto.md:
+    id: 76d307cb2672
+    last_write_checksum: sha1:1723a5923b4ec3741d12a1f1136b26239d48a7a9
+    pristine_git_object: e78106fe2eb18161d5cddcbc950ecb89174d1c41
+  docs/models/components/workspacepatchrequestdto.md:
+    id: cb072f821486
+    last_write_checksum: sha1:eb268c39a2ac3ebf72319000a39babaaec432b94
+    pristine_git_object: 08440c3f79de311147c83affb069f3167fd05699
+  docs/models/components/workspaceschema.md:
+    id: ab09a4a2cc5a
+    last_write_checksum: sha1:8e7464e8780b6332abebf1c02cdc49520aa78bfb
+    pristine_git_object: c374a6bd652f70d09ae3f07f6bda9a7e8edeff62
+  docs/models/components/workspaceslistresponsedto.md:
+    id: 03f8a83213c2
+    last_write_checksum: sha1:72b0b57ffd1f0179d09cf9f7fdd0fd38403dac3c
+    pristine_git_object: ef3c97b0493c766e3957edb789aa7cec94a2c909
+  docs/models/operations/gethealthstatusresponse.md:
+    id: 22d4bba29dc6
+    last_write_checksum: sha1:62b258900550c5a8b8cd56213934d8b3f0cf21a6
+    pristine_git_object: ad8a782fd2cc1dc7e1780699d19eade708a442b4
+  docs/models/operations/gethealthstatusresponsebody.md:
+    id: eee8b6f44127
+    last_write_checksum: sha1:e838fe59acc33a24c408b5a3ed9d6f270c7f76f5
+    pristine_git_object: 7210fe76e06060d51b8caab9dac52a4e9d215369
+  docs/models/operations/option.md:
+    id: 2ac1bd52a5fb
+    last_write_checksum: sha1:08cfee5d266c9d82987e448f6c98a143aa42c5f8
+    pristine_git_object: 35d8a1e2ad48a64702c6a654ac8880dabec053b0
+  docs/models/operations/v1workspacescreateworkspacerequest.md:
+    id: 43494c6a74c7
+    last_write_checksum: sha1:3947337de88d5006308d8e8ccfd003770df87fcf
+    pristine_git_object: 3cbce89a06a8869ada0b3d897f475b901f9672d9
+  docs/models/operations/v1workspacescreateworkspaceresponse.md:
+    id: 67d315009833
+    last_write_checksum: sha1:24e15c0741ccb58b38c8c48b8aefe355ef9d2afd
+    pristine_git_object: cee34ca3771d8d3cd6572503cbb5beac54dbc050
+  docs/models/operations/v1workspacesdeleteworkspacerequest.md:
+    id: b9d00d82d3d5
+    last_write_checksum: sha1:8fea779ae6f1c80607d2be32fddaad0f92ca0c45
+    pristine_git_object: ff1a2942e634fb25a85c2038832c964164aa4ed4
+  docs/models/operations/v1workspacesdeleteworkspaceresponse.md:
+    id: aaa52b01db39
+    last_write_checksum: sha1:94f9c9f4de476062d1265f89dfa6df8c7e8309c3
+    pristine_git_object: b9a2077eb4abff09b8244b7dff8d5031035c3241
+  docs/models/operations/v1workspacesgetworkspacerequest.md:
+    id: 452ab7bd4213
+    last_write_checksum: sha1:e2d8eb0b9f08291ea3238ab7dc2e4419229cc358
+    pristine_git_object: df1229512a171d48e655180fbcbcbef70ddf742f
+  docs/models/operations/v1workspacesgetworkspaceresponse.md:
+    id: 411e02f48f03
+    last_write_checksum: sha1:571dc8d6bff26dacf49f7454ec04927c8c97365e
+    pristine_git_object: 418a12817b7c97d7db2b5bb01acfd351735e8b7c
+  docs/models/operations/v1workspaceslistworkspacesrequest.md:
+    id: 5c6c50a4defd
+    last_write_checksum: sha1:d6d59b4c13da8a0f143386a7b83b722df8892e19
+    pristine_git_object: 87ca6e40991cf1ee3339d6a7eafcdfae85f52a56
+  docs/models/operations/v1workspaceslistworkspacesresponse.md:
+    id: c32e6107dcca
+    last_write_checksum: sha1:e0bb51928792bd5508b961b04a2ad9786b5c6b53
+    pristine_git_object: f67b51ce9ec4d774a17df6d6a72ba3d9308181ab
+  docs/models/operations/v1workspacesupdateworkspacerequest.md:
+    id: 3c03fb30ff0c
+    last_write_checksum: sha1:e4aad2a97efbf4f7ee3756da0572fea689732fca
+    pristine_git_object: 4a47d97b7e4e4a0a3c31c3c5cbba7041ee0c1c51
+  docs/models/operations/v1workspacesupdateworkspaceresponse.md:
+    id: 88db7540fe53
+    last_write_checksum: sha1:02cb13866bc0c06e0058a02be29ac9fd6b135560
+    pristine_git_object: 5740353349736528c007078f7d9e7f18ee6b9536
+  docs/sdks/health/README.md:
+    id: 5082c50d5e82
+    last_write_checksum: sha1:c224ac0fac3e2867a8a1de0fb556de6d40fe10c9
+    pristine_git_object: e421df6d511a060b139e95cb812b45e7662356bb
+  docs/sdks/workspaces/README.md:
+    id: 1f5b051a6380
+    last_write_checksum: sha1:893492c5aa52c58f55bb48636a8a9e9664f9439f
+    pristine_git_object: c9093a6a8e947bf3222a16fb635a52720a2dd7cc
+  go.mod:
+    id: c47645c391ad
+    last_write_checksum: sha1:a69786afbf376e4c72ebbac20370392ed93c6f04
+    pristine_git_object: e588ba012fa2fdf9e91791021e367ac136272af1
+  health.go:
+    id: ca291aa88e47
+    last_write_checksum: sha1:cb9087d1ac6c454db1bf61103e564c6203a8fb6a
+    pristine_git_object: df54ea0b6dede86111281fea8a41f9ed35787a98
+  internal/config/sdkconfiguration.go:
+    id: 33b8bfac5265
+    last_write_checksum: sha1:a295a6e02fc80ddba2fb6a7b2a5df8c2af3ba1d4
+    pristine_git_object: d695c69041c6cf4d0a66cc78119d0fb3503fe36d
+  internal/hooks/clientcredentials.go:
+    id: b56b5e7f2d63
+    last_write_checksum: sha1:20b26c13f2ea234d4676c3a2bfcc3fdf104d5e60
+    pristine_git_object: bf7d3e19324e4bc5980bc48d734ef0f0e36888f5
+  internal/hooks/hooks.go:
+    id: 336be70ed5c0
+    last_write_checksum: sha1:66ec969384ee5f322a186f3d63fd5bee95930a37
+    pristine_git_object: f46ec9da20be5dd52b16eecc12a56ffdeef00c43
+  internal/utils/contenttype.go:
+    id: 928a56fe6755
+    last_write_checksum: sha1:ab5cfd860d02c6e6a37f89e2b5649a9859947fb1
+    pristine_git_object: f6487e01eb987c0aa49e7aa50b5ff24830314c63
+  internal/utils/env.go:
+    id: ac8bab30c73d
+    last_write_checksum: sha1:1e0bcb2d2caed9f3657f1dbc99b55811bed0298c
+    pristine_git_object: 110d464eacf2387b347bad1cb903666354a339e9
+  internal/utils/form.go:
+    id: 8ea133d76535
+    last_write_checksum: sha1:70ccb638706aef6103afb47b291488316516cff0
+    pristine_git_object: 4a77e7757078e4f2372c4ece639aa7b1f3c2cbbe
+  internal/utils/headers.go:
+    id: 90d4f18d4adf
+    last_write_checksum: sha1:3cf5cd5faf3e15fec2890bcac6d69d7a923ddfbe
+    pristine_git_object: 4a6381d74168e8866f76274e86db0a420285b0f6
+  internal/utils/json.go:
+    id: ad03e3c502d8
+    last_write_checksum: sha1:1c07888db693245e794b95b39740fcda22308ae2
+    pristine_git_object: 1e00da42204b4c6123d73c753df79d2dbc716848
+  internal/utils/oauth2_credentials.go:
+    id: 633b88c0d3ff
+    last_write_checksum: sha1:f9218b6b3dbd11494cc353bf22eb37f0ca654a7d
+    pristine_git_object: 85eb9933d806fe3f332fcfac00aef92380317244
+  internal/utils/oauth2_sessions.go:
+    id: 633fa458699d
+    last_write_checksum: sha1:f4d0f3fc02f9cab7278cde18b039ee79a124fa54
+    pristine_git_object: 4bde1b17cacddfedb1fbfefb60a5c916bcf43956
+  internal/utils/pathparams.go:
+    id: 1f3e0c30fd90
+    last_write_checksum: sha1:28d76748b0ca217b876e300b44bf06d69f6113fe
+    pristine_git_object: 3c4f203fe8fd2a4f582a673a5b2156af4f276042
+  internal/utils/queryparams.go:
+    id: e7f604e65a58
+    last_write_checksum: sha1:c94a17c1446e385f907c8cd77479ca84e8dabc02
+    pristine_git_object: 065821286c07425dd7c20af3bac73eba736a44d6
+  internal/utils/requestbody.go:
+    id: 22445ec1c044
+    last_write_checksum: sha1:e85c96c13266e08fc175bb283f1a4ff7d8a81b9a
+    pristine_git_object: 7f63279c5d13240dcd0f548cceefb2973a19c882
+  internal/utils/retries.go:
+    id: b5e011d15c2d
+    last_write_checksum: sha1:372ff30a480b031072e063f6782e503cbcb80597
+    pristine_git_object: 2ef07be207f8a89659bd56cd6bfe6feb4b000692
+  internal/utils/security.go:
+    id: eeb54c55241b
+    last_write_checksum: sha1:451524017dfed1da96bdd9bc1749546f8d2aa110
+    pristine_git_object: 99e1f672792b3230f0fee185681847bac3aca6c2
+  internal/utils/union.go:
+    id: db86c85746b6
+    last_write_checksum: sha1:b0cee0ba563b6e1296b3b10acc2b7e357a6d13bf
+    pristine_git_object: 6d819933d9623b8ec0c080177afe71d99434c162
+  internal/utils/union_test.go:
+    id: 4b56247171bd
+    last_write_checksum: sha1:83ac73c1901de4c6db90f65cf5879163f3d47a00
+    pristine_git_object: f66814c73ace94d8e71d785fd6161fb405745754
+  internal/utils/utils.go:
+    id: 1133b2a27019
+    last_write_checksum: sha1:66b0ef3c302e2edad3496775a6e5b452caceefd6
+    pristine_git_object: ee4300f7b7469c4e66572ada7b95f7ff7f2e506a
+  models/apierrors/apierror.go:
+    id: 4cecf27a5a54
+    last_write_checksum: sha1:e699d3325ea82ea2b0d29656396210f0513c3391
+    pristine_git_object: 61a9628a6533548245be5af929f1d4f96dd780b5
+  models/components/defaulterrordto.go:
+    id: b68c77050a99
+    last_write_checksum: sha1:37ab17ae793e46c0c008fe9c96f4de93935850c5
+    pristine_git_object: 9738d9f940964ea8e5a34579e7e34f2cf1d375a8
+  models/components/httpmetadata.go:
+    id: 790bad4a7abb
+    last_write_checksum: sha1:01a20fcff33179809ff9920ee431c7adabbd98f1
+    pristine_git_object: 148ec47fb2dea6c188ec68eb3532d93169608168
+  models/components/schemeclientoauth.go:
+    id: 3291eda160f4
+    last_write_checksum: sha1:921f8e518a1166fd992ae3baf862dd7db1c8d7f5
+    pristine_git_object: 9f91c1608db6cc3bad663eb5f8ac06c8328c3d43
+  models/components/security.go:
+    id: 3a5eba5fe9e0
+    last_write_checksum: sha1:4c05cb19cf1c713b1bd3664a6e73563b7b811179
+    pristine_git_object: 7f1c6751f1a5486de8439cdf4f5d339584f12097
+  models/components/workspacecreaterequestdto.go:
+    id: a7b68f38a00c
+    last_write_checksum: sha1:fa9013c2640a75597eabedb6f99a1497c20458ee
+    pristine_git_object: 25f0263b92830b081178e09b10e8bf57a26ff27c
+  models/components/workspacepatchrequestdto.go:
+    id: abffc0381d4a
+    last_write_checksum: sha1:439bae93cf78b1d25b1e9403b9270970b58642c6
+    pristine_git_object: 01c1cebb0f04ed92fd207dc8b8a58e0a2c3b0dab
+  models/components/workspaceschema.go:
+    id: 976c411a8567
+    last_write_checksum: sha1:e3d00458afd623484dd0a3fdc93c46e6eb313902
+    pristine_git_object: d550bc1804afcbf40cdbc78f3dfc69f94c3424c3
+  models/components/workspaceslistresponsedto.go:
+    id: 275935927ccd
+    last_write_checksum: sha1:52d3ce6fae1a27e463598f159a445212d41cdf7b
+    pristine_git_object: 96f845511f08504accf24e6fd157e148ebe6c9de
+  models/operations/gethealthstatus.go:
+    id: 031db86316ed
+    last_write_checksum: sha1:24285c8e4b566591f5463b3d8fde934446c3fbd3
+    pristine_git_object: 8a6d271442092ffa66663ec6511863aa0872183a
+  models/operations/options.go:
+    id: d20dd4db9865
+    last_write_checksum: sha1:dc08df751a198d4d5930b131ed46be66abf7a0ee
+    pristine_git_object: 3d98a5e4be0e0a721d2b33700c03d56f8132bc3e
+  models/operations/v1workspacescreateworkspace.go:
+    id: 9a940bb5a62f
+    last_write_checksum: sha1:22534af6c6990755049b958dc269ab610da6217d
+    pristine_git_object: b70537628cc799b3243b8464a10d72af998c54ea
+  models/operations/v1workspacesdeleteworkspace.go:
+    id: 7d93c95c7cac
+    last_write_checksum: sha1:299eb6664fbdffa09d27ee4d68d3d6c093201bd7
+    pristine_git_object: 9e138286cdd9233abdacc7145b38010300bc72fd
+  models/operations/v1workspacesgetworkspace.go:
+    id: f4d600a685f6
+    last_write_checksum: sha1:66b6ee4b34ea86ce459e3c8a5d36ce0740e10ef5
+    pristine_git_object: 8ff5f1595d5101d11ef6f20684f8843c8dec2836
+  models/operations/v1workspaceslistworkspaces.go:
+    id: cef19cfebee0
+    last_write_checksum: sha1:e42cfebc8a7bc378c5e1c7e617eb94e5df218d70
+    pristine_git_object: 3a1a6d6445732e1d893844aac75dbeadaa84f5db
+  models/operations/v1workspacesupdateworkspace.go:
+    id: a0c6468eb8a3
+    last_write_checksum: sha1:fab3c18685af8a623af31ecabdb082bba5b796cc
+    pristine_git_object: 64d8d91ce9840731dd9928eb3d23e35f4ae63bf3
+  optionalnullable/optionalnullable.go:
+    id: ce60f259ead3
+    last_write_checksum: sha1:d6aff1a420c31e025ea21d46cf056e305ae76fe8
+    pristine_git_object: c6739be0619b6726565e0f11855ffe44b0e5607e
+  optionalnullable/optionalnullable_test.go:
+    id: ad67101ebca3
+    last_write_checksum: sha1:2e9433eff1651ac77d6678ea76880d9a4980cbc2
+    pristine_git_object: e6e5a01c6e721e879e24a38a1f97e3e27d4686d4
+  retry/config.go:
+    id: 82d673cb0389
+    last_write_checksum: sha1:f565273be789ffe0e3c160de1ac72a63cfe67fbe
+    pristine_git_object: aa809fccb3445b1e2530a979dad620512f50e70f
+  types/bigint.go:
+    id: 6f911e1a03c3
+    last_write_checksum: sha1:49b004005d0461fb04b846eca062b070b0360b31
+    pristine_git_object: 9c6a086d51595888a6ff787ebcb8693559afee95
+  types/date.go:
+    id: 231a623ce1b7
+    last_write_checksum: sha1:3036a2e1ed15a1d484c093367eba000c38f384d0
+    pristine_git_object: 5b2782f219efe6bfbce46fc2dec68998eb759438
+  types/datetime.go:
+    id: 5023aac30a47
+    last_write_checksum: sha1:196d050af6450669214e9ae4fd28e56263ae2b5d
+    pristine_git_object: 3eff332daa04e34cec5ffb10add670bafd8ac454
+  types/pointers.go:
+    id: 6d0d0a6cb6f3
+    last_write_checksum: sha1:fc2275ea006257ba9ba4ff6f2a2cdb6205371eef
+    pristine_git_object: 35c439d2661e08fcb6a854096fd7b9a8561b3938
+  workspaces.go:
+    id: 643517773c6f
+    last_write_checksum: sha1:13ad5e254ebeacd212efc6a217b3f8b8f78a3a23
+    pristine_git_object: c67391fdc2f683571994fe0c680da51ff3bfbc24
+examples:
+  dummyServiceStatus: {}
+  getHealthStatus:
+    speakeasy-default-get-health-status:
+      responses:
+        "200":
+          application/json: {"status": "OK"}
+        default:
+          application/json: {"statusCode": 1397.13, "message": "<value>"}
+  v1.workspaces.createWorkspace:
+    speakeasy-default-v1-workspaces-create-workspace:
+      parameters:
+        path:
+          organizationId: "<id>"
+      requestBody:
+        application/json: {"workspaceId": "main", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+      responses:
+        "201":
+          application/json: {"workspaceId": "main", "region": "us-west-2", "leaderFQDN": "workspace-leader.example.com", "state": "Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+        default:
+          application/json: {"statusCode": 2135.91, "message": "<value>"}
+  v1.workspaces.listWorkspaces:
+    speakeasy-default-v1-workspaces-list-workspaces:
+      parameters:
+        path:
+          organizationId: "<id>"
+      responses:
+        "200":
+          application/json: {"items": [{"workspaceId": "main", "region": "us-west-2", "leaderFQDN": "workspace-leader.example.com", "state": "Inactive", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}], "count": 5}
+        default:
+          application/json: {"statusCode": 5622.58, "message": "<value>"}
+  v1.workspaces.updateWorkspace:
+    speakeasy-default-v1-workspaces-update-workspace:
+      parameters:
+        path:
+          organizationId: "<id>"
+          workspaceId: "<id>"
+      requestBody:
+        application/json: {"alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+      responses:
+        "200":
+          application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+        default:
+          application/json: {"statusCode": 8141.25, "message": "<value>"}
+  v1.workspaces.deleteWorkspace:
+    speakeasy-default-v1-workspaces-delete-workspace:
+      parameters:
+        path:
+          organizationId: "<id>"
+          workspaceId: "<id>"
+      responses:
+        default:
+          application/json: {"statusCode": 8158.92, "message": "<value>"}
+  v1.workspaces.getWorkspace:
+    speakeasy-default-v1-workspaces-get-workspace:
+      parameters:
+        path:
+          organizationId: "<id>"
+          workspaceId: "<id>"
+      responses:
+        "200":
+          application/json: {"workspaceId": "main", "region": "us-west-2", "leaderFQDN": "workspace-leader.example.com", "state": "Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
+        default:
+          application/json: {"statusCode": 8847.69, "message": "<value>"}
+examplesVersion: 1.0.2
+generatedTests:
+  dummyServiceStatus: "2025-07-02T19:27:27+02:00"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -102,70 +474,3 @@ generatedFiles:
   - types/datetime.go
   - types/pointers.go
   - workspaces.go
-examples:
-  dummyServiceStatus: {}
-  getHealthStatus:
-    speakeasy-default-get-health-status:
-      responses:
-        "200":
-          application/json: {"status": "OK"}
-        default:
-          application/json: {"statusCode": 1397.13, "message": "<value>"}
-  v1.workspaces.createWorkspace:
-    speakeasy-default-v1-workspaces-create-workspace:
-      parameters:
-        path:
-          organizationId: "<id>"
-      requestBody:
-        application/json: {"workspaceId": "main", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
-      responses:
-        "201":
-          application/json: {"workspaceId": "main", "region": "us-west-2", "leaderFQDN": "workspace-leader.example.com", "state": "Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
-        default:
-          application/json: {"statusCode": 2135.91, "message": "<value>"}
-  v1.workspaces.listWorkspaces:
-    speakeasy-default-v1-workspaces-list-workspaces:
-      parameters:
-        path:
-          organizationId: "<id>"
-      responses:
-        "200":
-          application/json: {"items": [{"workspaceId": "main", "region": "us-west-2", "leaderFQDN": "workspace-leader.example.com", "state": "Inactive", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}], "count": 5}
-        default:
-          application/json: {"statusCode": 5622.58, "message": "<value>"}
-  v1.workspaces.updateWorkspace:
-    speakeasy-default-v1-workspaces-update-workspace:
-      parameters:
-        path:
-          organizationId: "<id>"
-          workspaceId: "<id>"
-      requestBody:
-        application/json: {"alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
-      responses:
-        "200":
-          application/json: {"workspaceId": "main", "region": "us-west-2", "lastUpdated": "2023-01-01T12:00:00Z", "leaderFQDN": "workspace-leader.example.com", "state": "Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
-        default:
-          application/json: {"statusCode": 8141.25, "message": "<value>"}
-  v1.workspaces.deleteWorkspace:
-    speakeasy-default-v1-workspaces-delete-workspace:
-      parameters:
-        path:
-          organizationId: "<id>"
-          workspaceId: "<id>"
-      responses:
-        default:
-          application/json: {"statusCode": 8158.92, "message": "<value>"}
-  v1.workspaces.getWorkspace:
-    speakeasy-default-v1-workspaces-get-workspace:
-      parameters:
-        path:
-          organizationId: "<id>"
-          workspaceId: "<id>"
-      responses:
-        "200":
-          application/json: {"workspaceId": "main", "region": "us-west-2", "leaderFQDN": "workspace-leader.example.com", "state": "Active", "alias": "Production Environment", "description": "Main production workspace for customer data processing", "tags": ["production", "customer-data"]}
-        default:
-          application/json: {"statusCode": 8847.69, "message": "<value>"}
-examplesVersion: 1.0.2
-generatedTests:
-  dummyServiceStatus: "2025-07-02T19:27:27+02:00"
