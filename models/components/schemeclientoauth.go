@@ -18,7 +18,7 @@ func (s SchemeClientOauth) MarshalJSON() ([]byte, error) {
 }
 
 func (s *SchemeClientOauth) UnmarshalJSON(data []byte) error {
-	if err := utils.UnmarshalJSON(data, &s, "", false, []string{"clientID", "clientSecret", "tokenURL", "audience"}); err != nil {
+	if err := utils.UnmarshalJSON(data, &s, "", false, nil); err != nil {
 		return err
 	}
 	return nil
