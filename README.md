@@ -110,6 +110,10 @@ The [Cribl.Cloud Authentication Example](https://github.com/criblio/cribl-cloud-
 <details open>
 <summary>Available methods</summary>
 
+### [ApiCredentials](docs/sdks/apicredentials/README.md)
+
+* [List](docs/sdks/apicredentials/README.md#list) - List API credentials for an Organization
+
 ### [Health](docs/sdks/health/README.md)
 
 * [Get](docs/sdks/health/README.md#get) - Get the health status of the application
