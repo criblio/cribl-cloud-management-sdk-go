@@ -1,0 +1,10 @@
+# V1APICredentialsListAPICredentialsResponse
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                            | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                    | :heavy_check_mark:                                                                                    | N/A                                                                                                   |
+| `APICredentialsListResponseDTO`                                                                       | [*components.APICredentialsListResponseDTO](../../models/components/apicredentialslistresponsedto.md) | :heavy_minus_sign:                                                                                    | The API credentials have been retrieved                                                               |
+| `DefaultErrorDTO`                                                                                     | [*components.DefaultErrorDTO](../../models/components/defaulterrordto.md)                             | :heavy_minus_sign:                                                                                    | Default error response                                                                                |

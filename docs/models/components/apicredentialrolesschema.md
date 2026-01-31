@@ -1,0 +1,9 @@
+# APICredentialRolesSchema
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        | Example                                                                            |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `OrganizationRole`                                                                 | [components.OrganizationRole](../../models/components/organizationrole.md)         | :heavy_check_mark:                                                                 | Organization-level role                                                            | admin                                                                              |
+| `Workspaces`                                                                       | [][components.WorkspaceRoleSchema](../../models/components/workspaceroleschema.md) | :heavy_minus_sign:                                                                 | Workspace roles assigned to this credential                                        |                                                                                    |
