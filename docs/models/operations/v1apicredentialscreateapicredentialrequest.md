@@ -1,0 +1,9 @@
+# V1APICredentialsCreateAPICredentialRequest
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `OrganizationID`                                                                                     | *string*                                                                                             | :heavy_check_mark:                                                                                   | The <code>id</code> of the Organization where you want to create the API Credential.                 |
+| `APICredentialCreateRequestDTO`                                                                      | [components.APICredentialCreateRequestDTO](../../models/components/apicredentialcreaterequestdto.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
