@@ -1,0 +1,10 @@
+# V1APICredentialsCreateAPICredentialResponse
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                        | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                | :heavy_check_mark:                                                                                | N/A                                                                                               |
+| `APICredentialResponseSchema`                                                                     | [*components.APICredentialResponseSchema](../../models/components/apicredentialresponseschema.md) | :heavy_minus_sign:                                                                                | API Credential created                                                                            |
+| `DefaultErrorDTO`                                                                                 | [*components.DefaultErrorDTO](../../models/components/defaulterrordto.md)                         | :heavy_minus_sign:                                                                                | Default error response                                                                            |
