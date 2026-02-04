@@ -1,0 +1,10 @@
+# V1APICredentialsUpdateAPICredentialRequest
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `OrganizationID`                                                                                     | *string*                                                                                             | :heavy_check_mark:                                                                                   | The <code>id</code> of the Organization whose API Credential you want to update.                     |
+| `APICredentialID`                                                                                    | *string*                                                                                             | :heavy_check_mark:                                                                                   | The <code>clientId</code> of the API Credential to update.                                           |
+| `APICredentialUpdateRequestDTO`                                                                      | [components.APICredentialUpdateRequestDTO](../../models/components/apicredentialupdaterequestdto.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

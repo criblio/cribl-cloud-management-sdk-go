@@ -2,7 +2,7 @@
 
 package criblcloudmanagementsdkgo
 
-// Generated from OpenAPI doc version 1.0 and generator version 2.791.1
+// Generated from OpenAPI doc version 1.0 and generator version 2.803.3
 
 import (
 	"context"
@@ -52,6 +52,8 @@ type CriblMgmtPlane struct {
 	SDKVersion string
 	// Operations related to application health status
 	Health *Health
+	// Operations related to API credentials
+	APICredentials *APICredentials
 	// Operations related to Workspaces
 	Workspaces *Workspaces
 
@@ -129,9 +131,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *CriblMgmtPlane {
 	sdk := &CriblMgmtPlane{
-		SDKVersion: "0.2.0",
+		SDKVersion: "0.3.0-rc.1",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.2.0 2.791.1 1.0 github.com/criblio/cribl-cloud-management-sdk-go",
+			UserAgent:  "speakeasy-sdk/go 0.3.0-rc.1 2.803.3 1.0 github.com/criblio/cribl-cloud-management-sdk-go",
 			ServerList: ServerList,
 		},
 		hooks: hooks.New(),
@@ -155,6 +157,7 @@ func New(opts ...SDKOption) *CriblMgmtPlane {
 	sdk.sdkConfiguration = sdk.hooks.SDKInit(sdk.sdkConfiguration)
 
 	sdk.Health = newHealth(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.APICredentials = newAPICredentials(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Workspaces = newWorkspaces(sdk, sdk.sdkConfiguration, sdk.hooks)
 
 	return sdk

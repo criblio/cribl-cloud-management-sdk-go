@@ -110,6 +110,14 @@ The [Cribl.Cloud Authentication Example](https://github.com/criblio/cribl-cloud-
 <details open>
 <summary>Available methods</summary>
 
+### [ApiCredentials](docs/sdks/apicredentials/README.md)
+
+* [List](docs/sdks/apicredentials/README.md#list) - List API Credentials for an Organization
+* [Create](docs/sdks/apicredentials/README.md#create) - Create an API Credential
+* [Update](docs/sdks/apicredentials/README.md#update) - Update an API Credential
+* [Delete](docs/sdks/apicredentials/README.md#delete) - Delete an API Credential
+* [Get](docs/sdks/apicredentials/README.md#get) - Get an API Credential
+
 ### [Health](docs/sdks/health/README.md)
 
 * [Get](docs/sdks/health/README.md#get) - Get the health status of the application

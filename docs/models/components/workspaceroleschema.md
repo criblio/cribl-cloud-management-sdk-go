@@ -1,0 +1,10 @@
+# WorkspaceRoleSchema
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    | Example                                                                        |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `WorkspaceID`                                                                  | *string*                                                                       | :heavy_check_mark:                                                             | Unique ID of the Workspace.                                                    | main                                                                           |
+| `WorkspaceRole`                                                                | [components.WorkspaceRole](../../models/components/workspacerole.md)           | :heavy_check_mark:                                                             | Role assigned to the API Credential on the Workspace.                          | admin                                                                          |
+| `Products`                                                                     | [][components.ProductRoleSchema](../../models/components/productroleschema.md) | :heavy_minus_sign:                                                             | Product-level Roles assigned to the API Credential for the Workspace.          |                                                                                |

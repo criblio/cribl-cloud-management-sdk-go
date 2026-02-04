@@ -1,0 +1,9 @@
+# APICredentialRolesSchema
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        | Example                                                                            |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `OrganizationRole`                                                                 | [components.OrganizationRole](../../models/components/organizationrole.md)         | :heavy_check_mark:                                                                 | Organization-level Role assigned to the API Credential.                            | admin                                                                              |
+| `Workspaces`                                                                       | [][components.WorkspaceRoleSchema](../../models/components/workspaceroleschema.md) | :heavy_minus_sign:                                                                 | Workspace-level Roles assigned to the API Credential.                              |                                                                                    |
