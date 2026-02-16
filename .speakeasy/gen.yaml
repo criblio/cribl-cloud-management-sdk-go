@@ -40,7 +40,8 @@ go:
   defaultErrorName: APIError
   envVarPrefix: CRIBLMGMTPLANE
   flattenGlobalSecurity: true
-  forwardCompatibleEnumsByDefault: false
+  forwardCompatibleEnumsByDefault: true
+  forwardCompatibleUnionsByDefault: tagged-only
   imports:
     option: openapi
     paths:
@@ -60,6 +61,7 @@ go:
   outputModelSuffix: output
   packageName: github.com/criblio/cribl-cloud-management-sdk-go
   respectRequiredFields: false
+  respectTitlesForPrimitiveUnionMembers: false
   responseFormat: envelope-http
   sdkPackageName: ""
-  unionStrategy: left-to-right
+  unionStrategy: populated-fields
