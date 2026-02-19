@@ -57,7 +57,7 @@ go:
   methodArguments: require-security-and-request
   modulePath: ""
   multipartArrayFormat: legacy
-  nullableOptionalWrapper: false
+  nullableOptionalWrapper: true
   outputModelSuffix: output
   packageName: github.com/criblio/cribl-cloud-management-sdk-go
   respectRequiredFields: false
