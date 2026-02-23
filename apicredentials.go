@@ -688,6 +688,7 @@ func (s *APICredentials) Update(ctx context.Context, organizationID string, apiC
 
 	switch {
 	case httpRes.StatusCode == 204:
+		utils.DrainBody(httpRes)
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -902,6 +903,7 @@ func (s *APICredentials) Delete(ctx context.Context, organizationID string, apiC
 
 	switch {
 	case httpRes.StatusCode == 202:
+		utils.DrainBody(httpRes)
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
