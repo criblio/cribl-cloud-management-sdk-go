@@ -3,6 +3,7 @@
 package operations
 
 import (
+	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
 	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
 )
 
@@ -39,6 +40,17 @@ type V1WorkspacesUpdateWorkspaceResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Default error response
 	DefaultErrorDTO *components.DefaultErrorDTO
+}
+
+func (v V1WorkspacesUpdateWorkspaceResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(v, "", false)
+}
+
+func (v *V1WorkspacesUpdateWorkspaceResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &v, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (v *V1WorkspacesUpdateWorkspaceResponse) GetHTTPMeta() components.HTTPMetadata {

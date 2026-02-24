@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
+)
+
 // OrganizationRole - Organization-level Role assigned to the API Credential.
 type OrganizationRole string
 
@@ -30,7 +34,18 @@ type APICredentialRolesSchema struct {
 	// Organization-level Role assigned to the API Credential.
 	OrganizationRole OrganizationRole `json:"organizationRole"`
 	// Workspace-level Roles assigned to the API Credential.
-	Workspaces []WorkspaceRoleSchema `json:"workspaces,omitempty"`
+	Workspaces []WorkspaceRoleSchema `json:"workspaces,omitzero"`
+}
+
+func (a APICredentialRolesSchema) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
+}
+
+func (a *APICredentialRolesSchema) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (a *APICredentialRolesSchema) GetOrganizationRole() OrganizationRole {
