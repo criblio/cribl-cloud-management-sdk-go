@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
+)
+
 // WorkspaceRole - Role assigned to the API Credential on the Workspace.
 type WorkspaceRole string
 
@@ -33,7 +37,18 @@ type WorkspaceRoleSchema struct {
 	// Role assigned to the API Credential on the Workspace.
 	WorkspaceRole WorkspaceRole `json:"workspaceRole"`
 	// Product-level Roles assigned to the API Credential for the Workspace.
-	Products []ProductRoleSchema `json:"products,omitempty"`
+	Products []ProductRoleSchema `json:"products,omitzero"`
+}
+
+func (w WorkspaceRoleSchema) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WorkspaceRoleSchema) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (w *WorkspaceRoleSchema) GetWorkspaceID() string {

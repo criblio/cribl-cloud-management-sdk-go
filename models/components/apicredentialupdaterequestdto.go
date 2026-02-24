@@ -2,15 +2,30 @@
 
 package components
 
+import (
+	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
+)
+
 type APICredentialUpdateRequestDTO struct {
 	// Human-readable name of the API Credential.
-	Name *string `json:"name,omitempty"`
+	Name *string `json:"name,omitzero"`
 	// Brief description of the purpose and usage for the API Credential.
-	Description *string `json:"description,omitempty"`
+	Description *string `json:"description,omitzero"`
 	// If <code>true</code>, the API Credential is enabled. Otherwise, <code>false</code>.
-	Enabled *bool `json:"enabled,omitempty"`
+	Enabled *bool `json:"enabled,omitzero"`
 	// Role assignments for the API Credential.
-	Roles *APICredentialRolesSchema `json:"roles,omitempty"`
+	Roles *APICredentialRolesSchema `json:"roles,omitzero"`
+}
+
+func (a APICredentialUpdateRequestDTO) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
+}
+
+func (a *APICredentialUpdateRequestDTO) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (a *APICredentialUpdateRequestDTO) GetName() *string {
