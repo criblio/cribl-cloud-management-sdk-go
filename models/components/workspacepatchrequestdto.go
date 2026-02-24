@@ -2,13 +2,28 @@
 
 package components
 
+import (
+	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
+)
+
 type WorkspacePatchRequestDTO struct {
 	// User-friendly alias for the workspace
-	Alias *string `json:"alias,omitempty"`
+	Alias *string `json:"alias,omitzero"`
 	// Detailed description of the workspace
-	Description *string `json:"description,omitempty"`
+	Description *string `json:"description,omitzero"`
 	// Tags associated with the workspace
-	Tags []string `json:"tags,omitempty"`
+	Tags []string `json:"tags,omitzero"`
+}
+
+func (w WorkspacePatchRequestDTO) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WorkspacePatchRequestDTO) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (w *WorkspacePatchRequestDTO) GetAlias() *string {

@@ -3,6 +3,7 @@
 package operations
 
 import (
+	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
 	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
 )
 
@@ -33,6 +34,17 @@ type V1APICredentialsGetAPICredentialResponse struct {
 	APICredentialResponseSchema *components.APICredentialResponseSchema
 	// Default error response
 	DefaultErrorDTO *components.DefaultErrorDTO
+}
+
+func (v V1APICredentialsGetAPICredentialResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(v, "", false)
+}
+
+func (v *V1APICredentialsGetAPICredentialResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &v, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (v *V1APICredentialsGetAPICredentialResponse) GetHTTPMeta() components.HTTPMetadata {

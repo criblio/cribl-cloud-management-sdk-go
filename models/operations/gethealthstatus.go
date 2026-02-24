@@ -3,12 +3,13 @@
 package operations
 
 import (
+	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
 	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
 )
 
 // GetHealthStatusResponseBody - Health status
 type GetHealthStatusResponseBody struct {
-	Status *string `json:"status,omitempty"`
+	Status *string `json:"status,omitzero"`
 }
 
 func (g *GetHealthStatusResponseBody) GetStatus() *string {
@@ -24,6 +25,17 @@ type GetHealthStatusResponse struct {
 	Object *GetHealthStatusResponseBody
 	// Default error response
 	DefaultErrorDTO *components.DefaultErrorDTO
+}
+
+func (g GetHealthStatusResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
+}
+
+func (g *GetHealthStatusResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (g *GetHealthStatusResponse) GetHTTPMeta() components.HTTPMetadata {
