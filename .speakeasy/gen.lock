@@ -3,20 +3,20 @@ id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
   docChecksum: 3108d649e33f5279d68129f5181f5ae9
   docVersion: "1.0"
-  speakeasyVersion: 1.724.1
-  generationVersion: 2.836.5
-  releaseVersion: 0.3.0-rc.3
-  configChecksum: dc2dafb87b8527bcb863c7035891ce00
+  speakeasyVersion: 1.731.2
+  generationVersion: 2.845.1
+  releaseVersion: 0.3.0-rc.4
+  configChecksum: 9dd171e0a0c261f5fe44374874dacc65
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 persistentEdits:
-  generation_id: 0ba87d97-65c3-48c9-b78a-c964a7e12a26
-  pristine_commit_hash: d3ba89fd3e51ce2409cbbb4e7cd9d7b96a6e4dcd
-  pristine_tree_hash: 5476d8f0325c2cd5f7427e98e8243efe5c932131
+  generation_id: 989ac4b1-e0c5-4a71-8cf3-ef00034aa6d1
+  pristine_commit_hash: 2ecf386959e2a0b8cd27bd45ff61233c732abd91
+  pristine_tree_hash: 9d28499eb276b970de1aa6a660bab28ede09400b
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.13.16
+    core: 3.13.17
     defaultEnabledRetries: 0.2.0
     devContainers: 2.90.0
     envVarSecurityUsage: 0.3.2
@@ -59,8 +59,8 @@ trackedFiles:
     pristine_git_object: f0df46980088d0e00170b1b9caf69420ee2ef7ae
   criblmgmtplane.go:
     id: b735732f3993
-    last_write_checksum: sha1:d74398b7d2ce080b38bd572c938469f89f4116af
-    pristine_git_object: 59138dec0624c5a6e94c6ac350a2d9f2c6ba012c
+    last_write_checksum: sha1:1249f28d7dd0929e0f9d98043add7ca1d544d936
+    pristine_git_object: cccddc890969b41a4637d34821241c4c8c593373
   docs/models/components/apicredentialcreaterequestdto.md:
     id: df020efaea8f
     last_write_checksum: sha1:bbeac48c1898323e9257506f32180798c1d6c9a4
