@@ -9,8 +9,6 @@ type APICredentialCreateRequestDTO struct {
 	Description string `json:"description"`
 	// If <code>true</code>, the API Credential is enabled. Otherwise, <code>false</code>.
 	Enabled bool `json:"enabled"`
-	// Unique ID of the Workspace.
-	WorkspaceID string `json:"workspaceId"`
 	// Role assignments for the API Credential.
 	Roles APICredentialRolesSchema `json:"roles"`
 }
@@ -34,13 +32,6 @@ func (a *APICredentialCreateRequestDTO) GetEnabled() bool {
 		return false
 	}
 	return a.Enabled
-}
-
-func (a *APICredentialCreateRequestDTO) GetWorkspaceID() string {
-	if a == nil {
-		return ""
-	}
-	return a.WorkspaceID
 }
 
 func (a *APICredentialCreateRequestDTO) GetRoles() APICredentialRolesSchema {

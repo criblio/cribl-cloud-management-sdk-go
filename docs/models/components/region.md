@@ -1,6 +1,19 @@
 # Region
 
-AWS region where the workspace is deployed
+AWS region where the Workspace is deployed.
+
+## Example Usage
+
+```go
+import (
+	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
+)
+
+value := components.RegionUsWest2
+
+// Open enum: custom values can be created with a direct type cast
+custom := components.Region("custom_value")
+```
 
 
 ## Values
@@ -16,3 +29,7 @@ AWS region where the workspace is deployed
 | `RegionApSoutheast1` | ap-southeast-1       |
 | `RegionApSoutheast2` | ap-southeast-2       |
 | `RegionCaCentral1`   | ca-central-1         |
+| `RegionApNortheast1` | ap-northeast-1       |
+| `RegionSaEast1`      | sa-east-1            |
+| `RegionEuWest1`      | eu-west-1            |
+| `RegionEuWest3`      | eu-west-3            |

@@ -6,7 +6,7 @@ import (
 	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
 )
 
-// Region - AWS region where the workspace is deployed
+// Region - AWS region where the Workspace is deployed.
 type Region string
 
 const (
@@ -19,6 +19,10 @@ const (
 	RegionApSoutheast1 Region = "ap-southeast-1"
 	RegionApSoutheast2 Region = "ap-southeast-2"
 	RegionCaCentral1   Region = "ca-central-1"
+	RegionApNortheast1 Region = "ap-northeast-1"
+	RegionSaEast1      Region = "sa-east-1"
+	RegionEuWest1      Region = "eu-west-1"
+	RegionEuWest3      Region = "eu-west-3"
 )
 
 func (e Region) ToPointer() *Region {
@@ -29,14 +33,14 @@ func (e Region) ToPointer() *Region {
 func (e *Region) IsExact() bool {
 	if e != nil {
 		switch *e {
-		case "us-west-2", "us-east-1", "us-east-2", "eu-central-1", "eu-central-2", "eu-west-2", "ap-southeast-1", "ap-southeast-2", "ca-central-1":
+		case "us-west-2", "us-east-1", "us-east-2", "eu-central-1", "eu-central-2", "eu-west-2", "ap-southeast-1", "ap-southeast-2", "ca-central-1", "ap-northeast-1", "sa-east-1", "eu-west-1", "eu-west-3":
 			return true
 		}
 	}
 	return false
 }
 
-// State - Current state of the workspace
+// State - Current state of the Workspace.
 type State string
 
 const (
@@ -63,19 +67,19 @@ func (e *State) IsExact() bool {
 }
 
 type WorkspaceSchema struct {
-	// Unique identifier for the workspace
+	// Unique identifier for the Workspace.
 	WorkspaceID string `json:"workspaceId"`
-	// AWS region where the workspace is deployed
+	// AWS region where the Workspace is deployed.
 	Region Region `json:"region"`
-	// Fully Qualified Domain Name of the workspace leader
+	// Fully Qualified Domain Name (FQDN) of the Workspace Leader.
 	LeaderFQDN string `json:"leaderFQDN"`
-	// Current state of the workspace
+	// Current state of the Workspace.
 	State State `json:"state"`
-	// User-friendly alias for the workspace
+	// User-friendly alias for the Workspace.
 	Alias *string `json:"alias,omitzero"`
-	// Detailed description of the workspace
+	// Brief description of the Workspace.
 	Description *string `json:"description,omitzero"`
-	// Tags associated with the workspace
+	// Tags associated with the Workspace.
 	Tags []string `json:"tags,omitzero"`
 }
 

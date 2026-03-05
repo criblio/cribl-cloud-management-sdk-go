@@ -2,7 +2,7 @@
 
 package criblcloudmanagementsdkgo
 
-// Generated from OpenAPI doc version 1.0 and generator version 2.845.1
+// Generated from OpenAPI doc version 1.0 and generator version 2.849.7
 
 import (
 	"context"
@@ -63,7 +63,7 @@ type CriblMgmtPlane struct {
 
 type SDKOption func(*CriblMgmtPlane)
 
-// WithServerURL allows the overriding of the default server URL
+// WithServerURL allows providing an alternative server URL
 func WithServerURL(serverURL string) SDKOption {
 	return func(sdk *CriblMgmtPlane) {
 		sdk.sdkConfiguration.ServerURL = serverURL
@@ -131,9 +131,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *CriblMgmtPlane {
 	sdk := &CriblMgmtPlane{
-		SDKVersion: "0.3.0-rc.4",
+		SDKVersion: "0.3.0-rc.5",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.3.0-rc.4 2.845.1 1.0 github.com/criblio/cribl-cloud-management-sdk-go",
+			UserAgent:  "speakeasy-sdk/go 0.3.0-rc.5 2.849.7 1.0 github.com/criblio/cribl-cloud-management-sdk-go",
 			ServerList: ServerList,
 		},
 		hooks: hooks.New(),
