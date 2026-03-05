@@ -9,8 +9,6 @@ type APICredentialResponseSchema struct {
 	Description string `json:"description"`
 	// If <code>true</code>, the API Credential is enabled. Otherwise, <code>false</code>.
 	Enabled bool `json:"enabled"`
-	// Unique ID of the Workspace.
-	WorkspaceID string `json:"workspaceId"`
 	// Unique ID of the Organization.
 	OrganizationID string `json:"organizationId"`
 	// Client ID for the API Credential.
@@ -48,13 +46,6 @@ func (a *APICredentialResponseSchema) GetEnabled() bool {
 		return false
 	}
 	return a.Enabled
-}
-
-func (a *APICredentialResponseSchema) GetWorkspaceID() string {
-	if a == nil {
-		return ""
-	}
-	return a.WorkspaceID
 }
 
 func (a *APICredentialResponseSchema) GetOrganizationID() string {

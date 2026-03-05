@@ -108,7 +108,6 @@ func main() {
         Name: "Auto-Manage-Workspaces",
         Description: "Used for automated Workspace management",
         Enabled: true,
-        WorkspaceID: "main",
         Roles: components.APICredentialRolesSchema{
             OrganizationRole: components.OrganizationRoleAdmin,
             Workspaces: []components.WorkspaceRoleSchema{

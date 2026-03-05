@@ -7,11 +7,11 @@ import (
 )
 
 type WorkspacePatchRequestDTO struct {
-	// User-friendly alias for the workspace
+	// User-friendly alias for the Workspace.
 	Alias *string `json:"alias,omitzero"`
-	// Detailed description of the workspace
+	// Brief description of the Workspace.
 	Description *string `json:"description,omitzero"`
-	// Tags associated with the workspace
+	// Tags associated with the Workspace.
 	Tags []string `json:"tags,omitzero"`
 }
 
