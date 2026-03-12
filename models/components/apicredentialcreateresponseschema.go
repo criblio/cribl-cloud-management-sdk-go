@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-type APICredentialResponseSchema struct {
+type APICredentialCreateResponseSchema struct {
 	// Human-readable name of the API Credential.
 	Name string `json:"name"`
 	// Brief description of the purpose and usage for the API Credential.
@@ -28,85 +28,94 @@ type APICredentialResponseSchema struct {
 	LastUpdatedBy string `json:"lastUpdatedBy"`
 	// ISO 8601 timestamp when the API Credential was last updated.
 	LastUpdatedDate time.Time `json:"lastUpdatedDate"`
+	// Client Secret for the API Credential. The Client Secret is sensitive information and should be kept private. Returned only in the <code>POST</code> response when the API Credential is created. Never returned in <code>GET</code> responses. If you need the Client Secret again, you must rotate credentials and retrieve the new Client Secret from the <code>POST</code> response.
+	ClientSecret string `json:"clientSecret"`
 }
 
-func (a APICredentialResponseSchema) MarshalJSON() ([]byte, error) {
+func (a APICredentialCreateResponseSchema) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(a, "", false)
 }
 
-func (a *APICredentialResponseSchema) UnmarshalJSON(data []byte) error {
+func (a *APICredentialCreateResponseSchema) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &a, "", false, nil); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (a *APICredentialResponseSchema) GetName() string {
+func (a *APICredentialCreateResponseSchema) GetName() string {
 	if a == nil {
 		return ""
 	}
 	return a.Name
 }
 
-func (a *APICredentialResponseSchema) GetDescription() string {
+func (a *APICredentialCreateResponseSchema) GetDescription() string {
 	if a == nil {
 		return ""
 	}
 	return a.Description
 }
 
-func (a *APICredentialResponseSchema) GetEnabled() bool {
+func (a *APICredentialCreateResponseSchema) GetEnabled() bool {
 	if a == nil {
 		return false
 	}
 	return a.Enabled
 }
 
-func (a *APICredentialResponseSchema) GetOrganizationID() string {
+func (a *APICredentialCreateResponseSchema) GetOrganizationID() string {
 	if a == nil {
 		return ""
 	}
 	return a.OrganizationID
 }
 
-func (a *APICredentialResponseSchema) GetClientID() string {
+func (a *APICredentialCreateResponseSchema) GetClientID() string {
 	if a == nil {
 		return ""
 	}
 	return a.ClientID
 }
 
-func (a *APICredentialResponseSchema) GetRoles() APICredentialRolesSchema {
+func (a *APICredentialCreateResponseSchema) GetRoles() APICredentialRolesSchema {
 	if a == nil {
 		return APICredentialRolesSchema{}
 	}
 	return a.Roles
 }
 
-func (a *APICredentialResponseSchema) GetCreatedBy() string {
+func (a *APICredentialCreateResponseSchema) GetCreatedBy() string {
 	if a == nil {
 		return ""
 	}
 	return a.CreatedBy
 }
 
-func (a *APICredentialResponseSchema) GetCreatedDate() time.Time {
+func (a *APICredentialCreateResponseSchema) GetCreatedDate() time.Time {
 	if a == nil {
 		return time.Time{}
 	}
 	return a.CreatedDate
 }
 
-func (a *APICredentialResponseSchema) GetLastUpdatedBy() string {
+func (a *APICredentialCreateResponseSchema) GetLastUpdatedBy() string {
 	if a == nil {
 		return ""
 	}
 	return a.LastUpdatedBy
 }
 
-func (a *APICredentialResponseSchema) GetLastUpdatedDate() time.Time {
+func (a *APICredentialCreateResponseSchema) GetLastUpdatedDate() time.Time {
 	if a == nil {
 		return time.Time{}
 	}
 	return a.LastUpdatedDate
+}
+
+func (a *APICredentialCreateResponseSchema) GetClientSecret() string {
+	if a == nil {
+		return ""
+	}
+	return a.ClientSecret
 }

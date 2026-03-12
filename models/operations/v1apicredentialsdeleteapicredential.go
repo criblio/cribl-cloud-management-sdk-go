@@ -28,6 +28,9 @@ func (v *V1APICredentialsDeleteAPICredentialRequest) GetAPICredentialID() string
 	return v.APICredentialID
 }
 
+// #region class-body-v1apicredentialsdeleteapicredentialrequest
+// #endregion class-body-v1apicredentialsdeleteapicredentialrequest
+
 type V1APICredentialsDeleteAPICredentialResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Default error response
@@ -58,3 +61,6 @@ func (v *V1APICredentialsDeleteAPICredentialResponse) GetDefaultErrorDTO() *comp
 	}
 	return v.DefaultErrorDTO
 }
+
+// #region class-body-v1apicredentialsdeleteapicredentialresponse
+// #endregion class-body-v1apicredentialsdeleteapicredentialresponse

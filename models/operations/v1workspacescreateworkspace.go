@@ -27,6 +27,9 @@ func (v *V1WorkspacesCreateWorkspaceRequest) GetWorkspaceCreateRequestDTO() comp
 	return v.WorkspaceCreateRequestDTO
 }
 
+// #region class-body-v1workspacescreateworkspacerequest
+// #endregion class-body-v1workspacescreateworkspacerequest
+
 type V1WorkspacesCreateWorkspaceResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// The Workspace has been successfully created
@@ -66,3 +69,6 @@ func (v *V1WorkspacesCreateWorkspaceResponse) GetDefaultErrorDTO() *components.D
 	}
 	return v.DefaultErrorDTO
 }
+
+// #region class-body-v1workspacescreateworkspaceresponse
+// #endregion class-body-v1workspacescreateworkspaceresponse
