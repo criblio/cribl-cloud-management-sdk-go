@@ -43,6 +43,7 @@ func (s *Workspaces) Create(ctx context.Context, organizationID string, workspac
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
 		operations.SupportedOptionTimeout,
+		operations.SupportedOptionSkipDeserialization,
 	}
 
 	for _, opt := range opts {
@@ -215,17 +216,19 @@ func (s *Workspaces) Create(ctx context.Context, organizationID string, workspac
 	case httpRes.StatusCode == 201:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
 
-			var out components.WorkspaceSchema
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
+				var out components.WorkspaceSchema
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
 
-			res.WorkspaceSchema = &out
+				res.WorkspaceSchema = &out
+			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -248,17 +251,19 @@ func (s *Workspaces) Create(ctx context.Context, organizationID string, workspac
 	default:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
 
-			var out components.DefaultErrorDTO
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
+				var out components.DefaultErrorDTO
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
 
-			res.DefaultErrorDTO = &out
+				res.DefaultErrorDTO = &out
+			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -283,6 +288,7 @@ func (s *Workspaces) List(ctx context.Context, organizationID string, opts ...op
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
 		operations.SupportedOptionTimeout,
+		operations.SupportedOptionSkipDeserialization,
 	}
 
 	for _, opt := range opts {
@@ -448,17 +454,19 @@ func (s *Workspaces) List(ctx context.Context, organizationID string, opts ...op
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
 
-			var out components.WorkspacesListResponseDTO
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
+				var out components.WorkspacesListResponseDTO
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
 
-			res.WorkspacesListResponseDTO = &out
+				res.WorkspacesListResponseDTO = &out
+			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -481,17 +489,19 @@ func (s *Workspaces) List(ctx context.Context, organizationID string, opts ...op
 	default:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
 
-			var out components.DefaultErrorDTO
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
+				var out components.DefaultErrorDTO
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
 
-			res.DefaultErrorDTO = &out
+				res.DefaultErrorDTO = &out
+			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -518,6 +528,7 @@ func (s *Workspaces) Update(ctx context.Context, organizationID string, workspac
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
 		operations.SupportedOptionTimeout,
+		operations.SupportedOptionSkipDeserialization,
 	}
 
 	for _, opt := range opts {
@@ -688,7 +699,9 @@ func (s *Workspaces) Update(ctx context.Context, organizationID string, workspac
 
 	switch {
 	case httpRes.StatusCode == 204:
-		utils.DrainBody(httpRes)
+		if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+			utils.DrainBody(httpRes)
+		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -704,17 +717,19 @@ func (s *Workspaces) Update(ctx context.Context, organizationID string, workspac
 	default:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
 
-			var out components.DefaultErrorDTO
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
+				var out components.DefaultErrorDTO
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
 
-			res.DefaultErrorDTO = &out
+				res.DefaultErrorDTO = &out
+			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -740,6 +755,7 @@ func (s *Workspaces) Delete(ctx context.Context, organizationID string, workspac
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
 		operations.SupportedOptionTimeout,
+		operations.SupportedOptionSkipDeserialization,
 	}
 
 	for _, opt := range opts {
@@ -903,7 +919,9 @@ func (s *Workspaces) Delete(ctx context.Context, organizationID string, workspac
 
 	switch {
 	case httpRes.StatusCode == 202:
-		utils.DrainBody(httpRes)
+		if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+			utils.DrainBody(httpRes)
+		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -919,17 +937,19 @@ func (s *Workspaces) Delete(ctx context.Context, organizationID string, workspac
 	default:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
 
-			var out components.DefaultErrorDTO
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
+				var out components.DefaultErrorDTO
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
 
-			res.DefaultErrorDTO = &out
+				res.DefaultErrorDTO = &out
+			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -955,6 +975,7 @@ func (s *Workspaces) Get(ctx context.Context, organizationID string, workspaceID
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
 		operations.SupportedOptionTimeout,
+		operations.SupportedOptionSkipDeserialization,
 	}
 
 	for _, opt := range opts {
@@ -1120,17 +1141,19 @@ func (s *Workspaces) Get(ctx context.Context, organizationID string, workspaceID
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
 
-			var out components.WorkspaceSchema
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
+				var out components.WorkspaceSchema
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
 
-			res.WorkspaceSchema = &out
+				res.WorkspaceSchema = &out
+			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -1153,17 +1176,19 @@ func (s *Workspaces) Get(ctx context.Context, organizationID string, workspaceID
 	default:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
 
-			var out components.DefaultErrorDTO
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
+				var out components.DefaultErrorDTO
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
 
-			res.DefaultErrorDTO = &out
+				res.DefaultErrorDTO = &out
+			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {

@@ -6,7 +6,7 @@ type WorkspacesListResponseDTO struct {
 	// List of workspaces
 	Items []WorkspaceSchema `json:"items"`
 	// Total number of workspaces
-	Count float64 `json:"count"`
+	Count int64 `json:"count"`
 }
 
 func (w *WorkspacesListResponseDTO) GetItems() []WorkspaceSchema {
@@ -16,9 +16,9 @@ func (w *WorkspacesListResponseDTO) GetItems() []WorkspaceSchema {
 	return w.Items
 }
 
-func (w *WorkspacesListResponseDTO) GetCount() float64 {
+func (w *WorkspacesListResponseDTO) GetCount() int64 {
 	if w == nil {
-		return 0.0
+		return 0
 	}
 	return w.Count
 }

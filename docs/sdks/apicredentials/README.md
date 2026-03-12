@@ -127,7 +127,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.APICredentialResponseSchema != nil {
+    if res.APICredentialCreateResponseSchema != nil {
         // handle response
     }
 }
@@ -148,9 +148,10 @@ func main() {
 
 ### Errors
 
-| Error Type         | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| apierrors.APIError | 4XX, 5XX           | \*/\*              |
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| apierrors.DefaultErrorDTO | 422                       | application/json          |
+| apierrors.APIError        | 4XX, 5XX                  | \*/\*                     |
 
 ## Update
 

@@ -19,6 +19,9 @@ func (v *V1WorkspacesListWorkspacesRequest) GetOrganizationID() string {
 	return v.OrganizationID
 }
 
+// #region class-body-v1workspaceslistworkspacesrequest
+// #endregion class-body-v1workspaceslistworkspacesrequest
+
 type V1WorkspacesListWorkspacesResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// List of Workspaces has been successfully retrieved
@@ -58,3 +61,6 @@ func (v *V1WorkspacesListWorkspacesResponse) GetDefaultErrorDTO() *components.De
 	}
 	return v.DefaultErrorDTO
 }
+
+// #region class-body-v1workspaceslistworkspacesresponse
+// #endregion class-body-v1workspaceslistworkspacesresponse

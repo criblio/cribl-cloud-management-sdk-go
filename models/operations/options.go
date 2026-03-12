@@ -16,14 +16,16 @@ const (
 	SupportedOptionTimeout              = "timeout"
 	SupportedOptionAcceptHeaderOverride = "acceptHeaderOverride"
 	SupportedOptionURLOverride          = "urlOverride"
+	SupportedOptionSkipDeserialization  = "skipDeserialization"
 )
 
 type Options struct {
-	ServerURL   *string
-	Retries     *retry.Config
-	Timeout     *time.Duration
-	URLOverride *string
-	SetHeaders  map[string]string
+	ServerURL           *string
+	Retries             *retry.Config
+	Timeout             *time.Duration
+	URLOverride         *string
+	SetHeaders          map[string]string
+	SkipDeserialization *bool
 }
 
 type Option func(*Options, ...string) error
@@ -89,6 +91,22 @@ func WithURLOverride(urlOverride string) Option {
 func WithSetHeaders(hdrs map[string]string) Option {
 	return func(opts *Options, supportedOptions ...string) error {
 		opts.SetHeaders = hdrs
+		return nil
+	}
+}
+
+// WithSkipDeserialization skips response body deserialization for JSON responses,
+// leaving the raw body unread on the HTTP response. The caller can read the raw
+// response body via the HTTPMeta.Response field. Non-JSON responses and error
+// responses are always deserialized regardless of this option.
+func WithSkipDeserialization() Option {
+	return func(opts *Options, supportedOptions ...string) error {
+		if !utils.Contains(supportedOptions, SupportedOptionSkipDeserialization) {
+			return ErrUnsupportedOption
+		}
+
+		t := true
+		opts.SkipDeserialization = &t
 		return nil
 	}
 }

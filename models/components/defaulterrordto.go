@@ -3,13 +3,15 @@
 package components
 
 type DefaultErrorDTO struct {
-	StatusCode float64 `json:"statusCode"`
-	Message    string  `json:"message"`
+	// HTTP status code.
+	StatusCode int64 `json:"statusCode"`
+	// Human-readable error message.
+	Message string `json:"message"`
 }
 
-func (d *DefaultErrorDTO) GetStatusCode() float64 {
+func (d *DefaultErrorDTO) GetStatusCode() int64 {
 	if d == nil {
-		return 0.0
+		return 0
 	}
 	return d.StatusCode
 }
