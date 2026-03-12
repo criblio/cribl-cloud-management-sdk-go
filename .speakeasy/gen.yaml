@@ -33,12 +33,14 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 go:
-  version: 0.3.0-rc.6
+  version: 0.3.0rc7
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: true
   baseErrorName: CriblMgmtPlaneError
   clientServerStatusCodesAsErrors: true
   defaultErrorName: APIError
+  enableCustomCodeRegions: false
+  enableSkipDeserialization: false
   envVarPrefix: CRIBLMGMTPLANE
   flattenGlobalSecurity: true
   forwardCompatibleEnumsByDefault: true

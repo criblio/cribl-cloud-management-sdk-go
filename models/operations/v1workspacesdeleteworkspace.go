@@ -28,6 +28,9 @@ func (v *V1WorkspacesDeleteWorkspaceRequest) GetWorkspaceID() string {
 	return v.WorkspaceID
 }
 
+// #region class-body-v1workspacesdeleteworkspacerequest
+// #endregion class-body-v1workspacesdeleteworkspacerequest
+
 type V1WorkspacesDeleteWorkspaceResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Default error response
@@ -58,3 +61,6 @@ func (v *V1WorkspacesDeleteWorkspaceResponse) GetDefaultErrorDTO() *components.D
 	}
 	return v.DefaultErrorDTO
 }
+
+// #region class-body-v1workspacesdeleteworkspaceresponse
+// #endregion class-body-v1workspacesdeleteworkspaceresponse

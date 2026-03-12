@@ -36,6 +36,9 @@ func (v *V1WorkspacesUpdateWorkspaceRequest) GetWorkspacePatchRequestDTO() compo
 	return v.WorkspacePatchRequestDTO
 }
 
+// #region class-body-v1workspacesupdateworkspacerequest
+// #endregion class-body-v1workspacesupdateworkspacerequest
+
 type V1WorkspacesUpdateWorkspaceResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Default error response
@@ -66,3 +69,6 @@ func (v *V1WorkspacesUpdateWorkspaceResponse) GetDefaultErrorDTO() *components.D
 	}
 	return v.DefaultErrorDTO
 }
+
+// #region class-body-v1workspacesupdateworkspaceresponse
+// #endregion class-body-v1workspacesupdateworkspaceresponse

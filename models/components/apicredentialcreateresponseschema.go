@@ -2,7 +2,7 @@
 
 package components
 
-type APICredentialListItemSchema struct {
+type APICredentialCreateResponseSchema struct {
 	// Human-readable name of the API Credential.
 	Name string `json:"name"`
 	// Brief description of the purpose and usage for the API Credential.
@@ -23,74 +23,83 @@ type APICredentialListItemSchema struct {
 	LastUpdatedBy string `json:"lastUpdatedBy"`
 	// ISO 8601 timestamp when the API Credential was last updated.
 	LastUpdatedDate string `json:"lastUpdatedDate"`
+	// Client Secret for the API Credential. The Client Secret is sensitive information and should be kept private. Returned only in the <code>POST</code> response when the API Credential is created. Never returned in <code>GET</code> responses. If you need the Client Secret again, you must rotate credentials and retrieve the new Client Secret from the <code>POST</code> response.
+	ClientSecret string `json:"clientSecret"`
 }
 
-func (a *APICredentialListItemSchema) GetName() string {
+func (a *APICredentialCreateResponseSchema) GetName() string {
 	if a == nil {
 		return ""
 	}
 	return a.Name
 }
 
-func (a *APICredentialListItemSchema) GetDescription() string {
+func (a *APICredentialCreateResponseSchema) GetDescription() string {
 	if a == nil {
 		return ""
 	}
 	return a.Description
 }
 
-func (a *APICredentialListItemSchema) GetEnabled() bool {
+func (a *APICredentialCreateResponseSchema) GetEnabled() bool {
 	if a == nil {
 		return false
 	}
 	return a.Enabled
 }
 
-func (a *APICredentialListItemSchema) GetOrganizationID() string {
+func (a *APICredentialCreateResponseSchema) GetOrganizationID() string {
 	if a == nil {
 		return ""
 	}
 	return a.OrganizationID
 }
 
-func (a *APICredentialListItemSchema) GetClientID() string {
+func (a *APICredentialCreateResponseSchema) GetClientID() string {
 	if a == nil {
 		return ""
 	}
 	return a.ClientID
 }
 
-func (a *APICredentialListItemSchema) GetRoles() APICredentialRolesSchema {
+func (a *APICredentialCreateResponseSchema) GetRoles() APICredentialRolesSchema {
 	if a == nil {
 		return APICredentialRolesSchema{}
 	}
 	return a.Roles
 }
 
-func (a *APICredentialListItemSchema) GetCreatedBy() string {
+func (a *APICredentialCreateResponseSchema) GetCreatedBy() string {
 	if a == nil {
 		return ""
 	}
 	return a.CreatedBy
 }
 
-func (a *APICredentialListItemSchema) GetCreatedDate() string {
+func (a *APICredentialCreateResponseSchema) GetCreatedDate() string {
 	if a == nil {
 		return ""
 	}
 	return a.CreatedDate
 }
 
-func (a *APICredentialListItemSchema) GetLastUpdatedBy() string {
+func (a *APICredentialCreateResponseSchema) GetLastUpdatedBy() string {
 	if a == nil {
 		return ""
 	}
 	return a.LastUpdatedBy
 }
 
-func (a *APICredentialListItemSchema) GetLastUpdatedDate() string {
+func (a *APICredentialCreateResponseSchema) GetLastUpdatedDate() string {
 	if a == nil {
 		return ""
 	}
 	return a.LastUpdatedDate
+}
+
+func (a *APICredentialCreateResponseSchema) GetClientSecret() string {
+	if a == nil {
+		return ""
+	}
+	return a.ClientSecret
 }

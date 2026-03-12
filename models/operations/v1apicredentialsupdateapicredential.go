@@ -36,6 +36,9 @@ func (v *V1APICredentialsUpdateAPICredentialRequest) GetAPICredentialUpdateReque
 	return v.APICredentialUpdateRequestDTO
 }
 
+// #region class-body-v1apicredentialsupdateapicredentialrequest
+// #endregion class-body-v1apicredentialsupdateapicredentialrequest
+
 type V1APICredentialsUpdateAPICredentialResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Default error response
@@ -66,3 +69,6 @@ func (v *V1APICredentialsUpdateAPICredentialResponse) GetDefaultErrorDTO() *comp
 	}
 	return v.DefaultErrorDTO
 }
+
+// #region class-body-v1apicredentialsupdateapicredentialresponse
+// #endregion class-body-v1apicredentialsupdateapicredentialresponse

@@ -23,8 +23,6 @@ type APICredentialResponseSchema struct {
 	LastUpdatedBy string `json:"lastUpdatedBy"`
 	// ISO 8601 timestamp when the API Credential was last updated.
 	LastUpdatedDate string `json:"lastUpdatedDate"`
-	// Client Secret for the API Credential. The Client Secret is sensitive information and should be kept private. Only <code>POST</code> responses include the Client Secret. For other methods, responses return an empty string.
-	ClientSecret string `json:"clientSecret"`
 }
 
 func (a *APICredentialResponseSchema) GetName() string {
@@ -95,11 +93,4 @@ func (a *APICredentialResponseSchema) GetLastUpdatedDate() string {
 		return ""
 	}
 	return a.LastUpdatedDate
-}
-
-func (a *APICredentialResponseSchema) GetClientSecret() string {
-	if a == nil {
-		return ""
-	}
-	return a.ClientSecret
 }

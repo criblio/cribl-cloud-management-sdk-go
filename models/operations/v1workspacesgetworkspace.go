@@ -28,6 +28,9 @@ func (v *V1WorkspacesGetWorkspaceRequest) GetWorkspaceID() string {
 	return v.WorkspaceID
 }
 
+// #region class-body-v1workspacesgetworkspacerequest
+// #endregion class-body-v1workspacesgetworkspacerequest
+
 type V1WorkspacesGetWorkspaceResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// The Workspace details have been retrieved
@@ -67,3 +70,6 @@ func (v *V1WorkspacesGetWorkspaceResponse) GetDefaultErrorDTO() *components.Defa
 	}
 	return v.DefaultErrorDTO
 }
+
+// #region class-body-v1workspacesgetworkspaceresponse
+// #endregion class-body-v1workspacesgetworkspaceresponse

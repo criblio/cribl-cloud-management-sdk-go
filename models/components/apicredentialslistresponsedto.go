@@ -4,14 +4,14 @@ package components
 
 type APICredentialsListResponseDTO struct {
 	// List of API Credentials.
-	Items []APICredentialListItemSchema `json:"items"`
+	Items []APICredentialResponseSchema `json:"items"`
 	// Total number of API Credentials listed in the response.
 	Count float64 `json:"count"`
 }
 
-func (a *APICredentialsListResponseDTO) GetItems() []APICredentialListItemSchema {
+func (a *APICredentialsListResponseDTO) GetItems() []APICredentialResponseSchema {
 	if a == nil {
-		return []APICredentialListItemSchema{}
+		return []APICredentialResponseSchema{}
 	}
 	return a.Items
 }

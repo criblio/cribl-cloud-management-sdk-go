@@ -28,6 +28,9 @@ func (v *V1APICredentialsGetAPICredentialRequest) GetAPICredentialID() string {
 	return v.APICredentialID
 }
 
+// #region class-body-v1apicredentialsgetapicredentialrequest
+// #endregion class-body-v1apicredentialsgetapicredentialrequest
+
 type V1APICredentialsGetAPICredentialResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// API Credential retrieved
@@ -67,3 +70,6 @@ func (v *V1APICredentialsGetAPICredentialResponse) GetDefaultErrorDTO() *compone
 	}
 	return v.DefaultErrorDTO
 }
+
+// #region class-body-v1apicredentialsgetapicredentialresponse
+// #endregion class-body-v1apicredentialsgetapicredentialresponse
