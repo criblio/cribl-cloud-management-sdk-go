@@ -19,6 +19,9 @@ func (v *V1APICredentialsListAPICredentialsRequest) GetOrganizationID() string {
 	return v.OrganizationID
 }
 
+// #region class-body-v1apicredentialslistapicredentialsrequest
+// #endregion class-body-v1apicredentialslistapicredentialsrequest
+
 type V1APICredentialsListAPICredentialsResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// API Credentials retrieved
@@ -58,3 +61,6 @@ func (v *V1APICredentialsListAPICredentialsResponse) GetDefaultErrorDTO() *compo
 	}
 	return v.DefaultErrorDTO
 }
+
+// #region class-body-v1apicredentialslistapicredentialsresponse
+// #endregion class-body-v1apicredentialslistapicredentialsresponse

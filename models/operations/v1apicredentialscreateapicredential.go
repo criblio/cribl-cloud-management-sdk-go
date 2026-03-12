@@ -27,11 +27,14 @@ func (v *V1APICredentialsCreateAPICredentialRequest) GetAPICredentialCreateReque
 	return v.APICredentialCreateRequestDTO
 }
 
+// #region class-body-v1apicredentialscreateapicredentialrequest
+// #endregion class-body-v1apicredentialscreateapicredentialrequest
+
 type V1APICredentialsCreateAPICredentialResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// API Credential created
-	APICredentialResponseSchema *components.APICredentialResponseSchema
-	// Default error response
+	APICredentialCreateResponseSchema *components.APICredentialCreateResponseSchema
+	// API Credential limit reached
 	DefaultErrorDTO *components.DefaultErrorDTO
 }
 
@@ -53,11 +56,11 @@ func (v *V1APICredentialsCreateAPICredentialResponse) GetHTTPMeta() components.H
 	return v.HTTPMeta
 }
 
-func (v *V1APICredentialsCreateAPICredentialResponse) GetAPICredentialResponseSchema() *components.APICredentialResponseSchema {
+func (v *V1APICredentialsCreateAPICredentialResponse) GetAPICredentialCreateResponseSchema() *components.APICredentialCreateResponseSchema {
 	if v == nil {
 		return nil
 	}
-	return v.APICredentialResponseSchema
+	return v.APICredentialCreateResponseSchema
 }
 
 func (v *V1APICredentialsCreateAPICredentialResponse) GetDefaultErrorDTO() *components.DefaultErrorDTO {
@@ -66,3 +69,6 @@ func (v *V1APICredentialsCreateAPICredentialResponse) GetDefaultErrorDTO() *comp
 	}
 	return v.DefaultErrorDTO
 }
+
+// #region class-body-v1apicredentialscreateapicredentialresponse
+// #endregion class-body-v1apicredentialscreateapicredentialresponse

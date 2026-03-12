@@ -244,11 +244,12 @@ Handling errors in this SDK should largely match your expectations. All operatio
 
 By Default, an API error will return `apierrors.APIError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
 
-For example, the `Get` function may return the following errors:
+For example, the `Create` function may return the following errors:
 
-| Error Type         | Status Code | Content Type |
-| ------------------ | ----------- | ------------ |
-| apierrors.APIError | 4XX, 5XX    | \*/\*        |
+| Error Type                | Status Code | Content Type     |
+| ------------------------- | ----------- | ---------------- |
+| apierrors.DefaultErrorDTO | 422         | application/json |
+| apierrors.APIError        | 4XX, 5XX    | \*/\*            |
 
 ### Example
 
@@ -279,8 +280,33 @@ func main() {
 		}),
 	)
 
-	res, err := s.Health.Get(ctx)
+	res, err := s.APICredentials.Create(ctx, "<id>", components.APICredentialCreateRequestDTO{
+		Name:        "Auto-Manage-Workspaces",
+		Description: "Used for automated Workspace management",
+		Enabled:     true,
+		Roles: components.APICredentialRolesSchema{
+			OrganizationRole: components.OrganizationRoleAdmin,
+			Workspaces: []components.WorkspaceRoleSchema{
+				components.WorkspaceRoleSchema{
+					WorkspaceID:   "main",
+					WorkspaceRole: components.WorkspaceRoleAdmin,
+					Products: []components.ProductRoleSchema{
+						components.ProductRoleSchema{
+							Product: components.ProductStream,
+							Role:    components.RoleAdmin,
+						},
+					},
+				},
+			},
+		},
+	})
 	if err != nil {
+
+		var e *apierrors.DefaultErrorDTO
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
 
 		var e *apierrors.APIError
 		if errors.As(err, &e) {

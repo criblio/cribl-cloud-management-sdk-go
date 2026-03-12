@@ -42,6 +42,7 @@ func (s *APICredentials) List(ctx context.Context, organizationID string, opts .
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
 		operations.SupportedOptionTimeout,
+		operations.SupportedOptionSkipDeserialization,
 	}
 
 	for _, opt := range opts {
@@ -207,17 +208,19 @@ func (s *APICredentials) List(ctx context.Context, organizationID string, opts .
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
 
-			var out components.APICredentialsListResponseDTO
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
+				var out components.APICredentialsListResponseDTO
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
 
-			res.APICredentialsListResponseDTO = &out
+				res.APICredentialsListResponseDTO = &out
+			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -240,17 +243,19 @@ func (s *APICredentials) List(ctx context.Context, organizationID string, opts .
 	default:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
 
-			var out components.DefaultErrorDTO
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
+				var out components.DefaultErrorDTO
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
 
-			res.DefaultErrorDTO = &out
+				res.DefaultErrorDTO = &out
+			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -276,6 +281,7 @@ func (s *APICredentials) Create(ctx context.Context, organizationID string, apiC
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
 		operations.SupportedOptionTimeout,
+		operations.SupportedOptionSkipDeserialization,
 	}
 
 	for _, opt := range opts {
@@ -422,7 +428,7 @@ func (s *APICredentials) Create(ctx context.Context, organizationID string, apiC
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"422", "4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -448,17 +454,44 @@ func (s *APICredentials) Create(ctx context.Context, organizationID string, apiC
 	case httpRes.StatusCode == 201:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
+
+				var out components.APICredentialCreateResponseSchema
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
+
+				res.APICredentialCreateResponseSchema = &out
+			}
+		default:
+			rawBody, err := utils.ConsumeRawBody(httpRes)
+			if err != nil {
+				return nil, err
+			}
+			return nil, apierrors.NewAPIError(fmt.Sprintf("unknown content-type received: %s", httpRes.Header.Get("Content-Type")), httpRes.StatusCode, string(rawBody), httpRes)
+		}
+	case httpRes.StatusCode == 422:
+		switch {
+		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
 				return nil, err
 			}
 
-			var out components.APICredentialResponseSchema
+			var out apierrors.DefaultErrorDTO
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.APICredentialResponseSchema = &out
+			out.HTTPMeta = components.HTTPMetadata{
+				Request:  req,
+				Response: httpRes,
+			}
+			return nil, &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -481,17 +514,19 @@ func (s *APICredentials) Create(ctx context.Context, organizationID string, apiC
 	default:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
 
-			var out components.DefaultErrorDTO
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
+				var out components.DefaultErrorDTO
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
 
-			res.DefaultErrorDTO = &out
+				res.DefaultErrorDTO = &out
+			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -518,6 +553,7 @@ func (s *APICredentials) Update(ctx context.Context, organizationID string, apiC
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
 		operations.SupportedOptionTimeout,
+		operations.SupportedOptionSkipDeserialization,
 	}
 
 	for _, opt := range opts {
@@ -688,7 +724,9 @@ func (s *APICredentials) Update(ctx context.Context, organizationID string, apiC
 
 	switch {
 	case httpRes.StatusCode == 204:
-		utils.DrainBody(httpRes)
+		if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+			utils.DrainBody(httpRes)
+		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -704,17 +742,19 @@ func (s *APICredentials) Update(ctx context.Context, organizationID string, apiC
 	default:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
 
-			var out components.DefaultErrorDTO
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
+				var out components.DefaultErrorDTO
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
 
-			res.DefaultErrorDTO = &out
+				res.DefaultErrorDTO = &out
+			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -740,6 +780,7 @@ func (s *APICredentials) Delete(ctx context.Context, organizationID string, apiC
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
 		operations.SupportedOptionTimeout,
+		operations.SupportedOptionSkipDeserialization,
 	}
 
 	for _, opt := range opts {
@@ -902,8 +943,10 @@ func (s *APICredentials) Delete(ctx context.Context, organizationID string, apiC
 	}
 
 	switch {
-	case httpRes.StatusCode == 202:
-		utils.DrainBody(httpRes)
+	case httpRes.StatusCode == 204:
+		if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+			utils.DrainBody(httpRes)
+		}
 	case httpRes.StatusCode >= 400 && httpRes.StatusCode < 500:
 		rawBody, err := utils.ConsumeRawBody(httpRes)
 		if err != nil {
@@ -919,17 +962,19 @@ func (s *APICredentials) Delete(ctx context.Context, organizationID string, apiC
 	default:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
 
-			var out components.DefaultErrorDTO
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
+				var out components.DefaultErrorDTO
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
 
-			res.DefaultErrorDTO = &out
+				res.DefaultErrorDTO = &out
+			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -955,6 +1000,7 @@ func (s *APICredentials) Get(ctx context.Context, organizationID string, apiCred
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
 		operations.SupportedOptionTimeout,
+		operations.SupportedOptionSkipDeserialization,
 	}
 
 	for _, opt := range opts {
@@ -1120,17 +1166,19 @@ func (s *APICredentials) Get(ctx context.Context, organizationID string, apiCred
 	case httpRes.StatusCode == 200:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
 
-			var out components.APICredentialResponseSchema
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
+				var out components.APICredentialResponseSchema
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
 
-			res.APICredentialResponseSchema = &out
+				res.APICredentialResponseSchema = &out
+			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
@@ -1153,17 +1201,19 @@ func (s *APICredentials) Get(ctx context.Context, organizationID string, apiCred
 	default:
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
-			rawBody, err := utils.ConsumeRawBody(httpRes)
-			if err != nil {
-				return nil, err
-			}
+			if o.SkipDeserialization == nil || !*o.SkipDeserialization {
+				rawBody, err := utils.ConsumeRawBody(httpRes)
+				if err != nil {
+					return nil, err
+				}
 
-			var out components.DefaultErrorDTO
-			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
-			}
+				var out components.DefaultErrorDTO
+				if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
+					return nil, err
+				}
 
-			res.DefaultErrorDTO = &out
+				res.DefaultErrorDTO = &out
+			}
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {
