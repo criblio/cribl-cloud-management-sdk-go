@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
-  docChecksum: c371bb9548f0b66eb9681bab2aef6dd1
+  docChecksum: d244e57dfb3a58f267f55f9a436fd97a
   docVersion: "1.0"
   speakeasyVersion: 1.752.0
   generationVersion: 2.859.2
-  releaseVersion: 0.3.0-rc.7
-  configChecksum: 6f06620f241f5a7576c78c3a68902af4
+  releaseVersion: 0.3.0-rc.8
+  configChecksum: bc0b3395a7e21dfe011af06cdfcfd3e7
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 persistentEdits:
-  generation_id: faaa821c-3606-49f1-998f-8f88f13ec40f
-  pristine_commit_hash: c2cdfe0203885e40cdabab219e1e46b4ae773c6a
-  pristine_tree_hash: a98945eefeefa0f9ebef71919d032df1bc981b7a
+  generation_id: 230850e5-2450-459b-a7fb-12bddedd7f71
+  pristine_commit_hash: 4771d0b08f3685cbd2e21e6f4d08eda66745e78b
+  pristine_tree_hash: 53ef1171747c0381ca0bafe99df442bce876c1f3
 features:
   go:
     additionalDependencies: 0.1.0
@@ -59,8 +59,8 @@ trackedFiles:
     pristine_git_object: 27c11f8aec249d08cdc12d37c62be40f8468dd16
   criblmgmtplane.go:
     id: b735732f3993
-    last_write_checksum: sha1:6fa7bc66e6e2afc3a8d416e9d350b9d6391dc07d
-    pristine_git_object: 7cc3750d404a37ed9fee5fc377ef69d1d84ea520
+    last_write_checksum: sha1:031a27cb1193f091cdd1a5407f8db303a9bc7dcb
+    pristine_git_object: 3f7841a911d695efd7acb087a806184340cf5859
   docs/models/apierrors/defaulterrordto.md:
     id: b27bce9be76a
     last_write_checksum: sha1:d7201f37c9a0f576066265d6cd351b09dad8cd73
