@@ -5,14 +5,14 @@ management:
   docVersion: "1.0"
   speakeasyVersion: 1.759.2
   generationVersion: 2.869.23
-  releaseVersion: 0.3.0-rc.9
-  configChecksum: 01a4181bf604061d05ddde8198e5cee4
+  releaseVersion: 0.3.0
+  configChecksum: 06b4f34164b8cd6b6f1b67933e9e84dd
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 persistentEdits:
-  generation_id: db63d9de-d58e-475a-8c4b-0b09f25d9edb
-  pristine_commit_hash: 1dcf5173251e08d7370498e5ba7c7c2b46a0b8c4
-  pristine_tree_hash: eb2785e2f8b35c79123a56d5e533c3c33b7d5e4b
+  generation_id: 52fccef0-6923-418b-bdab-ace6d4605978
+  pristine_commit_hash: e6d7e035be8c07e365c8df88909ad5c65b42d063
+  pristine_tree_hash: 0892b8e201f7ad862ce4a4270e641204b82aaac9
 features:
   go:
     additionalDependencies: 0.1.0
@@ -59,8 +59,8 @@ trackedFiles:
     pristine_git_object: c8ebdb5f792cd72ac82fea3e0e5bcafa94873910
   criblmgmtplane.go:
     id: b735732f3993
-    last_write_checksum: sha1:f1e87527c55f96d90be7a05cfd10b19e77f3bdfa
-    pristine_git_object: 1600806d63bdda115585a0f33255348a57994ec1
+    last_write_checksum: sha1:9b5cb91148df2d035a87dead56c8691e3ea5262b
+    pristine_git_object: 107d69dad23168a53b5d9d0d84309ea1576337bf
   docs/models/apierrors/defaulterrordto.md:
     id: b27bce9be76a
     last_write_checksum: sha1:d7201f37c9a0f576066265d6cd351b09dad8cd73
@@ -612,18 +612,20 @@ examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:27:27+02:00"
 releaseNotes: |
-  ## Go SDK Changes:
-  * `CriblMgmtPlane.Health.Get()`:  `response.StatusCode` **Changed** (Breaking ⚠️)
-  * `CriblMgmtPlane.Workspaces.Create()`:  `response` **Changed** (Breaking ⚠️)
-  * `CriblMgmtPlane.Workspaces.List()`:  `response` **Changed** (Breaking ⚠️)
-  * `CriblMgmtPlane.Workspaces.Update()`:  `response.StatusCode` **Changed** (Breaking ⚠️)
-  * `CriblMgmtPlane.Workspaces.Delete()`:  `response.StatusCode` **Changed** (Breaking ⚠️)
-  * `CriblMgmtPlane.Workspaces.Get()`:  `response` **Changed** (Breaking ⚠️)
-  * `CriblMgmtPlane.ApiCredentials.List()`: **Added**
-  * `CriblMgmtPlane.ApiCredentials.Create()`: **Added**
-  * `CriblMgmtPlane.ApiCredentials.Update()`: **Added**
-  * `CriblMgmtPlane.ApiCredentials.Delete()`: **Added**
-  * `CriblMgmtPlane.ApiCredentials.Get()`: **Added**
+  ## Go SDK Changes
+
+  This version of the SDK is generated for Cribl.Cloud.
+
+  ### Added new endpoints
+  * API Credentials:
+  * `CriblMgmtPlane.ApiCredentials.List()` - List API Credentials for an Organization
+  * `CriblMgmtPlane.ApiCredentials.Create()` - Create an API Credential
+  * `CriblMgmtPlane.ApiCredentials.Update()` - Update an API Credential
+  * `CriblMgmtPlane.ApiCredentials.Delete()` - Delete an API Credential
+  * `CriblMgmtPlane.ApiCredentials.Get()` - Get an API Credential
+  *
+  ### Region enum
+  * Extended with additional AWS regions: `ap-northeast-1`, `sa-east-1`, `eu-west-1`, `eu-west-3`
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
