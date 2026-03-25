@@ -612,18 +612,20 @@ examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:27:27+02:00"
 releaseNotes: |
-  ## Go SDK Changes:
-  * `CriblMgmtPlane.Health.Get()`:  `response.StatusCode` **Changed** (Breaking ⚠️)
-  * `CriblMgmtPlane.Workspaces.Create()`:  `response` **Changed** (Breaking ⚠️)
-  * `CriblMgmtPlane.Workspaces.List()`:  `response` **Changed** (Breaking ⚠️)
-  * `CriblMgmtPlane.Workspaces.Update()`:  `response.StatusCode` **Changed** (Breaking ⚠️)
-  * `CriblMgmtPlane.Workspaces.Delete()`:  `response.StatusCode` **Changed** (Breaking ⚠️)
-  * `CriblMgmtPlane.Workspaces.Get()`:  `response` **Changed** (Breaking ⚠️)
-  * `CriblMgmtPlane.ApiCredentials.List()`: **Added**
-  * `CriblMgmtPlane.ApiCredentials.Create()`: **Added**
-  * `CriblMgmtPlane.ApiCredentials.Update()`: **Added**
-  * `CriblMgmtPlane.ApiCredentials.Delete()`: **Added**
-  * `CriblMgmtPlane.ApiCredentials.Get()`: **Added**
+  ## Go SDK Changes
+
+  This version of the SDK is generated for Cribl.Cloud.
+
+  ### Added new endpoints
+  * API Credentials:
+  * `CriblMgmtPlane.ApiCredentials.List()` - List API Credentials for an Organization
+  * `CriblMgmtPlane.ApiCredentials.Create()` - Create an API Credential
+  * `CriblMgmtPlane.ApiCredentials.Update()` - Update an API Credential
+  * `CriblMgmtPlane.ApiCredentials.Delete()` - Delete an API Credential
+  * `CriblMgmtPlane.ApiCredentials.Get()` - Get an API Credential
+  *
+  ### Region enum
+  * Extended with additional AWS regions: `ap-northeast-1`, `sa-east-1`, `eu-west-1`, `eu-west-3`
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
