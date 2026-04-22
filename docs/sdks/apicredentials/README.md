@@ -123,6 +123,9 @@ func main() {
                 },
             },
         },
+        IPAllowlist: []string{
+            "10.0.0.1/32",
+        },
     })
     if err != nil {
         log.Fatal(err)
@@ -203,6 +206,9 @@ func main() {
                     },
                 },
             },
+        },
+        IPAllowlist: []string{
+            "10.0.0.1/32",
         },
     })
     if err != nil {

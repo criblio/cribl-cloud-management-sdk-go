@@ -20,6 +20,8 @@ type APICredentialResponseSchema struct {
 	ClientID string `json:"clientId"`
 	// Role assignments for the API Credential.
 	Roles APICredentialRolesSchema `json:"roles"`
+	// CIDR range enforced as the IP allowlist for the API Credential. An empty array means that the API Credential has no IP restrictions.
+	IPAllowlist []string `json:"ipAllowlist"`
 	// Member who created the API Credential.
 	CreatedBy string `json:"createdBy"`
 	// ISO 8601 timestamp when the API Credential was created.
@@ -81,6 +83,13 @@ func (a *APICredentialResponseSchema) GetRoles() APICredentialRolesSchema {
 		return APICredentialRolesSchema{}
 	}
 	return a.Roles
+}
+
+func (a *APICredentialResponseSchema) GetIPAllowlist() []string {
+	if a == nil {
+		return []string{}
+	}
+	return a.IPAllowlist
 }
 
 func (a *APICredentialResponseSchema) GetCreatedBy() string {

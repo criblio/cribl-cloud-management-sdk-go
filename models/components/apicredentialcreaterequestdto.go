@@ -2,6 +2,10 @@
 
 package components
 
+import (
+	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
+)
+
 type APICredentialCreateRequestDTO struct {
 	// Human-readable name of the API Credential.
 	Name string `json:"name"`
@@ -11,6 +15,19 @@ type APICredentialCreateRequestDTO struct {
 	Enabled bool `json:"enabled"`
 	// Role assignments for the API Credential.
 	Roles APICredentialRolesSchema `json:"roles"`
+	// CIDR range enforced as the IP allowlist for the API Credential.
+	IPAllowlist []string `json:"ipAllowlist,omitzero"`
+}
+
+func (a APICredentialCreateRequestDTO) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
+}
+
+func (a *APICredentialCreateRequestDTO) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, nil); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (a *APICredentialCreateRequestDTO) GetName() string {
@@ -39,4 +56,11 @@ func (a *APICredentialCreateRequestDTO) GetRoles() APICredentialRolesSchema {
 		return APICredentialRolesSchema{}
 	}
 	return a.Roles
+}
+
+func (a *APICredentialCreateRequestDTO) GetIPAllowlist() []string {
+	if a == nil {
+		return nil
+	}
+	return a.IPAllowlist
 }

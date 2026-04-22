@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 7b84e1bb-3471-4b22-89bc-4e651e67d86c
 management:
-  docChecksum: 7cce29887afb438b21f3e5023ab944b8
+  docChecksum: ff02bf1e8c144fe95e7799aea0b1be3c
   docVersion: "1.0"
-  speakeasyVersion: 1.759.2
-  generationVersion: 2.869.23
-  releaseVersion: 0.3.0
-  configChecksum: 06b4f34164b8cd6b6f1b67933e9e84dd
+  speakeasyVersion: 1.761.9
+  generationVersion: 2.881.4
+  releaseVersion: 0.3.1-rc.1
+  configChecksum: ccb5fa833ba242de8c0a828e9b32cd85
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 persistentEdits:
-  generation_id: 52fccef0-6923-418b-bdab-ace6d4605978
-  pristine_commit_hash: e6d7e035be8c07e365c8df88909ad5c65b42d063
-  pristine_tree_hash: 0892b8e201f7ad862ce4a4270e641204b82aaac9
+  generation_id: 94df9809-f99a-4b0d-87e4-afce25f08ceb
+  pristine_commit_hash: 0a8bd68b7a5458b9c7dcbf4b3d04cfc98be0e245
+  pristine_tree_hash: d7162aefc3c990ee854901df5029a1aef4b3e943
 features:
   go:
     additionalDependencies: 0.1.0
@@ -21,7 +21,7 @@ features:
     devContainers: 2.90.0
     envVarSecurityUsage: 0.3.2
     flattening: 2.81.2
-    globalSecurity: 2.82.13
+    globalSecurity: 2.82.15
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.83.1
     groups: 2.81.3
@@ -55,28 +55,28 @@ trackedFiles:
     pristine_git_object: c61009cb52f7119125706cbcb136d9f52f0cdfd7
   apicredentials.go:
     id: 97b2a00aa3fb
-    last_write_checksum: sha1:681e22e5169e238864f797a5520345099ad240d2
-    pristine_git_object: c8ebdb5f792cd72ac82fea3e0e5bcafa94873910
+    last_write_checksum: sha1:773ee59a685440be29c6b1d922acc1ec71484f19
+    pristine_git_object: 3dbf651bb3c0ef6eabab8fda3b90ef381e5d6957
   criblmgmtplane.go:
     id: b735732f3993
-    last_write_checksum: sha1:9b5cb91148df2d035a87dead56c8691e3ea5262b
-    pristine_git_object: 107d69dad23168a53b5d9d0d84309ea1576337bf
+    last_write_checksum: sha1:cb65b23087e6342377ce56e2b9f15df1b9a25455
+    pristine_git_object: 25c9242d0935c708d6a21a1f6b14705f9c44dfc0
   docs/models/apierrors/defaulterrordto.md:
     id: b27bce9be76a
     last_write_checksum: sha1:d7201f37c9a0f576066265d6cd351b09dad8cd73
     pristine_git_object: 7e618e2affad828bbd3c995a1c75424607632301
   docs/models/components/apicredentialcreaterequestdto.md:
     id: df020efaea8f
-    last_write_checksum: sha1:e4c402751415f776eaa183a646f74b0a6605729f
-    pristine_git_object: 10de4397173f3b296ef78c26d9ab49be474b6301
+    last_write_checksum: sha1:ff48e8b747a3869686ccd9ab81ab489b2da5b2be
+    pristine_git_object: be79e4c84128d197cb3444bbdacb8308e6ab8c36
   docs/models/components/apicredentialcreateresponseschema.md:
     id: 5d22ec6d55e3
-    last_write_checksum: sha1:7aa6fe9a0bb637fe42ee1f11d5f9678bb117e8c9
-    pristine_git_object: 9c9b5a0b4b15811c1c99a28bf415582d8f283e78
+    last_write_checksum: sha1:3b3a68fa29d89bda7df70b62c4334f6c1e0f8fad
+    pristine_git_object: d5bab62be3d5ae192d7be533a7131c3b6b8ec74e
   docs/models/components/apicredentialresponseschema.md:
     id: ecc73204cc8c
-    last_write_checksum: sha1:d372344bff9bdae182bf676ed447f39cd80c7ea8
-    pristine_git_object: a05c1374b7683d2cc83300ce26409cacf91ba644
+    last_write_checksum: sha1:49f9ca452d2f2a47fc9ce57c0cd3e83cfec343f3
+    pristine_git_object: 37ee993947f64aa07bff9453136a61234c8da656
   docs/models/components/apicredentialrolesschema.md:
     id: d262efe70275
     last_write_checksum: sha1:d5dfe499d92c61419ca9365b1695e6642d0ba283
@@ -87,8 +87,8 @@ trackedFiles:
     pristine_git_object: cb21ef3f6ef7cd50c187702a9fbd8ddb49df69cc
   docs/models/components/apicredentialupdaterequestdto.md:
     id: 45467fb8f1c4
-    last_write_checksum: sha1:7ddda95e6023705a9229fdebbcbb35093c275997
-    pristine_git_object: 1a276f768461d9c59401ace0b29b23fc4edb51c9
+    last_write_checksum: sha1:dcfd8963540ccd29f5b195613e2a7f711b227649
+    pristine_git_object: 9bb18c4aae4f713f5a3e67aa71a713584bdc2747
   docs/models/components/defaulterrordto.md:
     id: 418643eab6ea
     last_write_checksum: sha1:4eb5fc87970d2263e04d31dbb7b3f6d8523ecc60
@@ -247,8 +247,8 @@ trackedFiles:
     pristine_git_object: 5740353349736528c007078f7d9e7f18ee6b9536
   docs/sdks/apicredentials/README.md:
     id: 93fa0592990c
-    last_write_checksum: sha1:8fc5667cb0c6b8c20c99210585a3ee43fa67b4e6
-    pristine_git_object: 9bfae13d01908b060d5499a2f2b8a719b650e1b4
+    last_write_checksum: sha1:f9abd44467fa07b2d3bf1c3cf97ef2fbc833c8cb
+    pristine_git_object: bb2d843fa030519222272ffffc7d2b087dce2c20
   docs/sdks/health/README.md:
     id: 5082c50d5e82
     last_write_checksum: sha1:c224ac0fac3e2867a8a1de0fb556de6d40fe10c9
@@ -295,8 +295,8 @@ trackedFiles:
     pristine_git_object: a77efff266b3ae383e0c56e2716133a64ec67d52
   internal/utils/json.go:
     id: ad03e3c502d8
-    last_write_checksum: sha1:37764e8c1b3e2e4d3e9ed81f3e76d4ba82a46a60
-    pristine_git_object: f99edd96f034f5a7a81b5067fc17181ca8a85cea
+    last_write_checksum: sha1:19cb0fc67f53073c8361d00176cb188e6caac03c
+    pristine_git_object: 741cdca10368905460dafc2fd30dac2373566a39
   internal/utils/oauth2_credentials.go:
     id: 633b88c0d3ff
     last_write_checksum: sha1:f9218b6b3dbd11494cc353bf22eb37f0ca654a7d
@@ -323,8 +323,8 @@ trackedFiles:
     pristine_git_object: 6cc6f43c7f82e092cff5e4fbdad5322537a375d6
   internal/utils/security.go:
     id: eeb54c55241b
-    last_write_checksum: sha1:52cefded5223c60fcac5bd56574370e27a4bc3d5
-    pristine_git_object: ce2e1c0cffe3bbd3f111eace502f895175daad22
+    last_write_checksum: sha1:1c0b332b3cf0fa405df0c5bf4e03f335139566b6
+    pristine_git_object: 7c1a372ae314a9d82ab82c3db610e7ffe67ecfab
   internal/utils/union.go:
     id: db86c85746b6
     last_write_checksum: sha1:b0cee0ba563b6e1296b3b10acc2b7e357a6d13bf
@@ -347,16 +347,16 @@ trackedFiles:
     pristine_git_object: f26f18b6d0016086ef5160bd6f34ffec5b878f6c
   models/components/apicredentialcreaterequestdto.go:
     id: 6ebe149d4241
-    last_write_checksum: sha1:3d524d5a30933093f3449e277ab7a5cb8eb5f2b4
-    pristine_git_object: 12a84855be0b6018e04d652d3bcd989af9a5e958
+    last_write_checksum: sha1:05ea97270ada0c588ad33472cd2803c9c499f1c4
+    pristine_git_object: a6dee407a84aac614d1083156a53c6e4e2e4d7d6
   models/components/apicredentialcreateresponseschema.go:
     id: 9d81b181012c
-    last_write_checksum: sha1:068d4b79abb6176895bc5071882fe3d386abf67f
-    pristine_git_object: f2c0015111c85d1c05b5f81fede6b1117d916c14
+    last_write_checksum: sha1:651cd1f441fd848b18c4e936159208a78e18ae78
+    pristine_git_object: c5b8f1ea79774dec0282e51efe0f47a82bb2961d
   models/components/apicredentialresponseschema.go:
     id: 9897f02652c6
-    last_write_checksum: sha1:b3d479024030636ed6c3e3b6b412adea54476fed
-    pristine_git_object: c2b35a80f0032dc4bf39dc58aad92043547955c5
+    last_write_checksum: sha1:fa48652d2adb9def21c1c88b3a572232bd80f142
+    pristine_git_object: 74d880c1d358d91f676c02460f8c74c95307e5dc
   models/components/apicredentialrolesschema.go:
     id: d5c753dae309
     last_write_checksum: sha1:c75a8fb07c6ae4c48d5e2f38f43ed5704f16a713
@@ -367,8 +367,8 @@ trackedFiles:
     pristine_git_object: 46aafd0f107c24f22d218db2da6493e87e72fbdb
   models/components/apicredentialupdaterequestdto.go:
     id: 98e031066992
-    last_write_checksum: sha1:8a3df018d0cd3233e1c1e728e7f5e1b319919046
-    pristine_git_object: af2559a8ed3cdc9d5ac521c48b16384b64664173
+    last_write_checksum: sha1:420e6df9a7fc0a26b718c2e036abeee610c37a8f
+    pristine_git_object: 7482c92dd32f3d1730725c42fe551d39b16d0449
   models/components/defaulterrordto.go:
     id: b68c77050a99
     last_write_checksum: sha1:8ec8184bcd56b8e5c14e27fd669de11ca71abe97
@@ -569,10 +569,10 @@ examples:
         path:
           organizationId: "<id>"
       requestBody:
-        application/json: {"name": "Auto-Manage-Workspaces", "description": "Used for automated Workspace management", "enabled": true, "roles": {"organizationRole": "admin", "workspaces": [{"workspaceId": "main", "workspaceRole": "admin", "products": [{"product": "stream", "role": "admin"}]}]}}
+        application/json: {"name": "Auto-Manage-Workspaces", "description": "Used for automated Workspace management", "enabled": true, "roles": {"organizationRole": "admin", "workspaces": [{"workspaceId": "main", "workspaceRole": "admin", "products": [{"product": "stream", "role": "admin"}]}]}, "ipAllowlist": ["10.0.0.1/32"]}
       responses:
         "201":
-          application/json: {"name": "Auto-Manage-Workspaces", "description": "Used for automated Workspace management", "enabled": true, "organizationId": "org-123", "clientId": "clientIdabcd1234EXAMPLE", "roles": {"organizationRole": "admin", "workspaces": [{"workspaceId": "main", "workspaceRole": "admin", "products": [{"product": "stream", "role": "admin"}]}]}, "createdBy": "user@example.com", "createdDate": "2024-08-15T12:34:56Z", "lastUpdatedBy": "user@example.com", "lastUpdatedDate": "2024-08-15T12:34:56Z", "clientSecret": "clientSecretabcd1234EXAMPLE"}
+          application/json: {"name": "Auto-Manage-Workspaces", "description": "Used for automated Workspace management", "enabled": true, "organizationId": "org-123", "clientId": "clientIdabcd1234EXAMPLE", "roles": {"organizationRole": "admin", "workspaces": [{"workspaceId": "main", "workspaceRole": "admin", "products": [{"product": "stream", "role": "admin"}]}]}, "ipAllowlist": ["10.0.0.1/32"], "createdBy": "user@example.com", "createdDate": "2024-08-15T12:34:56Z", "lastUpdatedBy": "user@example.com", "lastUpdatedDate": "2024-08-15T12:34:56Z", "clientSecret": "clientSecretabcd1234EXAMPLE"}
         default:
           application/json: {"statusCode": 9282.56, "message": "<value>"}
         "422":
@@ -584,7 +584,7 @@ examples:
           organizationId: "<id>"
           apiCredentialId: "<id>"
       requestBody:
-        application/json: {"name": "Auto-Manage-Workspaces", "description": "Used for automated Workspace management", "enabled": true, "roles": {"organizationRole": "admin", "workspaces": [{"workspaceId": "main", "workspaceRole": "admin", "products": [{"product": "stream", "role": "admin"}]}]}}
+        application/json: {"name": "Auto-Manage-Workspaces", "description": "Used for automated Workspace management", "enabled": true, "roles": {"organizationRole": "admin", "workspaces": [{"workspaceId": "main", "workspaceRole": "admin", "products": [{"product": "stream", "role": "admin"}]}]}, "ipAllowlist": ["10.0.0.1/32"]}
       responses:
         default:
           application/json: {"statusCode": 5095.64, "message": "<value>"}
@@ -605,27 +605,13 @@ examples:
           apiCredentialId: "<id>"
       responses:
         "200":
-          application/json: {"name": "Auto-Manage-Workspaces", "description": "Used for automated Workspace management", "enabled": true, "organizationId": "org-123", "clientId": "clientIdabcd1234EXAMPLE", "roles": {"organizationRole": "admin", "workspaces": [{"workspaceId": "main", "workspaceRole": "admin", "products": [{"product": "stream", "role": "admin"}]}]}, "createdBy": "user@example.com", "createdDate": "2024-08-15T12:34:56Z", "lastUpdatedBy": "user@example.com", "lastUpdatedDate": "2024-08-15T12:34:56Z"}
+          application/json: {"name": "Auto-Manage-Workspaces", "description": "Used for automated Workspace management", "enabled": true, "organizationId": "org-123", "clientId": "clientIdabcd1234EXAMPLE", "roles": {"organizationRole": "admin", "workspaces": [{"workspaceId": "main", "workspaceRole": "admin", "products": [{"product": "stream", "role": "admin"}]}]}, "ipAllowlist": ["10.0.0.1/32"], "createdBy": "user@example.com", "createdDate": "2024-08-15T12:34:56Z", "lastUpdatedBy": "user@example.com", "lastUpdatedDate": "2024-08-15T12:34:56Z"}
         default:
           application/json: {"statusCode": 6805.09, "message": "<value>"}
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:27:27+02:00"
-releaseNotes: |
-  ## Go SDK Changes
-
-  This version of the SDK is generated for Cribl.Cloud.
-
-  ### Added new endpoints
-  * API Credentials:
-  * `CriblMgmtPlane.ApiCredentials.List()` - List API Credentials for an Organization
-  * `CriblMgmtPlane.ApiCredentials.Create()` - Create an API Credential
-  * `CriblMgmtPlane.ApiCredentials.Update()` - Update an API Credential
-  * `CriblMgmtPlane.ApiCredentials.Delete()` - Delete an API Credential
-  * `CriblMgmtPlane.ApiCredentials.Get()` - Get an API Credential
-  *
-  ### Region enum
-  * Extended with additional AWS regions: `ap-northeast-1`, `sa-east-1`, `eu-west-1`, `eu-west-3`
+releaseNotes: "## Go SDK Changes:\n* `CriblMgmtPlane.ApiCredentials.List()`:  `response.Items[].IpAllowlist` **Added**\n* `CriblMgmtPlane.ApiCredentials.Create()`: \n  *  `request.ApiCredentialCreateRequestDto.IpAllowlist` **Added**\n  *  `response.IpAllowlist` **Added**\n* `CriblMgmtPlane.ApiCredentials.Update()`: \n  *  `request.ApiCredentialUpdateRequestDto.IpAllowlist` **Added**\n* `CriblMgmtPlane.ApiCredentials.Get()`:  `response.IpAllowlist` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
