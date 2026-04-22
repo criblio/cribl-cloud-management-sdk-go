@@ -15,6 +15,8 @@ type APICredentialUpdateRequestDTO struct {
 	Enabled *bool `json:"enabled,omitzero"`
 	// Role assignments for the API Credential.
 	Roles *APICredentialRolesSchema `json:"roles,omitzero"`
+	// Omit to leave unchanged. Pass an empty array to clear the stored IP allowlist.
+	IPAllowlist []string `json:"ipAllowlist,omitzero"`
 }
 
 func (a APICredentialUpdateRequestDTO) MarshalJSON() ([]byte, error) {
@@ -54,4 +56,11 @@ func (a *APICredentialUpdateRequestDTO) GetRoles() *APICredentialRolesSchema {
 		return nil
 	}
 	return a.Roles
+}
+
+func (a *APICredentialUpdateRequestDTO) GetIPAllowlist() []string {
+	if a == nil {
+		return nil
+	}
+	return a.IPAllowlist
 }
