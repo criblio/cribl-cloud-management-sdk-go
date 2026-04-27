@@ -5,14 +5,14 @@ management:
   docVersion: "1.0"
   speakeasyVersion: 1.761.9
   generationVersion: 2.881.4
-  releaseVersion: 0.3.1-rc.1
-  configChecksum: ccb5fa833ba242de8c0a828e9b32cd85
+  releaseVersion: 0.3.1
+  configChecksum: 4de9bf41df73fef0a9041c1d2320ab8f
   repoURL: https://github.com/criblio/cribl-cloud-management-sdk-go.git
   installationURL: https://github.com/criblio/cribl-cloud-management-sdk-go
 persistentEdits:
-  generation_id: 94df9809-f99a-4b0d-87e4-afce25f08ceb
-  pristine_commit_hash: 0a8bd68b7a5458b9c7dcbf4b3d04cfc98be0e245
-  pristine_tree_hash: d7162aefc3c990ee854901df5029a1aef4b3e943
+  generation_id: d0f39e77-8c92-4122-8b92-3842fe364455
+  pristine_commit_hash: ff30f2b0fd6e5a407337ff0cf740724be1e7b359
+  pristine_tree_hash: a8a5d1b3995707773126aa046401ca1b10270fd7
 features:
   go:
     additionalDependencies: 0.1.0
@@ -59,8 +59,8 @@ trackedFiles:
     pristine_git_object: 3dbf651bb3c0ef6eabab8fda3b90ef381e5d6957
   criblmgmtplane.go:
     id: b735732f3993
-    last_write_checksum: sha1:cb65b23087e6342377ce56e2b9f15df1b9a25455
-    pristine_git_object: 25c9242d0935c708d6a21a1f6b14705f9c44dfc0
+    last_write_checksum: sha1:2a99198d0a3bcd79eb3e6d4ec91e0e441fc0a37d
+    pristine_git_object: 7ad76653d9d4d8130410cbc11fdcef75f77a888c
   docs/models/apierrors/defaulterrordto.md:
     id: b27bce9be76a
     last_write_checksum: sha1:d7201f37c9a0f576066265d6cd351b09dad8cd73
@@ -611,7 +611,19 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:27:27+02:00"
-releaseNotes: "## Go SDK Changes:\n* `CriblMgmtPlane.ApiCredentials.List()`:  `response.Items[].IpAllowlist` **Added**\n* `CriblMgmtPlane.ApiCredentials.Create()`: \n  *  `request.ApiCredentialCreateRequestDto.IpAllowlist` **Added**\n  *  `response.IpAllowlist` **Added**\n* `CriblMgmtPlane.ApiCredentials.Update()`: \n  *  `request.ApiCredentialUpdateRequestDto.IpAllowlist` **Added**\n* `CriblMgmtPlane.ApiCredentials.Get()`:  `response.IpAllowlist` **Added**\n"
+releaseNotes: |
+  ## Go SDK Changes
+
+  This version of the SDK is generated for Cribl.Cloud.
+
+  ### API Credentials — IP allowlist
+
+  Optional CIDR-based IP restrictions on API credentials: set on create and update; returned on list and get.
+
+  * `CriblMgmtPlane.ApiCredentials.List()` — `response.Items[].IpAllowlist`
+  * `CriblMgmtPlane.ApiCredentials.Create()` — `request.ApiCredentialCreateRequestDto.IpAllowlist`; `response.IpAllowlist`
+  * `CriblMgmtPlane.ApiCredentials.Update()` — `request.ApiCredentialUpdateRequestDto.IpAllowlist`
+  * `CriblMgmtPlane.ApiCredentials.Get()` — `response.IpAllowlist`
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
