@@ -611,7 +611,19 @@ examples:
 examplesVersion: 1.0.2
 generatedTests:
   dummyServiceStatus: "2025-07-02T19:27:27+02:00"
-releaseNotes: "## Go SDK Changes:\n* `CriblMgmtPlane.ApiCredentials.List()`:  `response.Items[].IpAllowlist` **Added**\n* `CriblMgmtPlane.ApiCredentials.Create()`: \n  *  `request.ApiCredentialCreateRequestDto.IpAllowlist` **Added**\n  *  `response.IpAllowlist` **Added**\n* `CriblMgmtPlane.ApiCredentials.Update()`: \n  *  `request.ApiCredentialUpdateRequestDto.IpAllowlist` **Added**\n* `CriblMgmtPlane.ApiCredentials.Get()`:  `response.IpAllowlist` **Added**\n"
+releaseNotes: |
+  ## Go SDK Changes
+
+  This version of the SDK is generated for Cribl.Cloud.
+
+  ### API Credentials — IP allowlist
+
+  Optional CIDR-based IP restrictions on API credentials: set on create and update; returned on list and get.
+
+  * `CriblMgmtPlane.ApiCredentials.List()` — `response.Items[].IpAllowlist`
+  * `CriblMgmtPlane.ApiCredentials.Create()` — `request.ApiCredentialCreateRequestDto.IpAllowlist`; `response.IpAllowlist`
+  * `CriblMgmtPlane.ApiCredentials.Update()` — `request.ApiCredentialUpdateRequestDto.IpAllowlist`
+  * `CriblMgmtPlane.ApiCredentials.Get()` — `response.IpAllowlist`
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
