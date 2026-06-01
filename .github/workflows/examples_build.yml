@@ -3,14 +3,19 @@ name: Build Examples on PR
 on:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   examples-build:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout code
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-      
+      with:
+        persist-credentials: false
+
     - name: Set up Go
       uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00
       with:
