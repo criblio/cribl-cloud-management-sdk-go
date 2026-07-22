@@ -2,15 +2,12 @@
 
 The Cribl Go SDK for the management plane provides operational control of administrative tasks like configuring and managing Workspaces and helps streamline the process of integrating with Cribl.
 
+The Cribl Go SDK for the management plane is supported only on Cribl.Cloud.
+
 Complementary API reference documentation is available at https://docs.cribl.io/cribl-as-code/api-reference/management-plane/. Product documentation is available at https://docs.cribl.io.
 
 > [!IMPORTANT]
-> The Cribl Go SDK for the management plane is supported only on Cribl.Cloud.
-> 
-> **Preview Feature**
-> The Cribl SDKs are Preview features that are still being developed. We do not recommend using them in a production environment, because the features might not be fully tested or optimized for performance, and related documentation could be incomplete.
->
-> Please continue to submit feedback through normal Cribl support channels, but assistance might be limited while the features remain in Preview.
+> Cribl has stopped active development of the Go SDK for the management plane. The SDK will remain an open-source, community resource on the [Cribl Community GitHub organization](https://github.com/Cribl-Community). You can continue using the Go SDK and build on it, but Cribl support will be limited to critical issues only for the defined transition period. Support will end on October 1, 2026. If you prefer to stay on a supported integration, consider migrating to the [Python SDK](https://github.com/criblio/cribl_cloud_management_sdk_python), [Terraform provider](https://github.com/criblio/terraform-provider-criblio), or direct [Cribl API access](https://docs.cribl.io/cribl-as-code/api/).
 
 <!-- No Summary [summary] -->
 
