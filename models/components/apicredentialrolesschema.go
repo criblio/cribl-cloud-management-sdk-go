@@ -3,7 +3,7 @@
 package components
 
 import (
-	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/internal/utils"
 )
 
 // OrganizationRole - Organization-level Role assigned to the API Credential.

@@ -2,16 +2,16 @@
 
 package criblcloudmanagementsdkgo
 
-// Generated from OpenAPI doc version 1.0 and generator version 2.881.4
+// Generated from OpenAPI doc version 1.0 and generator version 2.918.4
 
 import (
 	"context"
 	"fmt"
-	"github.com/criblio/cribl-cloud-management-sdk-go/internal/config"
-	"github.com/criblio/cribl-cloud-management-sdk-go/internal/hooks"
-	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
-	"github.com/criblio/cribl-cloud-management-sdk-go/retry"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/internal/config"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/internal/hooks"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/internal/utils"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/models/components"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/retry"
 	"net/http"
 	"time"
 )
@@ -131,9 +131,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *CriblMgmtPlane {
 	sdk := &CriblMgmtPlane{
-		SDKVersion: "0.3.1",
+		SDKVersion: "0.4.0-rc.1",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.3.1 2.881.4 1.0 github.com/criblio/cribl-cloud-management-sdk-go",
+			UserAgent:  "speakeasy-sdk/go 0.4.0-rc.1 2.918.4 1.0 github.com/Cribl-Community/cribl-cloud-management-sdk-go",
 			ServerList: ServerList,
 		},
 		hooks: hooks.New(),

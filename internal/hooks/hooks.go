@@ -5,7 +5,7 @@ package hooks
 import (
 	"context"
 	"errors"
-	"github.com/criblio/cribl-cloud-management-sdk-go/internal/config"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/internal/config"
 	"net/http"
 )
 

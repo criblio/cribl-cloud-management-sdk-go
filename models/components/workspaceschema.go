@@ -3,7 +3,7 @@
 package components
 
 import (
-	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/internal/utils"
 )
 
 // Region - AWS region where the Workspace is deployed.

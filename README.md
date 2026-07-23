@@ -31,7 +31,7 @@ Complementary API reference documentation is available at https://docs.cribl.io/
 
 To add the SDK as a dependency to your project:
 ```bash
-go get github.com/criblio/cribl-cloud-management-sdk-go
+go get github.com/Cribl-Community/cribl-cloud-management-sdk-go
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -45,8 +45,8 @@ package main
 
 import (
 	"context"
-	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
+	criblcloudmanagementsdkgo "github.com/Cribl-Community/cribl-cloud-management-sdk-go"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/models/components"
 	"log"
 	"os"
 )
@@ -141,9 +141,9 @@ package main
 
 import (
 	"context"
-	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
-	"github.com/criblio/cribl-cloud-management-sdk-go/retry"
+	criblcloudmanagementsdkgo "github.com/Cribl-Community/cribl-cloud-management-sdk-go"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/models/components"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/retry"
 	"log"
 	"models/operations"
 	"os"
@@ -190,9 +190,9 @@ package main
 
 import (
 	"context"
-	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
-	"github.com/criblio/cribl-cloud-management-sdk-go/retry"
+	criblcloudmanagementsdkgo "github.com/Cribl-Community/cribl-cloud-management-sdk-go"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/models/components"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/retry"
 	"log"
 	"os"
 )
@@ -256,9 +256,9 @@ package main
 import (
 	"context"
 	"errors"
-	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/apierrors"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
+	criblcloudmanagementsdkgo "github.com/Cribl-Community/cribl-cloud-management-sdk-go"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/models/apierrors"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/models/components"
 	"log"
 	"os"
 )
@@ -330,8 +330,8 @@ package main
 
 import (
 	"context"
-	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
+	criblcloudmanagementsdkgo "github.com/Cribl-Community/cribl-cloud-management-sdk-go"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/models/components"
 	"log"
 	"os"
 )
@@ -381,7 +381,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/criblio/cribl-cloud-management-sdk-go"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go"
 )
 
 var (

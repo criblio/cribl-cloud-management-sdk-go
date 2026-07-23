@@ -6,7 +6,7 @@ Product name.
 
 ```go
 import (
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/models/components"
 )
 
 value := components.ProductEdge

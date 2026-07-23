@@ -6,7 +6,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/criblio/cribl-cloud-management-sdk-go/retry"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/retry"
 	"io"
 	"math"
 	"math/rand"
