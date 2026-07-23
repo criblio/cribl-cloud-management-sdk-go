@@ -62,7 +62,7 @@ go:
   multipartArrayFormat: legacy
   nullableOptionalWrapper: true
   outputModelSuffix: output
-  packageName: github.com/criblio/cribl-cloud-management-sdk-go
+  packageName: github.com/Cribl-Community/cribl-cloud-management-sdk-go
   respectRequiredFields: false
   respectTitlesForPrimitiveUnionMembers: false
   responseFormat: envelope-http
