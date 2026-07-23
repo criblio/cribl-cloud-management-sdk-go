@@ -14,7 +14,7 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/criblio/cribl-cloud-management-sdk-go/types"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/types"
 )
 
 func MarshalJSON(v interface{}, tag reflect.StructTag, topLevel bool) ([]byte, error) {
@@ -512,6 +512,13 @@ func unmarshalValue(value json.RawMessage, v reflect.Value, tag reflect.StructTa
 			return nil
 		}
 	case reflect.Map:
+		if implementsJSONUnmarshaler(v.Type()) {
+			if v.CanAddr() {
+				return json.Unmarshal(value, v.Addr().Interface())
+			}
+			return json.Unmarshal(value, v.Interface())
+		}
+
 		if bytes.Equal(value, []byte("null")) || !isComplexValueType(dereferenceTypePointer(typ.Elem())) {
 			if v.CanAddr() {
 				return json.Unmarshal(value, v.Addr().Interface())

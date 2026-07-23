@@ -6,7 +6,7 @@ AWS region where the Workspace is deployed.
 
 ```go
 import (
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/models/components"
 )
 
 value := components.RegionUsWest2

@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/criblio/cribl-cloud-management-sdk-go/optionalnullable"
-	"github.com/criblio/cribl-cloud-management-sdk-go/types"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/optionalnullable"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/types"
 )
 
 func GenerateURL(_ context.Context, serverURL, path string, pathParams interface{}, globals interface{}) (string, error) {

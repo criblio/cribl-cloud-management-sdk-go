@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/criblio/cribl-cloud-management-sdk-go/optionalnullable"
-	"github.com/criblio/cribl-cloud-management-sdk-go/types"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/optionalnullable"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/types"
 )
 
 func populateForm(paramName string, explode bool, objType reflect.Type, objValue reflect.Value, delimiter string, defaultValue *string, allowEmptyValue map[string]struct{}, getFieldName func(reflect.StructField) string) url.Values {

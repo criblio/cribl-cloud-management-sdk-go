@@ -15,7 +15,7 @@ import (
 	"reflect"
 	"regexp"
 
-	"github.com/criblio/cribl-cloud-management-sdk-go/optionalnullable"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/optionalnullable"
 )
 
 const (
