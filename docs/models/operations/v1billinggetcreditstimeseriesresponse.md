@@ -1,0 +1,10 @@
+# V1BillingGetCreditsTimeseriesResponse
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                          | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                  | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `CreditsTimeseriesResponseDTO`                                                                      | [*components.CreditsTimeseriesResponseDTO](../../models/components/creditstimeseriesresponsedto.md) | :heavy_minus_sign:                                                                                  | Credits timeseries data.                                                                            |
+| `DefaultErrorDTO`                                                                                   | [*components.DefaultErrorDTO](../../models/components/defaulterrordto.md)                           | :heavy_minus_sign:                                                                                  | Default error response                                                                              |

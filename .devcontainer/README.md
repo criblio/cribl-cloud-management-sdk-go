@@ -1,6 +1,6 @@
 
 <div align="center">
-    <a href="https://codespaces.new/criblio/cribl-cloud-management-sdk-go.git/tree/main"><img src="https://github.com/codespaces/badge.svg" /></a>
+    <a href="https://codespaces.new/Cribl-Community/cribl-cloud-management-sdk-go.git/tree/main"><img src="https://github.com/codespaces/badge.svg" /></a>
 </div>
 <br>
 

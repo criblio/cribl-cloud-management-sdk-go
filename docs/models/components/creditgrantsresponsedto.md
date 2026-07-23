@@ -1,0 +1,9 @@
+# CreditGrantsResponseDTO
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    | Example                                                                        |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `Items`                                                                        | [][components.CreditGrantSchema](../../models/components/creditgrantschema.md) | :heavy_check_mark:                                                             | Credit grants for the queried period.                                          |                                                                                |
+| `Count`                                                                        | `float64`                                                                      | :heavy_check_mark:                                                             | Total number of items in the response.                                         | 3                                                                              |

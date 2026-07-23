@@ -1,0 +1,11 @@
+# V1BillingGetCreditsGrantsRequest
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `OrganizationID`                                                     | `string`                                                             | :heavy_check_mark:                                                   | The <code>id</code> of the Organization.                             |                                                                      |
+| `StartingOn`                                                         | [time.Time](https://pkg.go.dev/time#Time)                            | :heavy_check_mark:                                                   | Inclusive start of the query date range in ISO 8601 format.          | 2025-05-01 00:00:00 +0000 UTC                                        |
+| `EndingBefore`                                                       | [time.Time](https://pkg.go.dev/time#Time)                            | :heavy_check_mark:                                                   | Exclusive end of the query date range in ISO 8601 format.            | 2025-06-01 00:00:00 +0000 UTC                                        |
+| `Window`                                                             | [components.BillingWindow](../../models/components/billingwindow.md) | :heavy_check_mark:                                                   | Aggregation granularity for credit grant data.                       |                                                                      |

@@ -1,0 +1,10 @@
+# V1BillingGetCreditsGrantsResponse
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                | [components.HTTPMetadata](../../models/components/httpmetadata.md)                        | :heavy_check_mark:                                                                        | N/A                                                                                       |
+| `CreditGrantsResponseDTO`                                                                 | [*components.CreditGrantsResponseDTO](../../models/components/creditgrantsresponsedto.md) | :heavy_minus_sign:                                                                        | Credit grants for the queried period.                                                     |
+| `DefaultErrorDTO`                                                                         | [*components.DefaultErrorDTO](../../models/components/defaulterrordto.md)                 | :heavy_minus_sign:                                                                        | Default error response                                                                    |

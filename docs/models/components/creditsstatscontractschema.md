@@ -1,0 +1,9 @@
+# CreditsStatsContractSchema
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     | Example                                                                         |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `StartDate`                                                                     | [time.Time](https://pkg.go.dev/time#Time)                                       | :heavy_check_mark:                                                              | Contract start date in ISO 8601 format.                                         | 2025-09-17 00:00:00 +0000 UTC                                                   |
+| `EndDate`                                                                       | [*time.Time](https://pkg.go.dev/time#Time)                                      | :heavy_minus_sign:                                                              | Contract end date in ISO 8601 format. Present only when the contract is closed. | 2026-08-02 00:00:00 +0000 UTC                                                   |

@@ -115,6 +115,13 @@ The [Cribl.Cloud Authentication Example](https://github.com/criblio/cribl-cloud-
 * [Delete](docs/sdks/apicredentials/README.md#delete) - Delete an API Credential
 * [Get](docs/sdks/apicredentials/README.md#get) - Get an API Credential
 
+### [Billing](docs/sdks/billing/README.md)
+
+* [GetContractsUtilization](docs/sdks/billing/README.md#getcontractsutilization) - [In development] Get contract credit utilization
+* [GetCreditsTimeseries](docs/sdks/billing/README.md#getcreditstimeseries) - [In development] Get credits timeseries
+* [GetCreditsStats](docs/sdks/billing/README.md#getcreditsstats) - [In development] Get credit balance and consumption
+* [GetCreditsGrants](docs/sdks/billing/README.md#getcreditsgrants) - [In development] Get credit grants
+
 ### [Health](docs/sdks/health/README.md)
 
 * [Get](docs/sdks/health/README.md#get) - Get the health status of the application
