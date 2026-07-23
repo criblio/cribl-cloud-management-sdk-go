@@ -26,9 +26,9 @@ import (
 	"fmt"
 	"os"
 
-	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/apierrors"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
+	criblcloudmanagementsdkgo "github.com/Cribl-Community/cribl-cloud-management-sdk-go"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/models/apierrors"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/models/components"
 )
 
 // Cribl.Cloud configuration: Replace the placeholder values

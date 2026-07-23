@@ -3,8 +3,8 @@
 package operations
 
 import (
-	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/internal/utils"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/models/components"
 )
 
 type V1APICredentialsCreateAPICredentialRequest struct {

@@ -4,8 +4,8 @@ package main
 
 import (
 	"context"
-	criblcloudmanagementsdkgo "github.com/criblio/cribl-cloud-management-sdk-go"
-	"github.com/criblio/cribl-cloud-management-sdk-go/models/components"
+	criblcloudmanagementsdkgo "github.com/Cribl-Community/cribl-cloud-management-sdk-go"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/models/components"
 	"log"
 	"os"
 )

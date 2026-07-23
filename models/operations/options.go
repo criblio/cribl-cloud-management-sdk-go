@@ -4,8 +4,8 @@ package operations
 
 import (
 	"errors"
-	"github.com/criblio/cribl-cloud-management-sdk-go/internal/utils"
-	"github.com/criblio/cribl-cloud-management-sdk-go/retry"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/internal/utils"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/retry"
 	"time"
 )
 

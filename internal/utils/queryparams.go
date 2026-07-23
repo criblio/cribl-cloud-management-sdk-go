@@ -12,8 +12,8 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/criblio/cribl-cloud-management-sdk-go/optionalnullable"
-	"github.com/criblio/cribl-cloud-management-sdk-go/types"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/optionalnullable"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/types"
 )
 
 func PopulateQueryParams(_ context.Context, req *http.Request, queryParams interface{}, globals interface{}, allowEmptyValue map[string]struct{}) error {

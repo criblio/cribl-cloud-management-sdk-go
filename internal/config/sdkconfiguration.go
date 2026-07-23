@@ -4,7 +4,7 @@ package config
 
 import (
 	"context"
-	"github.com/criblio/cribl-cloud-management-sdk-go/retry"
+	"github.com/Cribl-Community/cribl-cloud-management-sdk-go/retry"
 	"net/http"
 	"time"
 )
